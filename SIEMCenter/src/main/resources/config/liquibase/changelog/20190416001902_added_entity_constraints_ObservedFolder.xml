@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity ObservedFolder.
+    -->
+    <changeSet id="20190416001902-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="siem_agent_config_id"
+                                 baseTableName="observed_folder"
+                                 constraintName="fk_observed_folder_siem_agent_config_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="siem_agent_config"/>
+
+        <addForeignKeyConstraint baseColumnNames="observed_folder_id"
+                                 baseTableName="observed_folder_log_types"
+                                 constraintName="fk_observed_folder_log_types_observed_folder_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="observed_folder"/>
+        <addForeignKeyConstraint baseColumnNames="log_types_id"
+                                 baseTableName="observed_folder_log_types"
+                                 constraintName="fk_observed_folder_log_types_log_types_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="siem_log_type"/>
+        
+    </changeSet>
+</databaseChangeLog>

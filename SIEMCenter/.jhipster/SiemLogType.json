@@ -1,0 +1,47 @@
+{
+    "name": "SiemLogType",
+    "fields": [
+        {
+            "fieldName": "timestampRegex",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "severityRegex",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "contextRegex",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "messageRegex",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateTimeFormat",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "operatingSystem",
+            "fieldType": "OperatingSystem",
+            "fieldValues": "WINDOWS,LINUX"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190416001859",
+    "javadoc": "The SiemLogType entity,\nRepresents a siem agent log type.",
+    "entityTableName": "siem_log_type",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "siemcenter",
+    "applications": "*",
+    "searchEngine": "elasticsearch",
+    "microserviceName": "siemcenter"
+}

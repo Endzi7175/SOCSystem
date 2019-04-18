@@ -1,0 +1,45 @@
+{
+    "name": "ObservedFolder",
+    "fields": [
+        {
+            "fieldName": "path",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "filterRegex",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "siemAgentConfig",
+            "otherEntityName": "siemAgentConfig",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "siemLogType",
+            "otherEntityRelationshipName": "observedFolder",
+            "relationshipName": "logTypes",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20190416001902",
+    "javadoc": "The ObservedFolder entity,\nRepresents a logs container folder listed for observation in siem agent's config file.",
+    "entityTableName": "observed_folder",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "siemcenter",
+    "applications": "*",
+    "searchEngine": "elasticsearch",
+    "microserviceName": "siemcenter"
+}

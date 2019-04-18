@@ -1,0 +1,74 @@
+{
+    "name": "AlarmDefinition",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "numRepeats",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "timeSpan",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "keyword",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fieldname",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "alarmRadius",
+            "fieldType": "AlarmRadius",
+            "fieldValues": "SYSTEM,AGENT"
+        },
+        {
+            "fieldName": "severity",
+            "fieldType": "SiemLogSeverityEnum",
+            "fieldValues": "TRACE,DEBUG,INFO,WARN,ERROR,FATAL"
+        },
+        {
+            "fieldName": "logSource",
+            "fieldType": "SiemLogSourceEnum",
+            "fieldValues": "WEBSERVER,APPLICATION,OPERATINGSYSTEM"
+        },
+        {
+            "fieldName": "active",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "operatingSystem",
+            "fieldType": "OperatingSystem",
+            "fieldValues": "WINDOWS,LINUX"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "siemLogType",
+            "otherEntityRelationshipName": "alarmDefinition",
+            "relationshipName": "siemLogType",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190416001901",
+    "javadoc": "The AlarmDefinition entity,\nRepresents an alarm definition.",
+    "entityTableName": "alarm_definition",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "siemcenter",
+    "applications": "*",
+    "searchEngine": "elasticsearch",
+    "microserviceName": "siemcenter"
+}

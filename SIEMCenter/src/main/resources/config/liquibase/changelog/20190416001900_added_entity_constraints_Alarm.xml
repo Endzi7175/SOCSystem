@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Alarm.
+    -->
+    <changeSet id="20190416001900-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="siem_agent_id"
+                                 baseTableName="alarm"
+                                 constraintName="fk_alarm_siem_agent_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="siem_agent"/>
+
+        <addForeignKeyConstraint baseColumnNames="alarm_definition_id"
+                                 baseTableName="alarm"
+                                 constraintName="fk_alarm_alarm_definition_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="alarm_definition"/>
+
+    </changeSet>
+</databaseChangeLog>

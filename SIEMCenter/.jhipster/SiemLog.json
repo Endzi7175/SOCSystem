@@ -1,0 +1,88 @@
+{
+    "name": "SiemLog",
+    "fields": [
+        {
+            "fieldName": "operatingSystem",
+            "fieldType": "OperatingSystem",
+            "fieldValues": "WINDOWS,LINUX"
+        },
+        {
+            "fieldName": "operatingSystemVersion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "internalIp",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "externalIp",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "hostName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "context",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "message",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "timestamp",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "directory",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "severity",
+            "fieldType": "SiemLogSeverityEnum",
+            "fieldValues": "TRACE,DEBUG,INFO,WARN,ERROR,FATAL"
+        },
+        {
+            "fieldName": "source",
+            "fieldType": "SiemLogSourceEnum",
+            "fieldValues": "WEBSERVER,APPLICATION,OPERATINGSYSTEM"
+        },
+        {
+            "fieldName": "filePath",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "rawMessage",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "siemLogType",
+            "otherEntityRelationshipName": "siemLog",
+            "relationshipName": "siemLogType",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "siemAgent",
+            "otherEntityRelationshipName": "siemLog",
+            "relationshipName": "siemAgent",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190416001858",
+    "javadoc": "The SiemLog entity,\nRepresents a log from siem agent.",
+    "entityTableName": "siem_log",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "siemcenter",
+    "applications": "*",
+    "searchEngine": "elasticsearch",
+    "microserviceName": "siemcenter"
+}

@@ -1,0 +1,37 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.team20.siemcenter"
+    },
+    "jhipsterVersion": "5.8.2",
+    "applicationType": "microservice",
+    "baseName": "siemcenter",
+    "packageName": "com.team20.siemcenter",
+    "packageFolder": "com/team20/siemcenter",
+    "serverPort": "8081",
+    "authenticationType": "oauth2",
+    "cacheProvider": "no",
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": "elasticsearch",
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "NGNkNTZhY2QxNDhlOWUyNWY2OGM2OWUxOTQxN2VkOGYzNmRkNmUxMjE4NmJhNWE3NGUwMDQwNWEzYmFmMGNhZjllZjNjOWVlMWVjZGY3MzI4NzRjODM5ZDQyMmYyM2ZmOTZjOTZlMDMzY2M2YWZiYjI5NThhYTg1ZWMzNDAzY2Y=",
+    "testFrameworks": [
+      "gatling",
+      "cucumber"
+    ],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": false,
+    "clientPackageManager": "npm",
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}

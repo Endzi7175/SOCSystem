@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+    
+    <property name="now" value="now()" dbms="mysql"/>
+    <property name="autoIncrement" value="true"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Added the entity Alarm.
+    -->
+    <changeSet id="20190416001900-1" author="jhipster">
+        <createTable tableName="alarm" remarks="The Alarm entity, Represents an alarm raised in certain situations.">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="message" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="jhi_timestamp" type="datetime">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="activated" type="boolean">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="repeat_count" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="first_timestamp" type="datetime">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="dismissed" type="boolean">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="context" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="siem_agent_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="alarm_definition_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+        <dropDefaultValue tableName="alarm" columnName="jhi_timestamp" columnDataType="datetime"/>
+        <dropDefaultValue tableName="alarm" columnName="first_timestamp" columnDataType="datetime"/>
+        
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+</databaseChangeLog>

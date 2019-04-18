@@ -1,0 +1,61 @@
+{
+    "name": "Alarm",
+    "fields": [
+        {
+            "fieldName": "message",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "timestamp",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "activated",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "repeatCount",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "firstTimestamp",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "dismissed",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "context",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "siemAgent",
+            "otherEntityRelationshipName": "alarm",
+            "relationshipName": "siemAgent",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "alarmDefinition",
+            "otherEntityRelationshipName": "alarm",
+            "relationshipName": "alarmDefinition",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190416001900",
+    "javadoc": "The Alarm entity,\nRepresents an alarm raised in certain situations.",
+    "entityTableName": "alarm",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "siemcenter",
+    "applications": "*",
+    "searchEngine": "elasticsearch",
+    "microserviceName": "siemcenter"
+}

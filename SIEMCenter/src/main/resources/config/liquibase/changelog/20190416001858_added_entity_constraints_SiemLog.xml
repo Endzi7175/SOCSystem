@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity SiemLog.
+    -->
+    <changeSet id="20190416001858-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="siem_log_type_id"
+                                 baseTableName="siem_log"
+                                 constraintName="fk_siem_log_siem_log_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="siem_log_type"/>
+
+        <addForeignKeyConstraint baseColumnNames="siem_agent_id"
+                                 baseTableName="siem_log"
+                                 constraintName="fk_siem_log_siem_agent_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="siem_agent"/>
+
+    </changeSet>
+</databaseChangeLog>

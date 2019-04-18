@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190416001856_added_entity_SiemAgent.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190416001857_added_entity_SiemAgentConfig.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190416001858_added_entity_SiemLog.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190416001859_added_entity_SiemLogType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190416001900_added_entity_Alarm.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190416001901_added_entity_AlarmDefinition.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190416001902_added_entity_ObservedFolder.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20190416001857_added_entity_constraints_SiemAgentConfig.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190416001858_added_entity_constraints_SiemLog.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190416001900_added_entity_constraints_Alarm.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190416001901_added_entity_constraints_AlarmDefinition.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190416001902_added_entity_constraints_ObservedFolder.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+</databaseChangeLog>

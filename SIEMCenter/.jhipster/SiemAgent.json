@@ -1,0 +1,34 @@
+{
+    "name": "SiemAgent",
+    "fields": [
+        {
+            "fieldName": "cn",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "publicKey",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ipAddress",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "active",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190416001856",
+    "javadoc": "The SiemAgent entity,\nRepresents a simple application on MT CORP computers for acquiring their logs.",
+    "entityTableName": "siem_agent",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "siemcenter",
+    "applications": "*",
+    "searchEngine": "elasticsearch",
+    "microserviceName": "siemcenter"
+}

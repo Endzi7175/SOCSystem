@@ -1,0 +1,36 @@
+{
+    "name": "SiemAgentConfig",
+    "fields": [
+        {
+            "fieldName": "logDestinationIp",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "observedFolder",
+            "otherEntityRelationshipName": "siemAgentConfig",
+            "relationshipName": "observedfolders"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "siemAgent",
+            "otherEntityRelationshipName": "siemAgentConfig",
+            "relationshipName": "siemAgent",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190416001857",
+    "javadoc": "The SiemAgentConfig entity,\nRepresents siem agent's configuration file.",
+    "entityTableName": "siem_agent_config",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "siemcenter",
+    "applications": "*",
+    "searchEngine": "elasticsearch",
+    "microserviceName": "siemcenter"
+}

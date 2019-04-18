@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="siemAgent">
+            <h2><span>Siem Agent</span> {{siemAgent.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Cn</span></dt>
+                <dd>
+                    <span>{{siemAgent.cn}}</span>
+                </dd>
+                <dt><span>Public Key</span></dt>
+                <dd>
+                    <span>{{siemAgent.publicKey}}</span>
+                </dd>
+                <dt><span>Ip Address</span></dt>
+                <dd>
+                    <span>{{siemAgent.ipAddress}}</span>
+                </dd>
+                <dt><span>Active</span></dt>
+                <dd>
+                    <span>{{siemAgent.active}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/siem-agent', siemAgent.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
