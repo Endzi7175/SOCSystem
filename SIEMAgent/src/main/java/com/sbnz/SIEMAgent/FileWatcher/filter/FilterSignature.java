@@ -1,5 +1,5 @@
 package com.sbnz.SIEMAgent.FileWatcher.filter;
 
 public enum FilterSignature {
-    COMPOSITE, NEGATION, LOGTYPE, CATEGORY, 
+    COMPOSITE, NEGATION, LOGLVL, CATEGORY, MESSAGE, INFOSYSTEM, NOFILTER
 }

@@ -22,7 +22,7 @@ public class AttackState extends State{
 		String ipAddress = generateRandomIpAddress();
 		String user = generateRandomUser();
 		for (int i = 0; i < 20; i++){
-			logger.write("Neuspesna prijava", user, 'S', 'H', ipAddress, generateInformationSystemCode());
+			logger.write("Neuspesna prijava", user, 'S', "H", ipAddress, generateInformationSystemCode());
 			try {
 				logger.getWriter().flush();
 				Thread.sleep(rnd.nextInt(3) + 1);
@@ -38,7 +38,7 @@ public class AttackState extends State{
 	private static void unsuccessfulAuthWithDifferentIpWithin10sec(Logger logger){
 		String user = generateRandomUser();
 		for (int i = 0; i < 15; i++){
-			logger.write("Neuspesna prijava", user, 'S', 'H', generateRandomIpAddress(), generateInformationSystemCode());
+			logger.write("Neuspesna prijava", user, 'S', "H", generateRandomIpAddress(), generateInformationSystemCode());
 			logger.getWriter().flush();
 			try {
 				Thread.sleep(rnd.nextInt(3) + 1);
@@ -49,7 +49,7 @@ public class AttackState extends State{
 		}
 	}
 	private static void generateErrorLog(Logger logger){
-		logger.write("Greska u programu", generateRandomUser(), 'E', 'H', generateRandomIpAddress(), generateInformationSystemCode());
+		logger.write("Greska u programu", generateRandomUser(), 'E', "H", generateRandomIpAddress(), generateInformationSystemCode());
 		logger.getWriter().flush();
 		try {
 			Thread.sleep(rnd.nextInt(10) + 1);
@@ -57,7 +57,7 @@ public class AttackState extends State{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		logger.write("Greska u programu", generateRandomUser(), 'E', 'H', generateRandomIpAddress(), generateInformationSystemCode());
+		logger.write("Greska u programu", generateRandomUser(), 'E', "H", generateRandomIpAddress(), generateInformationSystemCode());
 		logger.getWriter().flush();
 		try {
 			Thread.sleep(rnd.nextInt(10) + 1);
@@ -66,7 +66,7 @@ public class AttackState extends State{
 			e.printStackTrace();
 		}
 
-		logger.write("Greska u programu", generateRandomUser(), 'E', 'H', generateRandomIpAddress(), generateInformationSystemCode());
+		logger.write("Greska u programu", generateRandomUser(), 'E', "H", generateRandomIpAddress(), generateInformationSystemCode());
 		
 	}
 	private class AttackThread extends Thread{

@@ -66,9 +66,6 @@ public class LogService {
     }
 
     private boolean logEntryApplyFilters(Set<DataFilter> filters, LogEntry entry) {
-        if(filters == null){
-            return  true;
-        }
         for(DataFilter filter : filters){
             if(filter.applyFilter(entry)){
                 return  true;

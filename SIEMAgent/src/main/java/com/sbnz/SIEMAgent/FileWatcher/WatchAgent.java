@@ -16,8 +16,6 @@ import java.util.*;
 
 @Component
 public class WatchAgent {
-
-
 	@Autowired
 	private  LogService logService;
 
@@ -30,13 +28,12 @@ public class WatchAgent {
 	}
 
 
-	public synchronized void registerNewPath(Path path, long batchTime, DataFilter filter, String fileNameRegex) throws WatchAgentException{
+	public synchronized void registerNewPath(Path path, long batchTime) throws WatchAgentException{
 
 		if (dirWatchers.stream().anyMatch(dir->dir.getPath().equals(path))) {
 			throw new WatchAgentException("Trying to register multiple keys for same path!");
 		}
 		DirWatcher watcher = new DirWatcher(path.toString(), batchTime, logService);
-		watcher.addRegexFilter(fileNameRegex, filter);
 		dirWatchers.add(watcher);
 		watcher.start();
 		saveWatchers();
@@ -64,6 +61,8 @@ public class WatchAgent {
 		if(watcher!=null){
 			watcher.addRegexFilter(string, filter);
 			saveWatchers();
+		} else {
+			throw new IllegalArgumentException("No watcher with specified path: " + path);
 		}
 	}
 
@@ -97,7 +96,7 @@ public class WatchAgent {
 		}
 	}
 
-	public   void loadWatchers(){
+	public void loadWatchers(){
 		try (FileReader fr = new FileReader(fileName)){
 			String json = new String(Files.readAllBytes(Paths.get(fileName)), StandardCharsets.UTF_8);
 			 dirWatchers=getWatcherGson().fromJson(json, new TypeToken<ArrayList<DirWatcher>>(){}.getType());
