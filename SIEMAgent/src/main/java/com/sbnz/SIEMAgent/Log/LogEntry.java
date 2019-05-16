@@ -12,15 +12,17 @@ public class LogEntry {
     private int category;
     private int logLevel;
     private String ipAddress;
-    private String username;
+    private String userId;
     private Date timestamp;
     private static DateFormat sdf = new SimpleDateFormat("MM-DD hh:mm:ss.SS");
 
-    public LogEntry(String line) {
+
+
+	public LogEntry(String line) {
     	String[] tokens = line.split("\\|");
         try {
             timestamp = sdf.parse(tokens[0]);
-            username = tokens[1];
+            userId = tokens[1];
             ipAddress = tokens[2];
             logLevel = tokens[3].charAt(0);
             category = tokens[4].charAt(0);
@@ -39,12 +41,13 @@ public class LogEntry {
                 ", severity=" + category +
                 ", logType=" + logLevel +
                 ", ipAddress='" + ipAddress + '\'' +
-                ", username='" + username + '\'' +
+                ", username='" + userId + '\'' +
                 ", timestamp=" + timestamp +
                 '}';
     }
 
-    public Date getTimeStamp(){
+
+	public Date getTimeStamp(){
         return timestamp;
     }
 }

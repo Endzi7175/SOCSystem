@@ -1,38 +1,119 @@
-05-16 13:34:13.223|User839|192.204.49.133|E|H|Greska u programu|0
-05-16 13:34:13.223|User401|190.69.65.89|S|H|Neuspesna prijava|1
-05-16 13:34:13.223|User727|22.99.125.254|S|H|Neuspesna prijava|2
-05-16 13:34:13.225|User727|22.99.125.254|S|H|Neuspesna prijava|0
-05-16 13:34:13.226|User401|238.222.16.58|S|H|Neuspesna prijava|0
-05-16 13:34:13.228|User401|206.190.66.118|S|H|Neuspesna prijava|0
-05-16 13:34:13.228|User727|22.99.125.254|S|H|Neuspesna prijava|2
-05-16 13:34:13.229|User727|22.99.125.254|S|H|Neuspesna prijava|2
-05-16 13:34:13.230|User727|22.99.125.254|S|H|Neuspesna prijava|0
-05-16 13:34:13.231|User401|3.110.40.20|S|H|Neuspesna prijava|1
-05-16 13:34:13.232|User829|52.231.112.4|E|H|Greska u programu|1
-05-16 13:34:13.232|User401|241.191.207.185|S|H|Neuspesna prijava|0
-05-16 13:34:13.233|User727|22.99.125.254|S|H|Neuspesna prijava|1
-05-16 13:34:13.235|User401|128.39.23.102|S|H|Neuspesna prijava|0
-05-16 13:34:13.235|User727|22.99.125.254|S|H|Neuspesna prijava|2
-05-16 13:34:13.236|User727|22.99.125.254|S|H|Neuspesna prijava|0
-05-16 13:34:13.237|User727|22.99.125.254|S|H|Neuspesna prijava|1
-05-16 13:34:13.237|User401|3.54.181.238|S|H|Neuspesna prijava|0
-05-16 13:34:13.239|User741|67.56.205.188|E|H|Greska u programu|0
-05-16 13:34:13.240|User727|22.99.125.254|S|H|Neuspesna prijava|0
-05-16 13:34:13.240|User401|27.157.7.204|S|H|Neuspesna prijava|1
-05-16 13:34:13.241|User401|47.28.93.135|S|H|Neuspesna prijava|2
-05-16 13:34:13.243|User727|22.99.125.254|S|H|Neuspesna prijava|0
-05-16 13:34:13.244|User401|162.55.198.18|S|H|Neuspesna prijava|1
-05-16 13:34:13.245|User401|26.133.160.0|S|H|Neuspesna prijava|1
-05-16 13:34:13.246|User727|22.99.125.254|S|H|Neuspesna prijava|0
-05-16 13:34:13.247|User401|129.200.233.22|S|H|Neuspesna prijava|2
-05-16 13:34:13.247|User727|22.99.125.254|S|H|Neuspesna prijava|1
-05-16 13:34:13.248|User727|22.99.125.254|S|H|Neuspesna prijava|0
-05-16 13:34:13.249|User401|235.140.1.216|S|H|Neuspesna prijava|2
-05-16 13:34:13.250|User727|22.99.125.254|S|H|Neuspesna prijava|2
-05-16 13:34:13.250|User401|212.125.13.231|S|H|Neuspesna prijava|2
-05-16 13:34:13.251|User401|219.224.208.4|S|H|Neuspesna prijava|2
-05-16 13:34:13.252|User727|22.99.125.254|S|H|Neuspesna prijava|1
-05-16 13:34:13.254|User727|22.99.125.254|S|H|Neuspesna prijava|1
-05-16 13:34:13.257|User727|22.99.125.254|S|H|Neuspesna prijava|2
-05-16 13:34:13.260|User727|22.99.125.254|S|H|Neuspesna prijava|0
-05-16 13:34:13.262|User727|22.99.125.254|S|H|Neuspesna prijava|2
+05-16 18:51:02.54|User635|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:51:04.753|User115|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:51:04.861|User813|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:51:06.498|User310|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:51:07.765|User635|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:51:10.86|User115|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:51:11.786|User813|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:51:13.601|User813|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:51:13.830|User635|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:51:14.76|User310|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:51:18.434|User813|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:51:20.53|User115|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:51:24.255|User115|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:51:24.737|User635|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:51:24.981|User310|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:51:27.310|User813|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:51:28.77|User310|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:51:31.842|User813|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:51:33.240|User635|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:51:34.74|User115|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:51:35.358|User310|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:51:36.12|User813|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:51:37.832|User635|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:51:40.427|User115|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:51:42.311|User310|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:51:42.367|User813|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:51:42.738|User115|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:51:44.313|User635|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:51:44.921|User813|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:51:45.412|User310|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:51:47.255|User115|192.168.0.1|0|0|Uspesna prijava|0
+05-16 18:51:51.666|User115|192.168.0.1|0|0|Kupovina|0
+05-16 18:51:52.248|User635|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:51:52.318|User310|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:51:53.367|User635|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:51:55.275|User813|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:51:55.449|User115|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-16 18:51:56.616|User310|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:51:57.142|User635|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:51:57.420|User115|192.168.0.1|1|0|Izmena profila|0
+05-16 18:51:58.620|User115|192.168.0.1|1|0|Izmena profila|0
+05-16 18:51:58.906|User635|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:52:02.767|User813|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:52:04.467|User635|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:52:05.152|User310|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:52:05.726|User813|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:52:05.922|User115|192.168.0.1|0|0|Kupovina|0
+05-16 18:52:11.792|User115|192.168.0.1|0|0|Kupovina|0
+05-16 18:52:13.156|User813|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:52:14.501|User635|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:52:14.952|User310|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:52:16.461|User310|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:52:18.171|User115|192.168.0.1|0|0|Kupovina|0
+05-16 18:52:18.917|User813|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:52:21.790|User115|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-16 18:52:22.174|User635|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:52:22.585|User813|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:52:23.949|User115|192.168.0.1|1|0|Izmena profila|0
+05-16 18:52:25.117|User310|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:52:27.590|User115|192.168.0.1|1|0|Izmena profila|0
+05-16 18:52:27.693|User813|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:52:29.316|User635|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:52:30.750|User115|192.168.0.1|1|0|Izmena profila|0
+05-16 18:52:30.812|User635|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:52:32.366|User115|192.168.0.1|1|0|Izmena profila|0
+05-16 18:52:35.116|User813|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:52:35.926|User310|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:52:38.102|User813|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:52:38.295|User635|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:52:38.365|User115|192.168.0.1|1|0|Izmena profila|0
+05-16 18:52:39.696|User115|192.168.0.1|1|0|Izmena profila|0
+05-16 18:52:40.980|User115|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-16 18:52:44.717|User635|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:52:45.168|User310|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:52:45.839|User115|192.168.0.1|1|0|Izmena profila|0
+05-16 18:52:46.904|User115|192.168.0.1|1|0|Izmena profila|0
+05-16 18:52:47.427|User310|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:52:48.179|User813|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:52:52.865|User115|192.168.0.1|1|0|Izmena profila|0
+05-16 18:52:53.270|User310|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:52:54.997|User115|192.168.0.1|1|0|Izmena profila|0
+05-16 18:52:55.437|User635|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:52:56.28|User115|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-16 18:52:57.991|User813|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:52:59.899|User310|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:53:00.185|User115|192.168.0.1|1|0|Izmena profila|0
+05-16 18:53:02.87|User813|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:53:02.378|User310|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:53:04.360|User635|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:53:05.87|User115|192.168.0.1|0|0|Kupovina|0
+05-16 18:53:05.277|User310|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:53:06.377|User115|192.168.0.1|1|0|Izmena profila|0
+05-16 18:53:08.79|User635|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:53:10.348|User813|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:53:11.859|User813|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:53:12.99|User115|192.168.0.1|1|0|Izmena profila|0
+05-16 18:53:13.163|User813|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:53:14.108|User115|192.168.0.1|0|0|Kupovina|0
+05-16 18:53:14.613|User635|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:53:15.40|User310|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:53:15.456|User115|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-16 18:53:18.708|User115|192.168.0.1|0|0|Kupovina|0
+05-16 18:53:18.845|User310|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:53:20.326|User115|192.168.0.1|1|0|Izmena profila|0
+05-16 18:53:20.417|User813|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:53:22.241|User115|192.168.0.1|0|0|Kupovina|0
+05-16 18:53:24.980|User310|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:53:25.399|User635|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:53:26.433|User813|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:53:26.734|User310|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:53:27.276|User115|192.168.0.1|1|0|Izmena profila|0
+05-16 18:53:28.851|User115|192.168.0.1|1|0|Izmena profila|0
+05-16 18:53:30.488|User635|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:53:31.395|User115|192.168.0.1|0|0|Kupovina|0
+05-16 18:53:33.101|User635|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:53:35.650|User813|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:53:36.269|User115|192.168.0.1|0|0|Kupovina|0
+05-16 18:53:36.670|User635|192.168.0.1|0|0|Neuspesna prijava|0
+05-16 18:53:37.48|User310|192.168.0.1|0|0|Neuspesna prijava|0

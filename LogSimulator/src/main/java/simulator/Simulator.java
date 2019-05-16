@@ -1,3 +1,4 @@
+package simulator;
 import java.util.Scanner;
 
 public class Simulator {
@@ -20,22 +21,23 @@ public class Simulator {
 	public static void main(String[] args){
 		Scanner keyboard = new Scanner(System.in);
 		Simulator sim = new Simulator();
-		Logger logger = new Logger();
 		int stateCode = 1;
 		do{
 			System.out.println("Choose state: \n1 - Normal state\n2 - Attack state\n9 - exit");
 			stateCode = keyboard.nextInt();
 			if (stateCode == 1){
+				if (sim.getState()!=null){
+					sim.getState().endState();
+				}
 				sim.changeState(new NormalState());
-				logger.setFile("normal.log");
-				sim.getState().createLogs(logger);
-				//logger.getWriter().close();
+				sim.getState().createLogs();
 
 			}else if(stateCode == 2){
+				if (sim.getState()!=null){
+					sim.getState().endState();
+				}
 				sim.changeState(new AttackState());
-				logger.setFile("attack.log");
-				sim.getState().createLogs(logger);
-				//logger.getWriter().close();
+				sim.getState().createLogs();
 			}else{
 				System.out.println("Invalid option!");
 			}
