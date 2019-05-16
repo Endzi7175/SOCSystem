@@ -12,16 +12,16 @@ public class NormalState extends State{
 		for (int i = 0; i < 50; i++){
 			int random = r.nextInt(5);
 			if (random == 0){
-				logger.write("Pogresna lozinka", generateRandomUser(), 'S', 'H', generateRandomIpAddress(), generateInformationSystemCode());
+				logger.write("Pogresna lozinka", generateRandomUser(), 'S', "H", generateRandomIpAddress(), generateInformationSystemCode());
 			}else if (random == 1){
-				logger.write("Uspesna prijava", generateRandomUser(), 'S', 'L', generateRandomIpAddress(), generateInformationSystemCode());
+				logger.write("Uspesna prijava", generateRandomUser(), 'S', "L", generateRandomIpAddress(), generateInformationSystemCode());
 			}else if (random == 2){
-				logger.write("Izmena profila", generateRandomUser(), 'S', 'M', generateRandomIpAddress(), generateInformationSystemCode());
+				logger.write("Izmena profila", generateRandomUser(), 'S', "M", generateRandomIpAddress(), generateInformationSystemCode());
 			}else if (random == 3){
 				String user = generateRandomUser();
 				String ip = generateRandomIpAddress();
-				logger.write("Antivirus registruje pretnju", user, 'S', 'H', ip, generateInformationSystemCode());
-				logger.write("Otklonjena pretnja", user,  'S', 'L', ip, generateInformationSystemCode());
+				logger.write("Antivirus registruje pretnju", user, 'S', "H", ip, generateInformationSystemCode());
+				logger.write("Otklonjena pretnja", user,  'S', "L", ip, generateInformationSystemCode());
 			}
 			
 		}

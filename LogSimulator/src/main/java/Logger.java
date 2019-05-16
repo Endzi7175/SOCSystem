@@ -33,11 +33,11 @@ public class Logger {
 			System.out.println("Greska prilikom otvaranja fajla.");
 		}
 	}
-	public void write(String message, String username, char logType, char severity, String ipAddress, int informationSystem){
+	public void write(String message, String username, char logType, String category, String ipAddress, int informationSystem){
 		DateFormat dateFormat = new SimpleDateFormat("MM-dd HH:mm:ss.SS");
 		Date date = new Date();
 		String timeStamp = dateFormat.format(date);
-		writer.append(timeStamp + "|" + username + "|" + ipAddress + "|" + logType + "|" + severity + "|" + message + "|" + informationSystem + "\n");
+		writer.append(timeStamp + "|" + username + "|" + ipAddress + "|" + logType + "|" + category + "|" + message + "|" + informationSystem + "\n");
 		writer.flush();
 		
 	}

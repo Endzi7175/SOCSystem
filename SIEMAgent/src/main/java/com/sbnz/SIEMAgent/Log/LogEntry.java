@@ -9,10 +9,10 @@ public class LogEntry {
 
     private int informationSystemType;
     private String message;
-    private char severity;
     private char logType;
     private String ipAddress;
     private String username;
+    private String category;
     private Date timestamp;
     private static DateFormat sdf = new SimpleDateFormat("MM-DD hh:mm:ss.SS");
 
@@ -23,7 +23,7 @@ public class LogEntry {
             username = tokens[1];
             ipAddress = tokens[2];
             logType = tokens[3].charAt(0);
-            severity = tokens[4].charAt(0);
+            category = tokens[4];
             message = tokens[5];
             informationSystemType = Integer.parseInt(tokens[6]);
         } catch (ParseException e) {
@@ -36,7 +36,7 @@ public class LogEntry {
         return "LogEntry{" +
                 "informationSystemType=" + informationSystemType +
                 ", message='" + message + '\'' +
-                ", severity=" + severity +
+                ", severity=" + category +
                 ", logType=" + logType +
                 ", ipAddress='" + ipAddress + '\'' +
                 ", username='" + username + '\'' +

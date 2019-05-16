@@ -1,13 +1,12 @@
 package com.sbnz.SIEMAgent.Log;
 
-import com.sbnz.SIEMAgent.FileWatcher.DataFilter;
+import com.sbnz.SIEMAgent.FileWatcher.filter.DataFilter;
 import com.sbnz.SIEMAgent.PostService;
 import org.apache.commons.io.input.ReversedLinesFileReader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
-import java.nio.file.Path;
 import java.util.*;
 
 @Service
@@ -36,11 +35,11 @@ public class LogService {
 
     }
 
-    public void processNewEnteries(Log log, Set<DataFilter> filters){
+    public void processNewEntries(Log log, Set<DataFilter> filters){
         System.err.println("Started reading of log: " + log.path);
 
         try (ReversedLinesFileReader reader = new ReversedLinesFileReader(new File(log.path))) {
-            List<LogEntry> newEnteries = new ArrayList<>();
+            List<LogEntry> newEntries = new ArrayList<>();
             String line;
             String firstLine = null;
             while ((line = reader.readLine()) != null ){
@@ -51,11 +50,11 @@ public class LogService {
                     break;
                 LogEntry entry = new LogEntry(line);
                 if (logEntryApplyFilters(filters, entry)) {
-                    newEnteries.add(entry);
+                    newEntries.add(entry);
                 }
             }
-            if(newEnteries.size()>0){
-                postService.sendEnteriesToSIEM(newEnteries);
+            if(newEntries.size()>0){
+                postService.sendEntriesToSIEM(newEntries);
                 log.lastLine = firstLine;
                 repository.save(log);
             }

@@ -40,13 +40,13 @@ public class PostService {
     }
 
 
-    public void sendEnteriesToSIEM(List<LogEntry> enteries){
+    public void sendEntriesToSIEM(List<LogEntry> entries){
 //        try {
 //            restTemplate().postForEntity(serverBaseUrl, enteries , String.class);
 //        } catch (Exception e) {
 //            e.printStackTrace();
 //        }
-        for(LogEntry entry : enteries){
+        for(LogEntry entry : entries){
             System.out.println(entry);
         }
     }

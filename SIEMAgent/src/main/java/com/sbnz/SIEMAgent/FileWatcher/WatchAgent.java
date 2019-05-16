@@ -3,6 +3,7 @@ package com.sbnz.SIEMAgent.FileWatcher;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import com.sbnz.SIEMAgent.FileWatcher.filter.DataFilter;
 import com.sbnz.SIEMAgent.Log.LogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -29,18 +30,19 @@ public class WatchAgent {
 	}
 
 
-	public synchronized void registerNewPath(Path path, long batchTime) throws WatchAgentException, IOException {
+	public synchronized void registerNewPath(Path path, long batchTime, DataFilter filter, String fileNameRegex) throws WatchAgentException{
 
 		if (dirWatchers.stream().anyMatch(dir->dir.getPath().equals(path))) {
 			throw new WatchAgentException("Trying to register multiple keys for same path!");
 		}
 		DirWatcher watcher = new DirWatcher(path.toString(), batchTime, logService);
+		watcher.addRegexFilter(fileNameRegex, filter);
 		dirWatchers.add(watcher);
 		watcher.start();
 		saveWatchers();
 	}
 
-	public synchronized void cancelPath(Path path) throws IOException {
+	public synchronized void cancelPath(Path path)  {
 		DirWatcher watcher = getDirWatcherByPath(path);
 		if(watcher!=null){
 			watcher.interrupt();
@@ -49,24 +51,20 @@ public class WatchAgent {
 		saveWatchers();
 	}
 
-
-
 	private DirWatcher getDirWatcherByPath(Path path){
 		Optional<DirWatcher> watcher = dirWatchers.stream()
 				.filter(dirWatcher -> dirWatcher.getPath().equals(path))
 				.findFirst();
 		return watcher.orElse(null);
-
 	}
 
 	public void addRegexFilter(Path path, String string, DataFilter filter)
 	{
 		DirWatcher watcher = getDirWatcherByPath(path);
 		if(watcher!=null){
-			watcher.addRegxFilter(string, filter);
+			watcher.addRegexFilter(string, filter);
 			saveWatchers();
 		}
-
 	}
 
 	public static class WatchAgentException extends Throwable {
@@ -91,8 +89,6 @@ public class WatchAgent {
 			perms.add(PosixFilePermission.OWNER_READ);
 			perms.add(PosixFilePermission.OWNER_WRITE);
 			perms.add(PosixFilePermission.OWNER_EXECUTE);
-
-
 			Files.setPosixFilePermissions(Paths.get(fileName), perms);
 			fstream.write(getWatcherGson().toJson(dirWatchers));
 		} catch (IOException e) {
@@ -105,7 +101,6 @@ public class WatchAgent {
 		try (FileReader fr = new FileReader(fileName)){
 			String json = new String(Files.readAllBytes(Paths.get(fileName)), StandardCharsets.UTF_8);
 			 dirWatchers=getWatcherGson().fromJson(json, new TypeToken<ArrayList<DirWatcher>>(){}.getType());
-
 			 for(DirWatcher watcher : dirWatchers)
 			 {
 			 	watcher.setLogService(logService);

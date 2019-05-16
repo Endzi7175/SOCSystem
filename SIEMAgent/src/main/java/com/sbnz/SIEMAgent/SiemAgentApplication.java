@@ -13,8 +13,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.scheduling.annotation.EnableAsync;
 
-import java.nio.file.Paths;
-
 
 @SpringBootApplication
 @EnableAsync
@@ -32,7 +30,7 @@ public class SiemAgentApplication implements CommandLineRunner {
 
 
 	@Override
-	public void run(String... args) throws Exception {
+	public void run(String... args) {
 
 		agent.loadWatchers();
 //		try {

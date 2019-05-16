@@ -2,8 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b453a681-a23f-4686-a869-8cdfc3274ba6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../SIEMAgent/src/main/java/com/sbnz/SIEMAgent/FileWatcher/DataFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SIEMAgent/src/main/java/com/sbnz/SIEMAgent/FileWatcher/DataFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SIEMAgent/src/main/java/com/sbnz/SIEMAgent/FileWatcher/DirectoryDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SIEMAgent/src/main/java/com/sbnz/SIEMAgent/FileWatcher/FilterDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SIEMAgent/src/main/java/com/sbnz/SIEMAgent/FileWatcher/SettingsRESTController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SIEMAgent/src/main/java/com/sbnz/SIEMAgent/FileWatcher/filter/DataFilterFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SIEMAgent/src/main/java/com/sbnz/SIEMAgent/FileWatcher/filter/FilterSignature.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AttackState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AttackState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Logger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Logger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/NormalState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/NormalState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SIEMAgent/src/main/java/com/sbnz/SIEMAgent/FileWatcher/DataFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SIEMAgent/src/main/java/com/sbnz/SIEMAgent/FileWatcher/filter/DataFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SIEMAgent/src/main/java/com/sbnz/SIEMAgent/FileWatcher/DirWatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SIEMAgent/src/main/java/com/sbnz/SIEMAgent/FileWatcher/DirWatcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SIEMAgent/src/main/java/com/sbnz/SIEMAgent/FileWatcher/WatchAgent.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SIEMAgent/src/main/java/com/sbnz/SIEMAgent/FileWatcher/WatchAgent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SIEMAgent/src/main/java/com/sbnz/SIEMAgent/Log/LogEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SIEMAgent/src/main/java/com/sbnz/SIEMAgent/Log/LogEntry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SIEMAgent/src/main/java/com/sbnz/SIEMAgent/Log/LogRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SIEMAgent/src/main/java/com/sbnz/SIEMAgent/Log/LogRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SIEMAgent/src/main/java/com/sbnz/SIEMAgent/Log/LogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SIEMAgent/src/main/java/com/sbnz/SIEMAgent/Log/LogService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../SIEMAgent/src/main/java/com/sbnz/SIEMAgent/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SIEMAgent/src/main/java/com/sbnz/SIEMAgent/PostService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SIEMAgent/src/main/java/com/sbnz/SIEMAgent/SiemAgentApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SIEMAgent/src/main/java/com/sbnz/SIEMAgent/SiemAgentApplication.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,8 +35,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/AttackState.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+            <state relative-caret-position="386">
+              <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
             </state>
           </provider>
         </entry>
@@ -29,8 +44,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Logger.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="25" selection-start-line="25" selection-end-line="25" selection-end-column="59" />
+            <state relative-caret-position="462">
+              <caret line="35" column="84" selection-start-line="35" selection-start-column="84" selection-end-line="35" selection-end-column="84" />
             </state>
           </provider>
         </entry>
@@ -38,8 +53,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/NormalState.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="14" column="27" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
+            <state relative-caret-position="420">
+              <caret line="23" column="64" selection-start-line="23" selection-start-column="64" selection-end-line="23" selection-end-column="64" />
             </state>
           </provider>
         </entry>
@@ -54,13 +69,16 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/Logger.java" />
+        <option value="$PROJECT_DIR$/src/main/java/NormalState.java" />
+        <option value="$PROJECT_DIR$/src/main/java/AttackState.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="4">
     <option name="x" value="-1" />
+    <option name="y" value="584" />
     <option name="width" value="1922" />
-    <option name="height" value="1169" />
+    <option name="height" value="585" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -133,7 +151,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="0" width="1922" height="1169" extended-state="6" />
+    <frame x="-1" y="584" width="1922" height="585" extended-state="4" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2550586" />
@@ -172,27 +190,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/AttackState.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Logger.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="25" selection-start-line="25" selection-end-line="25" selection-end-column="59" />
+        <state relative-caret-position="462">
+          <caret line="35" column="84" selection-start-line="35" selection-start-column="84" selection-end-line="35" selection-end-column="84" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/NormalState.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="14" column="27" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
+        <state relative-caret-position="420">
+          <caret line="23" column="64" selection-start-line="23" selection-start-column="64" selection-end-line="23" selection-end-column="64" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AttackState.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/AttackState.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+        <state relative-caret-position="386">
+          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
         </state>
       </provider>
     </entry>
