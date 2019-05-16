@@ -36,7 +36,7 @@ public class SiemAgentApplication implements CommandLineRunner {
 
 		agent.loadWatchers();
 //		try {
-//			agent.registerNewPath(Paths.get("/home/f.micic/faks/LogSimulator"),0);
+//			agent.registerNewPath(Paths.get("D:\\4.godina\\Bezbednost\\Projekat\\SOCSystem\\LogSimulator"),0);
 //		} catch (WatchAgent.WatchAgentException e) {
 //			e.printStackTrace();
 //		}

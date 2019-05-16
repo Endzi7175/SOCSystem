@@ -18,16 +18,16 @@ public class Logger {
 	
 	public void setFile(String fileName){
 		try {
-			File file = new File(fileName);
-			Set<PosixFilePermission> perms = new HashSet<PosixFilePermission>();
-	        //add owners permission
-	        perms.add(PosixFilePermission.OWNER_READ);
-	        perms.add(PosixFilePermission.OWNER_WRITE);
-	        //perms.add(PosixFilePermission.OWNER_EXECUTE);
-			if (!file.exists()){
-				Files.createFile(Paths.get(fileName));
-			}
-			Files.setPosixFilePermissions(Paths.get(fileName), perms);
+//			File file = new File(fileName);
+//			Set<PosixFilePermission> perms = new HashSet<PosixFilePermission>();
+//	        //add owners permission
+//	        perms.add(PosixFilePermission.OWNER_READ);
+//	        perms.add(PosixFilePermission.OWNER_WRITE);
+//	        //perms.add(PosixFilePermission.OWNER_EXECUTE);
+//			if (!file.exists()){
+//				Files.createFile(Paths.get(fileName));
+//			}
+//			Files.setPosixFilePermissions(Paths.get(fileName), perms);
 			this.writer = new PrintWriter(new FileWriter(fileName, true));
 		} catch (IOException e) {
 			System.out.println("Greska prilikom otvaranja fajla.");
