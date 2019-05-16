@@ -6,7 +6,6 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.ssl.SSLContextBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ResourceUtils;
 import org.springframework.web.client.RestTemplate;
@@ -18,12 +17,12 @@ import java.util.List;
 public class PostService {
 
 
-    private String allPassword = "root123";
     private String serverBaseUrl="https://siemcentar:8043";
 
     @Bean
     public RestTemplate restTemplate() throws Exception {
 
+        String allPassword = "root123";
         SSLContext sslContext = SSLContextBuilder
                 .create()
                 .loadKeyMaterial(ResourceUtils.getFile("classpath:keystore.jks"), allPassword.toCharArray(), allPassword.toCharArray())
