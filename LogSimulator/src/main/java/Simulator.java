@@ -29,13 +29,13 @@ public class Simulator {
 				sim.changeState(new NormalState());
 				logger.setFile("normal.log");
 				sim.getState().createLogs(logger);
-				logger.getWriter().close();
+				//logger.getWriter().close();
 
 			}else if(stateCode == 2){
 				sim.changeState(new AttackState());
 				logger.setFile("attack.log");
 				sim.getState().createLogs(logger);
-				logger.getWriter().close();
+				//logger.getWriter().close();
 			}else{
 				System.out.println("Invalid option!");
 			}

@@ -4,7 +4,7 @@ import java.util.Date;
 import java.util.Random;
 
 public class NormalState extends State{
-
+	
 	@Override
 	public void createLogs(Logger logger) {
 		Random r = new Random();
