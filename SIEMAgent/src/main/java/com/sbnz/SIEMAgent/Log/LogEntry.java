@@ -9,7 +9,7 @@ public class LogEntry {
 
     private int informationSystemType;
     private String message;
-    private int category;
+    private String category;
     private int logLevel;
     private String ipAddress;
     private String userId;
@@ -24,8 +24,8 @@ public class LogEntry {
             timestamp = sdf.parse(tokens[0]);
             userId = tokens[1];
             ipAddress = tokens[2];
-            logLevel = tokens[3].charAt(0);
-            category = tokens[4].charAt(0);
+            logLevel = Integer.parseInt(tokens[3]);
+            category = tokens[4];
             message = tokens[5];
             informationSystemType = Integer.parseInt(tokens[6]);
         } catch (ParseException e) {
@@ -49,5 +49,17 @@ public class LogEntry {
 
 	public Date getTimeStamp(){
         return timestamp;
+    }
+
+    public String getMessage() {
+        return  message;
+    }
+
+    public String getCategory() {
+        return  category;
+    }
+
+    public int getLogLevel() {
+        return logLevel;
     }
 }

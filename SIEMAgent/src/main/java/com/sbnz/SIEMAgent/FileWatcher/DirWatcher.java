@@ -1,6 +1,7 @@
 package com.sbnz.SIEMAgent.FileWatcher;
 
 import com.google.gson.annotations.Expose;
+import com.sbnz.SIEMAgent.FileWatcher.filter.DataFilter;
 import com.sbnz.SIEMAgent.Log.Log;
 import com.sbnz.SIEMAgent.Log.LogService;
 
@@ -45,7 +46,7 @@ public class DirWatcher extends Thread{
 
     @Override
     public void run() {
-        WatchKey key = null;
+        WatchKey key;
         try {
             watchService = FileSystems.getDefault().newWatchService();
             getPath().register(
@@ -56,7 +57,6 @@ public class DirWatcher extends Thread{
             e.printStackTrace();
             return;
         }
-
         while (true) {
             try {
                 if(batchTime>0){
@@ -74,7 +74,7 @@ public class DirWatcher extends Thread{
                         String fileName = event.context().toString();
                         Set<DataFilter> filters = getDataFilters(fileName);
                         Log log = logService.getLogByPath(Paths.get(path, fileName).toString());
-                        logService.processNewEnteries(log, filters);
+                        logService.processNewEntries(log, filters);
                     }
                 }
                 key.reset();
@@ -86,9 +86,6 @@ public class DirWatcher extends Thread{
     private Set<DataFilter> getDataFilters(String fileName)
     {
         Set<DataFilter> filters = new HashSet<>();
-        if(regex.size()==0){
-            return null;
-        }
         for(String regexStr : regex.keySet()){
             if(fileName.matches(regexStr)){
                 filters.addAll(this.regex.get(regexStr));
@@ -107,7 +104,7 @@ public class DirWatcher extends Thread{
         super.interrupt();
     }
 
-    public void addRegxFilter(String regexFilename, DataFilter filter) {
+    public void addRegexFilter(String regexFilename, DataFilter filter) {
         regex.putIfAbsent(regexFilename, new ArrayList<>());
         regex.get(regexFilename).add(filter);
 

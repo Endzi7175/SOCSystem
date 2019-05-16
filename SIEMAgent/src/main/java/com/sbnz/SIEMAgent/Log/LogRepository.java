@@ -45,7 +45,6 @@ public class LogRepository {
         writeAll();
     }
 
-
     public Set<Log> findAll() {
         if (logs==null){
             logs =readAll();
