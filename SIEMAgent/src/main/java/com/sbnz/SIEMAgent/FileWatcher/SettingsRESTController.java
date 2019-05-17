@@ -5,6 +5,7 @@ import com.sbnz.SIEMAgent.Log.LogEntry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,6 +21,7 @@ public class SettingsRESTController {
     @Autowired
     DataFilterFactory filterFactory;
 
+    @PostMapping
     public ResponseEntity<?> updateOrCreateDirectorySettings(@RequestBody(required =  false) DirectoryDTO directoryDTO, @RequestBody(required = false) FilterDTO filterDTO)
     {
         try {

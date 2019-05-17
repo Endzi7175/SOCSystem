@@ -8,7 +8,7 @@ public abstract class DataFilter {
     public DataFilter(FilterSignature signature) {
         this.signature = signature;
     }
-    abstract boolean applyFilter(LogEntry entry);
+    public abstract boolean applyFilter(LogEntry entry);
 }
 
 

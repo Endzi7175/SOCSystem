@@ -2,28 +2,16 @@ package com.sbnz.SIEMAgent.FileWatcher;
 
 import com.google.gson.annotations.Expose;
 import com.sbnz.SIEMAgent.FileWatcher.filter.DataFilter;
-import com.sbnz.SIEMAgent.Log.Log;
+import com.sbnz.SIEMAgent.Log.FileLog;
 import com.sbnz.SIEMAgent.Log.LogService;
 
 import java.io.IOException;
 import java.nio.file.*;
 import java.util.*;
 
-public class DirWatcher extends Thread{
-
-    @Expose
-    private String path;
-
-    public Path getPath() {
-        return Paths.get(path);
-    }
+public class DirWatcher  extends W atcher {
 
     private WatchService watchService;
-
-    @Expose
-    private long batchTime;
-
-    private LogService logService;
 
     public void setLogService(LogService logService){
         this.logService=logService;
@@ -36,6 +24,7 @@ public class DirWatcher extends Thread{
         this.path = path;
         regex = new HashMap<>();
         this.logService = logService;
+        this.batchTime = batchTime;
     }
     public DirWatcher(String path, LogService logService)
     {    this(path, 0, logService);
@@ -73,7 +62,7 @@ public class DirWatcher extends Thread{
                     if (event.kind().equals(StandardWatchEventKinds.ENTRY_MODIFY) || event.kind().equals(StandardWatchEventKinds.ENTRY_CREATE)) {
                         String fileName = event.context().toString();
                         Set<DataFilter> filters = getDataFilters(fileName);
-                        Log log = logService.getLogByPath(Paths.get(path, fileName).toString());
+                        FileLog log = logService.getFileLogByPath(Paths.get(path, fileName).toString());
                         logService.processNewEntries(log, filters);
                     }
                 }

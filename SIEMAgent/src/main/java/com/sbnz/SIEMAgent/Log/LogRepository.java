@@ -10,9 +10,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.attribute.PosixFilePermission;
-import java.util.HashSet;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 
 @Component
@@ -31,13 +29,25 @@ public class LogRepository {
         return  gson;
     }
 
-    Log findByPath(String path)
+    <T extends Log> T findByPathOrName(String name, Class<T> clasz)
     {
         Optional<Log> log = findAll()
                 .stream()
-                .filter(l-> l.path.equals(path))
+                .filter((l)->
+                    {
+                        if(clasz.isInstance(clasz))
+                            return false;
+
+                        if(l instanceof FileLog ){
+                            return  ((FileLog) l).path.equals(name);
+                        } else if(l instanceof WinLog ) {
+                            return ((WinLog) l ).name.equals(name);
+                         }
+                        throw new NoClassDefFoundError();
+
+                    })
                 .findFirst();
-        return log.orElse(null);
+        return  clasz.cast( log.orElse(null));
     }
 
     public void save(Log log) {

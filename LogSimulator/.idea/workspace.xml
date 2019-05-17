@@ -2,8 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b453a681-a23f-4686-a869-8cdfc3274ba6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../SIEMAgent/src/main/java/com/sbnz/SIEMAgent/FileWatcher/Watcher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SIEMAgent/src/main/java/com/sbnz/SIEMAgent/FileWatcher/WinLogWatcher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SIEMAgent/src/main/java/com/sbnz/SIEMAgent/Log/FileLog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SIEMAgent/src/main/java/com/sbnz/SIEMAgent/Log/WinLog.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AttackState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AttackState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SIEMAgent/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SIEMAgent/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SIEMAgent/src/main/java/com/sbnz/SIEMAgent/FileWatcher/DirWatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SIEMAgent/src/main/java/com/sbnz/SIEMAgent/FileWatcher/DirWatcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SIEMAgent/src/main/java/com/sbnz/SIEMAgent/FileWatcher/SettingsRESTController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SIEMAgent/src/main/java/com/sbnz/SIEMAgent/FileWatcher/SettingsRESTController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SIEMAgent/src/main/java/com/sbnz/SIEMAgent/FileWatcher/WatchAgent.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SIEMAgent/src/main/java/com/sbnz/SIEMAgent/FileWatcher/WatchAgent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SIEMAgent/src/main/java/com/sbnz/SIEMAgent/FileWatcher/filter/DataFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SIEMAgent/src/main/java/com/sbnz/SIEMAgent/FileWatcher/filter/DataFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SIEMAgent/src/main/java/com/sbnz/SIEMAgent/FileWatcher/filter/DataFilterFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SIEMAgent/src/main/java/com/sbnz/SIEMAgent/FileWatcher/filter/DataFilterFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SIEMAgent/src/main/java/com/sbnz/SIEMAgent/Log/Log.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SIEMAgent/src/main/java/com/sbnz/SIEMAgent/Log/Log.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SIEMAgent/src/main/java/com/sbnz/SIEMAgent/Log/LogEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SIEMAgent/src/main/java/com/sbnz/SIEMAgent/Log/LogEntry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SIEMAgent/src/main/java/com/sbnz/SIEMAgent/Log/LogRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SIEMAgent/src/main/java/com/sbnz/SIEMAgent/Log/LogRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SIEMAgent/src/main/java/com/sbnz/SIEMAgent/Log/LogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SIEMAgent/src/main/java/com/sbnz/SIEMAgent/Log/LogService.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,8 +33,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/AttackState.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1428">
-              <caret line="68" column="72" selection-start-line="68" selection-start-column="72" selection-end-line="68" selection-end-column="72" />
+            <state relative-caret-position="1848">
+              <caret line="88" column="12" lean-forward="true" selection-start-line="88" selection-start-column="12" selection-end-line="88" selection-end-column="12" />
               <folding>
                 <element signature="e#2390#2391#0" expanded="true" />
                 <element signature="e#2419#2420#0" expanded="true" />
@@ -47,7 +60,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/Logger.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="714">
-              <caret line="51" column="1" lean-forward="true" selection-start-line="51" selection-start-column="1" selection-end-line="51" selection-end-column="1" />
+              <caret line="51" column="1" selection-start-line="51" selection-start-column="1" selection-end-line="51" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -84,8 +97,8 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1919" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="-1" />
     <option name="width" value="1922" />
     <option name="height" value="1169" />
   </component>
@@ -95,6 +108,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -125,7 +139,6 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -160,10 +173,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1919" y="0" width="1922" height="1169" extended-state="6" />
+    <frame x="-1" y="0" width="1922" height="1169" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25878593" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26144835" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -202,10 +215,19 @@
     <entry file="file://$PROJECT_DIR$/src/AttackState.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Action.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Action.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/AttackState.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="32" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="32" />
+        <state relative-caret-position="1848">
+          <caret line="88" column="12" lean-forward="true" selection-start-line="88" selection-start-column="12" selection-end-line="88" selection-end-column="12" />
+          <folding>
+            <element signature="e#2390#2391#0" expanded="true" />
+            <element signature="e#2419#2420#0" expanded="true" />
+            <element signature="e#2605#2606#0" expanded="true" />
+            <element signature="e#2634#2635#0" expanded="true" />
+            <element signature="e#2835#2836#0" expanded="true" />
+            <element signature="e#2864#2865#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -219,7 +241,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/Logger.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="714">
-          <caret line="51" column="1" lean-forward="true" selection-start-line="51" selection-start-column="1" selection-end-line="51" selection-end-column="1" />
+          <caret line="51" column="1" selection-start-line="51" selection-start-column="1" selection-end-line="51" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -227,21 +249,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="23" column="64" selection-start-line="23" selection-start-column="64" selection-end-line="23" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/AttackState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1428">
-          <caret line="68" column="72" selection-start-line="68" selection-start-column="72" selection-end-line="68" selection-end-column="72" />
-          <folding>
-            <element signature="e#2390#2391#0" expanded="true" />
-            <element signature="e#2419#2420#0" expanded="true" />
-            <element signature="e#2605#2606#0" expanded="true" />
-            <element signature="e#2634#2635#0" expanded="true" />
-            <element signature="e#2835#2836#0" expanded="true" />
-            <element signature="e#2864#2865#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>

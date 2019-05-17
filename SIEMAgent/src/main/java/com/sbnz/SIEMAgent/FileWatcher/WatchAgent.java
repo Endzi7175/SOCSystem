@@ -19,14 +19,11 @@ public class WatchAgent {
 	@Autowired
 	private  LogService logService;
 
-
 	private  List<DirWatcher> dirWatchers;
-
 
 	public  WatchAgent() {
 		dirWatchers = new ArrayList<>();
 	}
-
 
 	public synchronized void registerNewPath(Path path, long batchTime) throws WatchAgentException{
 
@@ -73,13 +70,13 @@ public class WatchAgent {
 	}
 
 	private Gson watcherGson;
-	private  Gson getWatcherGson(){
+	private Gson getWatcherGson(){
 		if(watcherGson==null){
 			watcherGson = new GsonBuilder().setPrettyPrinting().enableComplexMapKeySerialization().excludeFieldsWithoutExposeAnnotation().create();
 		}
 		return watcherGson;
 	}
-	private  static String fileName = "watchers.data";
+	private static String fileName = "watchers.data";
 	private void saveWatchers() {
 
 		try (OutputStreamWriter fstream =  new OutputStreamWriter(new FileOutputStream(fileName), StandardCharsets.UTF_8)) {
@@ -112,7 +109,6 @@ public class WatchAgent {
 			} else {
 				e.printStackTrace();
 			}
-
 		}
 	}
 }

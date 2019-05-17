@@ -116,6 +116,7 @@ public class DataFilterFactory  {
             }
         };
     }
+
     private DataFilter createCompositeFilter(Object predicate) {
         List<DataFilterSeed> filterSeeds = tryCast(predicate);
         List<DataFilter> compositeFilters = new ArrayList<>();
