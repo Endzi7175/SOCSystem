@@ -1,0 +1,61 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-siem-log-type-heading">Create or edit a Siem Log Type</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!siemLogType.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="siemLogType.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_timestampRegex">Timestamp Regex</label>
+                    <input type="text" class="form-control" name="timestampRegex" id="field_timestampRegex"
+                        [(ngModel)]="siemLogType.timestampRegex" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_severityRegex">Severity Regex</label>
+                    <input type="text" class="form-control" name="severityRegex" id="field_severityRegex"
+                        [(ngModel)]="siemLogType.severityRegex" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_contextRegex">Context Regex</label>
+                    <input type="text" class="form-control" name="contextRegex" id="field_contextRegex"
+                        [(ngModel)]="siemLogType.contextRegex" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_messageRegex">Message Regex</label>
+                    <input type="text" class="form-control" name="messageRegex" id="field_messageRegex"
+                        [(ngModel)]="siemLogType.messageRegex" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                        [(ngModel)]="siemLogType.name" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_dateTimeFormat">Date Time Format</label>
+                    <input type="text" class="form-control" name="dateTimeFormat" id="field_dateTimeFormat"
+                        [(ngModel)]="siemLogType.dateTimeFormat" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_operatingSystem">Operating System</label>
+                    <select class="form-control" name="operatingSystem" [(ngModel)]="siemLogType.operatingSystem" id="field_operatingSystem" >
+                        <option value="WINDOWS">WINDOWS</option>
+                        <option value="LINUX">LINUX</option>
+                    </select>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
