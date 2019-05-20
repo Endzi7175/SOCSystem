@@ -7,15 +7,11 @@ import com.sbnz.SIEMCenter2.repository.AlarmTriggeredRepository;
 
 @Service
 public class AlarmTriggeredService {
-	public AlarmTriggeredService(AlarmTriggeredRepository alarmRepo){
-		this.alarmRepo = alarmRepo;
-	}
+
 	@Autowired
 	private AlarmTriggeredRepository alarmRepo;
+	
 	public AlarmTriggered save(AlarmTriggered alarm){
-		if (alarmRepo == null){
-			System.out.println("repo je null");
-		}
 		return alarmRepo.save(alarm);
 	}
 	
