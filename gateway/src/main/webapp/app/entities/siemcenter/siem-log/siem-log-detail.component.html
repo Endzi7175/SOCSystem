@@ -1,0 +1,87 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="siemLog">
+            <h2><span>Siem Log</span> {{siemLog.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Operating System</span></dt>
+                <dd>
+                    <span>{{siemLog.operatingSystem}}</span>
+                </dd>
+                <dt><span>Operating System Version</span></dt>
+                <dd>
+                    <span>{{siemLog.operatingSystemVersion}}</span>
+                </dd>
+                <dt><span>Internal Ip</span></dt>
+                <dd>
+                    <span>{{siemLog.internalIp}}</span>
+                </dd>
+                <dt><span>External Ip</span></dt>
+                <dd>
+                    <span>{{siemLog.externalIp}}</span>
+                </dd>
+                <dt><span>Host Name</span></dt>
+                <dd>
+                    <span>{{siemLog.hostName}}</span>
+                </dd>
+                <dt><span>Context</span></dt>
+                <dd>
+                    <span>{{siemLog.context}}</span>
+                </dd>
+                <dt><span>Message</span></dt>
+                <dd>
+                    <span>{{siemLog.message}}</span>
+                </dd>
+                <dt><span>Timestamp</span></dt>
+                <dd>
+                    <span>{{siemLog.timestamp}}</span>
+                </dd>
+                <dt><span>Directory</span></dt>
+                <dd>
+                    <span>{{siemLog.directory}}</span>
+                </dd>
+                <dt><span>Severity</span></dt>
+                <dd>
+                    <span>{{siemLog.severity}}</span>
+                </dd>
+                <dt><span>Source</span></dt>
+                <dd>
+                    <span>{{siemLog.source}}</span>
+                </dd>
+                <dt><span>File Path</span></dt>
+                <dd>
+                    <span>{{siemLog.filePath}}</span>
+                </dd>
+                <dt><span>Raw Message</span></dt>
+                <dd>
+                    <span>{{siemLog.rawMessage}}</span>
+                </dd>
+                <dt><span>Siem Log Type</span></dt>
+                <dd>
+                    <div *ngIf="siemLog.siemLogTypeId">
+                        <a [routerLink]="['/siem-log-type', siemLog.siemLogTypeId, 'view']">{{siemLog.siemLogTypeId}}</a>
+                    </div>
+                </dd>
+                <dt><span>Siem Agent</span></dt>
+                <dd>
+                    <div *ngIf="siemLog.siemAgentId">
+                        <a [routerLink]="['/siem-agent', siemLog.siemAgentId, 'view']">{{siemLog.siemAgentId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/siem-log', siemLog.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

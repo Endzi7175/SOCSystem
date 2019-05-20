@@ -1,0 +1,73 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="alarmDefinition">
+            <h2><span>Alarm Definition</span> {{alarmDefinition.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Name</span></dt>
+                <dd>
+                    <span>{{alarmDefinition.name}}</span>
+                </dd>
+                <dt><span>Description</span></dt>
+                <dd>
+                    <span>{{alarmDefinition.description}}</span>
+                </dd>
+                <dt><span>Num Repeats</span></dt>
+                <dd>
+                    <span>{{alarmDefinition.numRepeats}}</span>
+                </dd>
+                <dt><span>Time Span</span></dt>
+                <dd>
+                    <span>{{alarmDefinition.timeSpan}}</span>
+                </dd>
+                <dt><span>Keyword</span></dt>
+                <dd>
+                    <span>{{alarmDefinition.keyword}}</span>
+                </dd>
+                <dt><span>Fieldname</span></dt>
+                <dd>
+                    <span>{{alarmDefinition.fieldname}}</span>
+                </dd>
+                <dt><span>Alarm Radius</span></dt>
+                <dd>
+                    <span>{{alarmDefinition.alarmRadius}}</span>
+                </dd>
+                <dt><span>Severity</span></dt>
+                <dd>
+                    <span>{{alarmDefinition.severity}}</span>
+                </dd>
+                <dt><span>Log Source</span></dt>
+                <dd>
+                    <span>{{alarmDefinition.logSource}}</span>
+                </dd>
+                <dt><span>Active</span></dt>
+                <dd>
+                    <span>{{alarmDefinition.active}}</span>
+                </dd>
+                <dt><span>Operating System</span></dt>
+                <dd>
+                    <span>{{alarmDefinition.operatingSystem}}</span>
+                </dd>
+                <dt><span>Siem Log Type</span></dt>
+                <dd>
+                    <div *ngIf="alarmDefinition.siemLogTypeId">
+                        <a [routerLink]="['/siem-log-type', alarmDefinition.siemLogTypeId, 'view']">{{alarmDefinition.siemLogTypeId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/alarm-definition', alarmDefinition.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
