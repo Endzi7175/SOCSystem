@@ -2,8 +2,10 @@
 package sbnz.rules
 import com.sbnz.SIEMCenter2.model.LogEntry
 import com.sbnz.SIEMCenter2.model.AlarmTriggered
+import com.sbnz.SIEMCenter2.service.AlarmTriggeredService;
 import java.util.ArrayList
-
+global ArrayList<AlarmTriggered> alarms;
+global AlarmTriggeredService alarmService;
 rule "A stand alone rule"
 
    when
@@ -29,17 +31,17 @@ rule "Vise od 3 neuspesnih prijava od strane jednog korisnika"
         )
         
     then
+    	alarmService.save(new AlarmTriggered($id, "3 neuspela pokusaja prijave"));
         System.out.println("Uspelooooo");
     	insert(new AlarmTriggered($id, "3 neuspela pokusaja prijave"));
 end
 rule "Pojava loga koji je tipa error log level = 1 kad je error"
     when
-        LogEntry(logLevel == 1, $m: message, $id: userId)
-        
-        
+    	
+        LogEntry(logLevel == 1,id == null, $m: message, $id: userId)
     then
     	
-    	
+    	alarmService.save(new AlarmTriggered($id, "Greska u programu: " + $m));
     	insert(new AlarmTriggered($id, "Greska u programu: " + $m));
 end
 

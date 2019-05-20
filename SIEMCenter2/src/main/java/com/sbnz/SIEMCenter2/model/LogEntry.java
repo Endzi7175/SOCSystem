@@ -15,6 +15,8 @@ import javax.persistence.Id;
 import org.kie.api.definition.type.Expires;
 import org.kie.api.definition.type.Role;
 import org.kie.api.definition.type.Timestamp;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 @Role(Role.Type.EVENT)
 @Timestamp("timeStamp")
 @Expires("2h30m")
@@ -38,6 +40,7 @@ public class LogEntry implements Serializable{
 	@Column(nullable = false)
     private String userId;
 	@Column(nullable = false)
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="MM-dd hh:mm:ss.SS")
     private Date timestamp;
 	
     private static DateFormat sdf = new SimpleDateFormat("MM-DD hh:mm:ss.SS");
@@ -55,6 +58,8 @@ public class LogEntry implements Serializable{
 		this.userId = userId;
 		this.timestamp = timestamp;
 	}
+	
+
 
 	public LogEntry(String line) {
     	String[] tokens = line.split("\\|");
