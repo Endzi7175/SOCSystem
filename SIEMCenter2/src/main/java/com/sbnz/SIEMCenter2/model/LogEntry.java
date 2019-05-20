@@ -6,23 +6,40 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 import org.kie.api.definition.type.Expires;
 import org.kie.api.definition.type.Role;
 import org.kie.api.definition.type.Timestamp;
 @Role(Role.Type.EVENT)
 @Timestamp("timeStamp")
 @Expires("2h30m")
+@Entity
 public class LogEntry implements Serializable{
-
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column
+	private Long id;
 	private static final long serialVersionUID = 1L;
+	@Column(nullable = false)
 	private int informationSystemType;
+	@Column(nullable = false)
     private String message;
+	@Column(nullable = false)
     private String category;
+	@Column(nullable = false)
     private int logLevel;
+	@Column(nullable = false)
     private String ipAddress;
+	@Column(nullable = false)
     private String userId;
+	@Column(nullable = false)
     private Date timestamp;
+	
     private static DateFormat sdf = new SimpleDateFormat("MM-DD hh:mm:ss.SS");
 
 
@@ -68,6 +85,18 @@ public class LogEntry implements Serializable{
     }
 
     
+	public LogEntry() {
+		super();
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	public int getInformationSystemType() {
 		return informationSystemType;
 	}

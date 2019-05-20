@@ -3,14 +3,14 @@ package sbnz.rules
 import com.sbnz.SIEMCenter2.model.LogEntry
 import com.sbnz.SIEMCenter2.model.AlarmTriggered
 import java.util.ArrayList
-global java.util.ArrayList<AlarmTriggered> alarms
+
 rule "A stand alone rule"
 
    when
         l : LogEntry( userId == "1", myMsg : message )
     then
         System.out.println( myMsg );
-        l.setMessage( "Goodbye cruel world" );
+        //l.setMessage( "Goodbye cruel world" );
         
 
 end
@@ -39,7 +39,7 @@ rule "Pojava loga koji je tipa error log level = 1 kad je error"
         
     then
     	
-    	alarms.add(new AlarmTriggered($id, "Greska u programu: " + $m));
+    	
     	insert(new AlarmTriggered($id, "Greska u programu: " + $m));
 end
 
