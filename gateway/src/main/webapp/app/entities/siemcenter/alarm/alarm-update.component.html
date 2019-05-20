@@ -1,0 +1,77 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-alarm-heading">Create or edit a Alarm</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!alarm.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="alarm.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_message">Message</label>
+                    <input type="text" class="form-control" name="message" id="field_message"
+                        [(ngModel)]="alarm.message" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_timestamp">Timestamp</label>
+                    <div class="d-flex">
+                        <input id="field_timestamp" type="datetime-local" class="form-control" name="timestamp" [(ngModel)]="timestamp" placeholder="YYYY-MM-DD HH:mm"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_activated">Activated</label>
+                    <input type="checkbox" class="form-control" name="activated" id="field_activated"
+                        [(ngModel)]="alarm.activated" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_repeatCount">Repeat Count</label>
+                    <input type="number" class="form-control" name="repeatCount" id="field_repeatCount"
+                        [(ngModel)]="alarm.repeatCount" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_firstTimestamp">First Timestamp</label>
+                    <div class="d-flex">
+                        <input id="field_firstTimestamp" type="datetime-local" class="form-control" name="firstTimestamp" [(ngModel)]="firstTimestamp" placeholder="YYYY-MM-DD HH:mm"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_dismissed">Dismissed</label>
+                    <input type="checkbox" class="form-control" name="dismissed" id="field_dismissed"
+                        [(ngModel)]="alarm.dismissed" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_context">Context</label>
+                    <input type="text" class="form-control" name="context" id="field_context"
+                        [(ngModel)]="alarm.context" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_siemAgent">Siem Agent</label>
+                    <select class="form-control" id="field_siemAgent" name="siemAgent" [(ngModel)]="alarm.siemAgentId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="siemAgentOption.id" *ngFor="let siemAgentOption of siemagents; trackBy: trackSiemAgentById">{{siemAgentOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_alarmDefinition">Alarm Definition</label>
+                    <select class="form-control" id="field_alarmDefinition" name="alarmDefinition" [(ngModel)]="alarm.alarmDefinitionId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="alarmDefinitionOption.id" *ngFor="let alarmDefinitionOption of alarmdefinitions; trackBy: trackAlarmDefinitionById">{{alarmDefinitionOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

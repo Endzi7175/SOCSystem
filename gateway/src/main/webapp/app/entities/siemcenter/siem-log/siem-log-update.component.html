@@ -1,0 +1,116 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-siem-log-heading">Create or edit a Siem Log</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!siemLog.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="siemLog.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_operatingSystem">Operating System</label>
+                    <select class="form-control" name="operatingSystem" [(ngModel)]="siemLog.operatingSystem" id="field_operatingSystem" >
+                        <option value="WINDOWS">WINDOWS</option>
+                        <option value="LINUX">LINUX</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_operatingSystemVersion">Operating System Version</label>
+                    <input type="text" class="form-control" name="operatingSystemVersion" id="field_operatingSystemVersion"
+                        [(ngModel)]="siemLog.operatingSystemVersion" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_internalIp">Internal Ip</label>
+                    <input type="text" class="form-control" name="internalIp" id="field_internalIp"
+                        [(ngModel)]="siemLog.internalIp" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_externalIp">External Ip</label>
+                    <input type="text" class="form-control" name="externalIp" id="field_externalIp"
+                        [(ngModel)]="siemLog.externalIp" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_hostName">Host Name</label>
+                    <input type="text" class="form-control" name="hostName" id="field_hostName"
+                        [(ngModel)]="siemLog.hostName" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_context">Context</label>
+                    <input type="text" class="form-control" name="context" id="field_context"
+                        [(ngModel)]="siemLog.context" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_message">Message</label>
+                    <input type="text" class="form-control" name="message" id="field_message"
+                        [(ngModel)]="siemLog.message" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_timestamp">Timestamp</label>
+                    <div class="d-flex">
+                        <input id="field_timestamp" type="datetime-local" class="form-control" name="timestamp" [(ngModel)]="timestamp" placeholder="YYYY-MM-DD HH:mm"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_directory">Directory</label>
+                    <input type="text" class="form-control" name="directory" id="field_directory"
+                        [(ngModel)]="siemLog.directory" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_severity">Severity</label>
+                    <select class="form-control" name="severity" [(ngModel)]="siemLog.severity" id="field_severity" >
+                        <option value="TRACE">TRACE</option>
+                        <option value="DEBUG">DEBUG</option>
+                        <option value="INFO">INFO</option>
+                        <option value="WARN">WARN</option>
+                        <option value="ERROR">ERROR</option>
+                        <option value="FATAL">FATAL</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_source">Source</label>
+                    <select class="form-control" name="source" [(ngModel)]="siemLog.source" id="field_source" >
+                        <option value="WEBSERVER">WEBSERVER</option>
+                        <option value="APPLICATION">APPLICATION</option>
+                        <option value="OPERATINGSYSTEM">OPERATINGSYSTEM</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_filePath">File Path</label>
+                    <input type="text" class="form-control" name="filePath" id="field_filePath"
+                        [(ngModel)]="siemLog.filePath" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_rawMessage">Raw Message</label>
+                    <input type="text" class="form-control" name="rawMessage" id="field_rawMessage"
+                        [(ngModel)]="siemLog.rawMessage" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_siemLogType">Siem Log Type</label>
+                    <select class="form-control" id="field_siemLogType" name="siemLogType" [(ngModel)]="siemLog.siemLogTypeId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="siemLogTypeOption.id" *ngFor="let siemLogTypeOption of siemlogtypes; trackBy: trackSiemLogTypeById">{{siemLogTypeOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_siemAgent">Siem Agent</label>
+                    <select class="form-control" id="field_siemAgent" name="siemAgent" [(ngModel)]="siemLog.siemAgentId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="siemAgentOption.id" *ngFor="let siemAgentOption of siemagents; trackBy: trackSiemAgentById">{{siemAgentOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

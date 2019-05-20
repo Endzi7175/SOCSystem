@@ -1,0 +1,63 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="alarm">
+            <h2><span>Alarm</span> {{alarm.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Message</span></dt>
+                <dd>
+                    <span>{{alarm.message}}</span>
+                </dd>
+                <dt><span>Timestamp</span></dt>
+                <dd>
+                    <span>{{alarm.timestamp}}</span>
+                </dd>
+                <dt><span>Activated</span></dt>
+                <dd>
+                    <span>{{alarm.activated}}</span>
+                </dd>
+                <dt><span>Repeat Count</span></dt>
+                <dd>
+                    <span>{{alarm.repeatCount}}</span>
+                </dd>
+                <dt><span>First Timestamp</span></dt>
+                <dd>
+                    <span>{{alarm.firstTimestamp}}</span>
+                </dd>
+                <dt><span>Dismissed</span></dt>
+                <dd>
+                    <span>{{alarm.dismissed}}</span>
+                </dd>
+                <dt><span>Context</span></dt>
+                <dd>
+                    <span>{{alarm.context}}</span>
+                </dd>
+                <dt><span>Siem Agent</span></dt>
+                <dd>
+                    <div *ngIf="alarm.siemAgentId">
+                        <a [routerLink]="['/siem-agent', alarm.siemAgentId, 'view']">{{alarm.siemAgentId}}</a>
+                    </div>
+                </dd>
+                <dt><span>Alarm Definition</span></dt>
+                <dd>
+                    <div *ngIf="alarm.alarmDefinitionId">
+                        <a [routerLink]="['/alarm-definition', alarm.alarmDefinitionId, 'view']">{{alarm.alarmDefinitionId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/alarm', alarm.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
