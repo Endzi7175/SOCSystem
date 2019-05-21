@@ -1,11 +1,17 @@
 package com.sbnz.SIEMCenter2;
 import com.sbnz.SIEMCenter2.model.LogEntry
+import com.sbnz.SIEMCenter2.model.AlarmTriggered
+import com.sbnz.SIEMCenter2.service.AlarmTriggeredService;
+import java.util.ArrayList
+global ArrayList<AlarmTriggered> alarms;
+global AlarmTriggeredService alarmService;
 
 rule "alert_0"
 when
      l : LogEntry(message != 'Pera' && logLevel != 5)
 then
      System.out.println(l);
+     alarmService.save(new AlarmTriggered("1", "Neuspesna prijava na istoj masini", AlarmTriggered.VISE_OD_4_PRIJAVE_ISTA_MASINA));
 end
 
 

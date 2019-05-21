@@ -14,17 +14,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 
-
-import com.google.common.io.Files;
-import com.sbnz.SIEMCenter2.model.AlarmTriggered;
 import com.sbnz.SIEMCenter2.model.Condition;
 import com.sbnz.SIEMCenter2.model.Condition.BooleanTrailingOperator;
-import com.sbnz.SIEMCenter2.model.LogEntry;
 import com.sbnz.SIEMCenter2.model.Rule;
-import com.sbnz.SIEMCenter2.service.AlarmTriggeredService;
-
-import com.sbnz.SIEMCenter2.repository.MaliciousIpRepository;
-
 import com.sbnz.SIEMCenter2.service.KieService;
 
 
@@ -32,7 +24,7 @@ import com.sbnz.SIEMCenter2.service.KieService;
 public class SiemCenter2Application implements CommandLineRunner {
 	@Autowired
 	public ApplicationContext context;
-	
+
 	@Autowired
 	public KieService kieService;
 

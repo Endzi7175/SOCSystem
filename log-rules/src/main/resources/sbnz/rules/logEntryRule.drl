@@ -7,6 +7,7 @@ import com.sbnz.SIEMCenter2.service.AlarmTriggeredService;
 import java.util.ArrayList
 global ArrayList<AlarmTriggered> alarms;
 global AlarmTriggeredService alarmService;
+
 //rule "A stand alone rule"
 
   // when
