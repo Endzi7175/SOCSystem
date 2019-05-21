@@ -16,6 +16,8 @@ public class AlarmTriggered {
 	private String customerId;
 	@Column(nullable = false)
 	private String message;
+	@Column(nullable = false)
+	private int type;
 
 	
 	public Long getId() {
@@ -42,14 +44,31 @@ public class AlarmTriggered {
 		this.customerId = customerId;
 	}
 	
+	public int getType() {
+		return type;
+	}
+
+	public void setType(int type) {
+		this.type = type;
+	}
+
 	public AlarmTriggered() {
 		super();
 	}
 
-	public AlarmTriggered(String customerId, String message) {
+	public AlarmTriggered(String customerId, String message, int type) {
 		super();
 		this.customerId = customerId;
 		this.message = message;
+		this.type = type;
 	}
+	
+	public static int VISE_OD_2_PRIJAVE_ISTI_KORISNIK = 0;
+	public static int VISE_OD_4_PRIJAVE_ISTA_MASINA = 1;
+	public static int POKUSAJ_PRIJAVE_NEAKTIVAN_KORISNIK = 2;
+	public static int ERROR = 3;
+	public static int VIRUS = 4;
+	public static int VISE_OD_15_PRIJAVA_RAZLICITI_SISTEMI = 5;
+	public static int POJAVLJIVANJE_VIRUSA = 6;
 	
 }

@@ -19,10 +19,10 @@ import org.apache.maven.shared.invoker.InvocationRequest;
 import org.apache.maven.shared.invoker.Invoker;
 import org.apache.maven.shared.invoker.MavenInvocationException;
 import org.drools.template.ObjectDataCompiler;
+
 import org.kie.api.KieServices;
 import org.kie.api.builder.KieScanner;
 import org.kie.api.runtime.KieContainer;
-import org.kie.api.runtime.KieSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -37,6 +37,8 @@ import com.sbnz.SIEMCenter2.model.Condition.BooleanTrailingOperator;
 import com.sbnz.SIEMCenter2.model.LogEntry;
 import com.sbnz.SIEMCenter2.model.Rule;
 import com.sbnz.SIEMCenter2.service.AlarmTriggeredService;
+
+import com.sbnz.SIEMCenter2.repository.MaliciousIpRepository;
 import com.sbnz.SIEMCenter2.service.KieService;
 
 
@@ -47,10 +49,10 @@ public class SiemCenter2Application implements CommandLineRunner {
 	
 	@Autowired
 	public KieService kieService;
-	
+
 	public static void main(String[] args) {
 		SpringApplication.run(SiemCenter2Application.class, args);
-		
+	
 
 
 	}

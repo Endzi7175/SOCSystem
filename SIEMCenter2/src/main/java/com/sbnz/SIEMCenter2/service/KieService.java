@@ -23,11 +23,15 @@ import org.kie.api.runtime.KieSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.sbnz.SIEMCenter2.model.MaliciousIpAddress;
 import com.sbnz.SIEMCenter2.model.AlarmTriggered;
 import com.sbnz.SIEMCenter2.model.Condition;
 import com.sbnz.SIEMCenter2.model.LogEntry;
 import com.sbnz.SIEMCenter2.model.Rule;
 import com.sbnz.SIEMCenter2.model.Condition.BooleanTrailingOperator;
+
+import com.sbnz.SIEMCenter2.repository.MaliciousIpRepository;
+
 
 @Service
 public class KieService {
@@ -40,6 +44,7 @@ public class KieService {
 	@Autowired
 	LogEntryService logService;
 
+
 	public KieService() 
 	{
 		KieServices ks = KieServices.Factory.get();
@@ -51,6 +56,8 @@ public class KieService {
 		kieSession = kContainer.newKieSession();
 		alarms = new ArrayList<AlarmTriggered>();
 		//kieSession.setGlobal("alarms", alarms);
+
+
 		
 	}
 	
@@ -58,6 +65,8 @@ public class KieService {
 		kieSession = this.kieCointainer.newKieSession();
 		kieSession.setGlobal("alarmService", this.alarmService);
         Date date = new Date(2019, 5, 19, 20, 0);
+        kieSession.insert(new MaliciousIpAddress("222.222.222.222"));
+        kieSession.insert(new MaliciousIpAddress("111.111.111.111"));
         for (AlarmTriggered alarm : alarmService.fidnAll()){
         	kieSession.insert(alarm);
         }
@@ -66,14 +75,10 @@ public class KieService {
 
         }
         for(LogEntry entry : entries) {
-        	
-        	
         	kieSession.insert(entry);
-        	
         } 
      
 		int x = kieSession.fireAllRules();
-		System.out.println(x);
 		
 		kieSession.dispose();
 	}
