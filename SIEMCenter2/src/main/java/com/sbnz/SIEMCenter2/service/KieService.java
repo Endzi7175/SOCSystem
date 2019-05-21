@@ -1,9 +1,21 @@
 package com.sbnz.SIEMCenter2.service;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.PrintWriter;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import org.drools.template.ObjectDataCompiler;
 import org.kie.api.KieServices;
 import org.kie.api.builder.KieScanner;
 import org.kie.api.runtime.KieContainer;
@@ -13,8 +25,13 @@ import org.springframework.stereotype.Service;
 
 import com.sbnz.SIEMCenter2.model.MaliciousIpAddress;
 import com.sbnz.SIEMCenter2.model.AlarmTriggered;
+import com.sbnz.SIEMCenter2.model.Condition;
 import com.sbnz.SIEMCenter2.model.LogEntry;
+import com.sbnz.SIEMCenter2.model.Rule;
+import com.sbnz.SIEMCenter2.model.Condition.BooleanTrailingOperator;
+
 import com.sbnz.SIEMCenter2.repository.MaliciousIpRepository;
+
 
 @Service
 public class KieService {
@@ -66,7 +83,29 @@ public class KieService {
 		kieSession.dispose();
 	}
 	
-	public void insertNewRule(String rule) {
+	public void insertNewRule(Rule rule) throws IOException {
+		
+		
+		
+		 File initialFile = new File("src/main/resources/templates/template.drl");
+		 InputStream targetStream = new FileInputStream(initialFile);	 
+		 Path dir = Paths.get("/home/f.micic/faks/BsepSBNZ/SOCSystem/log-rules/src/main/resources/sbnz/rules");
+		 int i = 0;
+		 while(Paths.get(dir.toString(), Integer.toString(i)+ ".drl").toFile().exists()) {
+			 i++;
+		 }
+		 ObjectDataCompiler objectDataCompiler = new ObjectDataCompiler();
+		 
+		 Map<String, Object> data = new HashMap<String, Object>();
+		 data.put("ruleNum", i);
+		 data.put("rule", rule);
+		 
+		 String drl = objectDataCompiler.compile(Arrays.asList(data), targetStream);
+		 
+		 PrintWriter out = new PrintWriter(Paths.get(dir.toString(), Integer.toString(i)+".drl").toString());
+		 out.print(drl);
+		 out.close();
+		 targetStream.close();
 		
 	}
 	

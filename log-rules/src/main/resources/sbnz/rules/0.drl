@@ -1,0 +1,11 @@
+package com.sbnz.SIEMCenter2;
+import com.sbnz.SIEMCenter2.model.LogEntry
+
+rule "alert_0"
+when
+     l : LogEntry(message != 'Pera' && logLevel != 5)
+then
+     System.out.println(l);
+end
+
+

@@ -1,5 +1,9 @@
 package com.sbnz.SIEMCenter2;
 
+
+
+import java.util.ArrayList;
+
 import org.kie.api.KieServices;
 import org.kie.api.builder.KieScanner;
 import org.kie.api.runtime.KieContainer;
@@ -9,6 +13,17 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
+
+
+import com.google.common.io.Files;
+import com.sbnz.SIEMCenter2.model.AlarmTriggered;
+import com.sbnz.SIEMCenter2.model.Condition;
+import com.sbnz.SIEMCenter2.model.Condition.BooleanTrailingOperator;
+import com.sbnz.SIEMCenter2.model.LogEntry;
+import com.sbnz.SIEMCenter2.model.Rule;
+import com.sbnz.SIEMCenter2.service.AlarmTriggeredService;
+
+import com.sbnz.SIEMCenter2.repository.MaliciousIpRepository;
 
 import com.sbnz.SIEMCenter2.service.KieService;
 
@@ -41,7 +56,25 @@ public class SiemCenter2Application implements CommandLineRunner {
 //	        
 //	        kieService.insertLogEntries(entries);
 			//kieSession.insert(new LogEntry(1, "Neuspesna prijava", "1", 1, "128.212.", "1", new Date()));
-		
+		 Condition condition = new Condition();
+		 condition.field = "message";
+		 condition.value = "Pera";
+		 condition.comapreOperator = Condition.ComapreOperator.EQUAL_TO;
+		 condition.trailingOperator = BooleanTrailingOperator.AND;
+		 
+		 Rule rule = new Rule();
+		 rule.setConditions(new ArrayList<>());
+		 rule.conditions.add(condition);
+		 
+		 condition = new Condition();
+		 condition.field = "logLevel";
+		 condition.value = 5;
+		 condition.comapreOperator = Condition.ComapreOperator.EQUAL_TO;
+		 condition.trailingOperator = BooleanTrailingOperator.AND;
+		 
+		 rule.conditions.add(condition);
+		 
+		 kieService.insertNewRule(rule);
 
 	}
 	@Bean

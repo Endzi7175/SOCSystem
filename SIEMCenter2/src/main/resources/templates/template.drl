@@ -1,0 +1,19 @@
+template header
+
+rule
+ruleNum
+
+package com.sbnz.SIEMCenter2;
+import com.sbnz.SIEMCenter2.model.LogEntry
+
+
+template "alert"
+
+rule "alert_@{ruleNum}"
+when
+     l : LogEntry(@{rule})
+then
+     System.out.println(l);
+end
+
+end template
