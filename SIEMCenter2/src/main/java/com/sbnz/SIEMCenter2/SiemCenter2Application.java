@@ -1,21 +1,8 @@
 package com.sbnz.SIEMCenter2;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
-import java.util.List;
-import java.util.ListIterator;
-
-import org.apache.maven.shared.invoker.DefaultInvocationRequest;
-import org.apache.maven.shared.invoker.DefaultInvoker;
-import org.apache.maven.shared.invoker.InvocationRequest;
-import org.apache.maven.shared.invoker.Invoker;
-import org.apache.maven.shared.invoker.MavenInvocationException;
 import org.kie.api.KieServices;
 import org.kie.api.builder.KieScanner;
 import org.kie.api.runtime.KieContainer;
-import org.kie.api.runtime.KieSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -23,10 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 
-import com.sbnz.SIEMCenter2.model.AlarmTriggered;
-import com.sbnz.SIEMCenter2.model.LogEntry;
-
-import com.sbnz.SIEMCenter2.service.AlarmTriggeredService;
+import com.sbnz.SIEMCenter2.repository.MaliciousIpRepository;
 import com.sbnz.SIEMCenter2.service.KieService;
 
 
@@ -37,10 +21,10 @@ public class SiemCenter2Application implements CommandLineRunner {
 	
 	@Autowired
 	public KieService kieService;
-	
+
 	public static void main(String[] args) {
 		SpringApplication.run(SiemCenter2Application.class, args);
-		
+	
 
 
 	}

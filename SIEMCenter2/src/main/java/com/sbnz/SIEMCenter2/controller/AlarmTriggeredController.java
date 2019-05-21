@@ -16,8 +16,5 @@ import com.sbnz.SIEMCenter2.service.AlarmTriggeredService;
 public class AlarmTriggeredController {
 	@Autowired
 	AlarmTriggeredService alarmService;
-	@GetMapping( produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<AlarmTriggered> addNewAlarm(){
-		return new ResponseEntity<AlarmTriggered>(alarmService.save(new AlarmTriggered("1", "poruka")), HttpStatus.OK);
-	}
+	
 }
