@@ -16,9 +16,59 @@ public class LogEntry {
     private Date timestamp;
     private static DateFormat sdf = new SimpleDateFormat("MM-DD hh:mm:ss.SS");
 
+    public int getInformationSystemType() {
+        return informationSystemType;
+    }
 
+    public void setInformationSystemType(int informationSystemType) {
+        this.informationSystemType = informationSystemType;
+    }
 
-	public LogEntry(String line) {
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public void setLogLevel(int logLevel) {
+        this.logLevel = logLevel;
+    }
+
+    public String getIpAddress() {
+        return ipAddress;
+    }
+
+    public void setIpAddress(String ipAddress) {
+        this.ipAddress = ipAddress;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public Date getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(Date timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public static DateFormat getSdf() {
+        return sdf;
+    }
+
+    public static void setSdf(DateFormat sdf) {
+        LogEntry.sdf = sdf;
+    }
+
+    public LogEntry(String line) {
     	String[] tokens = line.split("\\|");
         try {
             timestamp = sdf.parse(tokens[0]);

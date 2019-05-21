@@ -48,7 +48,11 @@ public class LogRepository {
     public Set<Log> findAll() {
         if (logs==null){
             logs =readAll();
+            if(logs==null){
+                logs = new HashSet<>();
+            }
         }
+
         return  logs;
 
     }
