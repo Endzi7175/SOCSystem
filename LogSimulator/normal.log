@@ -23,3 +23,902 @@
 05-16 19:13:50.760|User210|192.168.0.1|1|0|Slanje poruke|0
 05-16 19:13:52.812|User332|192.168.0.1|1|0|Izmena profila|0
 05-16 19:13:52.941|User210|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:49:12.594|User546|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:49:13.523|User943|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:49:13.891|User469|192.168.0.1|0|0|Neuspesna prijava|0
+05-21 09:49:13.979|User657|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:49:17.391|User657|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:49:17.408|User469|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:49:18.365|User546|192.168.0.1|1|0|Izmena profila|0
+05-21 09:49:19.254|User657|192.168.0.1|0|0|Kupovina|0
+05-21 09:49:19.325|User943|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:49:21.16|User469|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:49:21.301|User546|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:49:21.624|User657|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:49:21.934|User714|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:49:23.171|User303|192.168.0.1|0|0|Neuspesna prijava|0
+05-21 09:49:24.968|User303|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:49:25.279|User546|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:49:25.524|User469|192.168.0.1|1|0|Izmena profila|0
+05-21 09:49:27.310|User714|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:49:27.580|User469|192.168.0.1|1|0|Izmena profila|0
+05-21 09:49:30.284|User303|192.168.0.1|1|0|Izmena profila|0
+05-21 09:49:30.486|User546|192.168.0.1|0|0|Kupovina|0
+05-21 09:49:30.512|User46|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:49:30.564|User469|192.168.0.1|1|0|Izmena profila|0
+05-21 09:49:32.297|User546|192.168.0.1|1|0|Izmena profila|0
+05-21 09:49:34.340|User46|192.168.0.1|1|0|Izmena profila|0
+05-21 09:49:34.424|User469|192.168.0.1|1|0|Izmena profila|0
+05-21 09:49:34.698|User546|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:49:35.08|User303|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:49:37.350|User46|192.168.0.1|1|0|Izmena profila|0
+05-21 09:49:37.651|User914|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:49:37.892|User56|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:49:39.311|User469|192.168.0.1|0|0|Kupovina|0
+05-21 09:49:39.403|User56|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:49:40.438|User46|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:49:40.579|User469|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:49:41.735|User56|192.168.0.1|1|0|Izmena profila|0
+05-21 09:49:43.98|User914|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:49:43.321|User432|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:49:44.999|User432|192.168.0.1|1|0|Izmena profila|0
+05-21 09:49:45.315|User914|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:49:45.887|User56|192.168.0.1|1|0|Izmena profila|0
+05-21 09:49:46.88|User432|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:49:46.368|User469|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:49:47.702|User652|192.168.0.1|0|0|Neuspesna prijava|0
+05-21 09:49:47.844|User914|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:49:49.359|User652|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:49:49.362|User56|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:49:50.463|User469|192.168.0.1|0|0|Kupovina|0
+05-21 09:49:51.373|User914|192.168.0.1|0|0|Kupovina|0
+05-21 09:49:51.379|User56|192.168.0.1|0|0|Kupovina|0
+05-21 09:49:53.403|User56|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:49:53.583|User914|192.168.0.1|1|0|Izmena profila|0
+05-21 09:49:54.168|User652|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:49:54.962|User56|192.168.0.1|0|0|Kupovina|0
+05-21 09:49:55.608|User469|192.168.0.1|0|0|Kupovina|0
+05-21 09:49:56.490|User56|192.168.0.1|1|0|Izmena profila|0
+05-21 09:49:57.91|User914|192.168.0.1|1|0|Izmena profila|0
+05-21 09:49:59.67|User469|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:49:59.715|User652|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:50:00.421|User914|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:50:00.785|User56|192.168.0.1|1|0|Izmena profila|0
+05-21 09:50:01.302|User935|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:50:03.324|User914|192.168.0.1|1|0|Izmena profila|0
+05-21 09:50:03.639|User652|192.168.0.1|0|0|Kupovina|0
+05-21 09:50:03.871|User935|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:50:04.706|User914|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:50:05.881|User652|192.168.0.1|1|0|Izmena profila|0
+05-21 09:50:06.62|User968|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:50:07.290|User56|192.168.0.1|0|0|Kupovina|0
+05-21 09:50:09.697|User914|192.168.0.1|1|0|Izmena profila|0
+05-21 09:50:09.889|User652|192.168.0.1|0|0|Kupovina|0
+05-21 09:50:11.943|User968|192.168.0.1|1|0|Izmena profila|0
+05-21 09:50:12.110|User56|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:50:12.555|User652|192.168.0.1|0|0|Kupovina|0
+05-21 09:50:12.939|User914|192.168.0.1|1|0|Izmena profila|0
+05-21 09:50:14.681|User56|192.168.0.1|1|0|Izmena profila|0
+05-21 09:50:16.30|User968|192.168.0.1|1|0|Izmena profila|0
+05-21 09:50:16.674|User652|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:50:17.890|User56|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:50:19.106|User914|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:50:20.78|User652|192.168.0.1|0|0|Kupovina|0
+05-21 09:50:20.584|User191|192.168.0.1|0|0|Neuspesna prijava|0
+05-21 09:50:20.720|User968|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:50:21.746|User191|192.168.0.1|0|0|Neuspesna prijava|0
+05-21 09:50:21.867|User914|192.168.0.1|1|0|Izmena profila|0
+05-21 09:50:24.536|User652|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:50:25.416|User191|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:50:26.277|User185|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:50:27.389|User914|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:50:28.705|User968|192.168.0.1|0|0|Kupovina|0
+05-21 09:50:28.960|User191|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:50:30.09|User968|192.168.0.1|0|0|Kupovina|0
+05-21 09:50:30.73|User748|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:50:31.855|User185|192.168.0.1|1|0|Izmena profila|0
+05-21 09:50:32.549|User748|192.168.0.1|1|0|Izmena profila|0
+05-21 09:50:32.851|User8|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:50:34.69|User185|192.168.0.1|1|0|Izmena profila|0
+05-21 09:50:34.526|User8|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:50:35.685|User748|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:50:36.97|User185|192.168.0.1|1|0|Izmena profila|0
+05-21 09:50:37.197|User968|192.168.0.1|0|0|Kupovina|0
+05-21 09:50:37.218|User185|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:50:37.751|User757|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:50:39.547|User968|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:50:39.799|User757|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:50:40.909|User757|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:50:43.98|User185|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:50:43.226|User748|192.168.0.1|0|0|Kupovina|0
+05-21 09:50:43.360|User27|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:50:43.423|User757|192.168.0.1|0|0|Kupovina|0
+05-21 09:50:46.11|User748|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:50:46.406|User27|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:50:46.894|User757|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:50:46.992|User185|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:50:47.411|User268|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:50:48.749|User748|192.168.0.1|1|0|Izmena profila|0
+05-21 09:50:50.390|User185|192.168.0.1|0|0|Kupovina|0
+05-21 09:50:50.643|User748|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:50:51.833|User757|192.168.0.1|1|0|Izmena profila|0
+05-21 09:50:52.436|User268|192.168.0.1|1|0|Izmena profila|0
+05-21 09:50:53.356|User448|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:50:54.339|User268|192.168.0.1|1|0|Izmena profila|0
+05-21 09:50:55.51|User185|192.168.0.1|1|0|Izmena profila|0
+05-21 09:50:55.96|User448|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:50:57.136|User757|192.168.0.1|1|0|Izmena profila|0
+05-21 09:50:58.196|User185|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:50:58.409|User757|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:51:00.527|User757|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:51:00.640|User448|192.168.0.1|0|0|Kupovina|0
+05-21 09:51:00.718|User268|192.168.0.1|0|0|Neuspesna prijava|0
+05-21 09:51:01.528|User268|192.168.0.1|0|0|Kupovina|0
+05-21 09:51:02.148|User757|192.168.0.1|0|0|Kupovina|0
+05-21 09:51:02.732|User268|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:51:03.953|User268|192.168.0.1|1|0|Izmena profila|0
+05-21 09:51:05.263|User268|192.168.0.1|0|0|Kupovina|0
+05-21 09:51:05.468|User757|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:51:05.858|User448|192.168.0.1|1|0|Izmena profila|0
+05-21 09:51:06.532|User268|192.168.0.1|1|0|Izmena profila|0
+05-21 09:51:06.946|User268|192.168.0.1|0|0|Kupovina|0
+05-21 09:51:10.241|User448|192.168.0.1|1|0|Izmena profila|0
+05-21 09:51:11.383|User757|192.168.0.1|0|0|Kupovina|0
+05-21 09:51:11.677|User268|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:51:12.334|User268|192.168.0.1|0|0|Kupovina|0
+05-21 09:51:13.341|User543|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:51:14.59|User757|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:51:15.541|User757|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:51:15.562|User448|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:51:17.200|User268|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:51:18.18|User721|192.168.0.1|0|0|Neuspesna prijava|0
+05-21 09:51:18.443|User757|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:51:18.631|User543|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:51:20.927|User757|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:51:21.100|User268|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:51:21.746|User721|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:51:22.401|User487|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:51:22.893|User721|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:51:24.425|User757|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:51:25.100|User487|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:51:25.380|User543|192.168.0.1|0|0|Kupovina|0
+05-21 09:51:25.771|User446|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:51:26.753|User487|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:51:26.824|User757|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:51:26.957|User446|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:51:28.979|User757|192.168.0.1|0|0|Kupovina|0
+05-21 09:51:29.648|User446|192.168.0.1|1|0|Izmena profila|0
+05-21 09:51:29.882|User543|192.168.0.1|0|0|Kupovina|0
+05-21 09:51:30.703|User757|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:51:32.127|User487|192.168.0.1|0|0|Kupovina|0
+05-21 09:51:33.315|User541|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:51:34.488|User446|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:51:35.709|User543|192.168.0.1|0|0|Kupovina|0
+05-21 09:51:36.403|User664|192.168.0.1|0|0|Neuspesna prijava|0
+05-21 09:51:37.400|User487|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:51:37.489|User541|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:51:39.171|User417|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:51:39.279|User664|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:51:41.18|User543|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:51:42.882|User734|192.168.0.1|0|0|Neuspesna prijava|0
+05-21 09:51:43.18|User541|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:51:43.425|User417|192.168.0.1|1|0|Izmena profila|0
+05-21 09:51:45.158|User106|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:51:45.874|User664|192.168.0.1|0|0|Kupovina|0
+05-21 09:51:45.876|User734|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:51:45.908|User417|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:51:48.72|User664|192.168.0.1|1|0|Izmena profila|0
+05-21 09:51:48.132|User106|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:51:49.280|User417|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:51:49.374|User106|192.168.0.1|1|0|Izmena profila|0
+05-21 09:51:49.571|User734|192.168.0.1|1|0|Izmena profila|0
+05-21 09:51:51.768|User106|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:51:52.730|User664|192.168.0.1|1|0|Izmena profila|0
+05-21 09:51:53.749|User734|192.168.0.1|1|0|Izmena profila|0
+05-21 09:51:54.154|User664|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:51:54.443|User417|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:51:55.414|User734|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:51:55.771|User104|192.168.0.1|0|0|Neuspesna prijava|0
+05-21 09:51:55.795|User664|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:51:57.447|User106|192.168.0.1|1|0|Izmena profila|0
+05-21 09:51:58.300|User60|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:51:58.730|User106|192.168.0.1|1|0|Izmena profila|0
+05-21 09:51:59.511|User104|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:51:59.923|User664|192.168.0.1|0|0|Kupovina|0
+05-21 09:52:00.780|User60|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:52:02.675|User664|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:52:04.454|User146|192.168.0.1|0|0|Neuspesna prijava|0
+05-21 09:52:05.405|User664|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:52:05.538|User106|192.168.0.1|0|0|Kupovina|0
+05-21 09:52:06.879|User104|192.168.0.1|0|0|Kupovina|0
+05-21 09:52:06.963|User146|192.168.0.1|0|0|Neuspesna prijava|0
+05-21 09:52:08.146|User106|192.168.0.1|0|0|Kupovina|0
+05-21 09:52:09.656|User146|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:52:09.704|User106|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:52:10.470|User104|192.168.0.1|0|0|Kupovina|0
+05-21 09:52:10.793|User664|192.168.0.1|0|0|Kupovina|0
+05-21 09:52:10.855|User106|192.168.0.1|1|0|Izmena profila|0
+05-21 09:52:14.377|User664|192.168.0.1|1|0|Izmena profila|0
+05-21 09:52:15.387|User106|192.168.0.1|1|0|Izmena profila|0
+05-21 09:52:15.511|User104|192.168.0.1|1|0|Izmena profila|0
+05-21 09:52:16.438|User146|192.168.0.1|0|0|Kupovina|0
+05-21 09:52:18.761|User664|192.168.0.1|1|0|Izmena profila|0
+05-21 09:52:19.05|User146|192.168.0.1|1|0|Izmena profila|0
+05-21 09:52:21.419|User664|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:52:21.792|User146|192.168.0.1|1|0|Izmena profila|0
+05-21 09:52:21.883|User104|192.168.0.1|0|0|Kupovina|0
+05-21 09:52:22.382|User106|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:52:23.252|User146|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:52:25.328|User104|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:52:25.500|User106|192.168.0.1|1|0|Izmena profila|0
+05-21 09:52:26.699|User146|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:52:26.965|User664|192.168.0.1|0|0|Kupovina|0
+05-21 09:52:27.578|User104|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:52:27.996|User664|192.168.0.1|1|0|Izmena profila|0
+05-21 09:52:29.489|User106|192.168.0.1|1|0|Izmena profila|0
+05-21 09:52:30.295|User146|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:52:30.703|User664|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:52:31.394|User104|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:52:34.80|User104|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:52:34.232|User146|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:52:34.240|User664|192.168.0.1|0|0|Kupovina|0
+05-21 09:52:34.982|User106|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:52:35.337|User664|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:52:36.181|User794|192.168.0.1|0|0|Neuspesna prijava|0
+05-21 09:52:37.372|User104|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:52:38.230|User146|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:52:38.865|User794|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:52:39.317|User664|192.168.0.1|0|0|Kupovina|0
+05-21 09:52:40.799|User104|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:52:40.891|User664|192.168.0.1|0|0|Kupovina|0
+05-21 09:52:41.114|User146|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:52:42.405|User794|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:52:43.927|User146|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:52:44.781|User664|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:52:45.999|User104|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:52:46.18|User794|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:52:46.978|User646|192.168.0.1|0|0|Neuspesna prijava|0
+05-21 09:52:48.63|User402|192.168.0.1|0|0|Neuspesna prijava|0
+05-21 09:52:48.598|User146|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:52:48.836|User104|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:52:49.967|User646|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:52:50.41|User895|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:52:51.441|User402|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:52:52.367|User104|192.168.0.1|0|0|Kupovina|0
+05-21 09:52:53.480|User646|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:52:53.875|User104|192.168.0.1|1|0|Izmena profila|0
+05-21 09:52:54.101|User895|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:52:55.620|User646|192.168.0.1|1|0|Izmena profila|0
+05-21 09:52:56.191|User402|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:52:57.629|User883|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:52:58.52|User646|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:52:58.556|User313|192.168.0.1|0|0|Neuspesna prijava|0
+05-21 09:52:58.720|User104|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:52:59.724|User104|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:53:00.513|User883|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:53:01.683|User313|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:53:01.849|User883|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:53:03.537|User646|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:53:03.896|User313|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:53:04.204|User434|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:53:04.631|User72|192.168.0.1|0|0|Neuspesna prijava|0
+05-21 09:53:05.799|User104|192.168.0.1|0|0|Kupovina|0
+05-21 09:53:06.330|User434|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:53:07.138|User104|192.168.0.1|1|0|Izmena profila|0
+05-21 09:53:08.10|User72|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:53:09.990|User526|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:53:09.991|User104|192.168.0.1|0|0|Kupovina|0
+05-21 09:53:10.339|User72|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:53:11.709|User104|192.168.0.1|1|0|Izmena profila|0
+05-21 09:53:11.830|User313|192.168.0.1|0|0|Kupovina|0
+05-21 09:53:12.906|User313|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:53:14.19|User526|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:53:14.222|User104|192.168.0.1|0|0|Kupovina|0
+05-21 09:53:15.399|User72|192.168.0.1|0|0|Kupovina|0
+05-21 09:53:15.461|User313|192.168.0.1|0|0|Kupovina|0
+05-21 09:53:16.85|User104|192.168.0.1|1|0|Izmena profila|0
+05-21 09:53:16.546|User313|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:53:17.422|User526|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:53:18.214|User72|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:53:18.682|User104|192.168.0.1|0|0|Kupovina|0
+05-21 09:53:20.255|User313|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:53:20.928|User72|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:53:20.939|User526|192.168.0.1|0|0|Kupovina|0
+05-21 09:53:22.866|User104|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:53:22.878|User313|192.168.0.1|0|0|Kupovina|0
+05-21 09:53:23.987|User72|192.168.0.1|1|0|Izmena profila|0
+05-21 09:53:24.639|User597|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:53:25.441|User526|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:53:26.593|User313|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:53:28.526|User597|192.168.0.1|0|0|Kupovina|0
+05-21 09:53:28.684|User526|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:53:29.435|User72|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:53:29.586|User597|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:53:30.847|User864|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:53:31.489|User401|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:53:31.728|User313|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:53:32.736|User72|192.168.0.1|1|0|Izmena profila|0
+05-21 09:53:32.834|User864|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:53:34.202|User72|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:53:35.915|User313|192.168.0.1|1|0|Izmena profila|0
+05-21 09:53:36.188|User912|192.168.0.1|0|0|Neuspesna prijava|0
+05-21 09:53:36.382|User401|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:53:37.529|User912|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:53:37.552|User313|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:53:38.380|User72|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:53:38.521|User742|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:53:39.836|User972|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:53:40.929|User912|192.168.0.1|0|0|Kupovina|0
+05-21 09:53:41.708|User742|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:53:42.591|User972|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:53:43.737|User72|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:53:43.802|User912|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:53:43.823|User232|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:53:45.756|User72|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:53:47.362|User387|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:53:48.368|User387|192.168.0.1|1|0|Izmena profila|0
+05-21 09:53:48.791|User232|192.168.0.1|1|0|Izmena profila|0
+05-21 09:53:49.229|User621|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:53:49.414|User972|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:53:50.678|User387|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:53:52.269|User232|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:53:52.480|User387|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:53:53.446|User621|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:53:53.502|User972|192.168.0.1|0|0|Kupovina|0
+05-21 09:53:55.304|User972|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:53:56.210|User161|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:53:56.457|User387|192.168.0.1|1|0|Izmena profila|0
+05-21 09:53:57.149|User621|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:53:59.132|User621|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:53:59.772|User972|192.168.0.1|0|0|Kupovina|0
+05-21 09:53:59.777|User387|192.168.0.1|0|0|Kupovina|0
+05-21 09:54:01.765|User621|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:54:02.20|User161|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:54:02.945|User972|192.168.0.1|1|0|Izmena profila|0
+05-21 09:54:04.46|User972|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:54:05.266|User706|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:54:05.485|User387|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:54:05.500|User983|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:54:06.405|User972|192.168.0.1|1|0|Izmena profila|0
+05-21 09:54:06.829|User387|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:54:10.62|User972|192.168.0.1|0|0|Kupovina|0
+05-21 09:54:10.783|User245|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:54:11.286|User972|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:54:11.596|User983|192.168.0.1|0|0|Kupovina|0
+05-21 09:54:12.925|User706|192.168.0.1|0|0|Kupovina|0
+05-21 09:54:13.456|User972|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:54:16.958|User706|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:54:17.767|User245|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:54:18.107|User983|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:54:18.647|User360|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:54:19.96|User972|192.168.0.1|0|0|Kupovina|0
+05-21 09:54:21.45|User245|192.168.0.1|1|0|Izmena profila|0
+05-21 09:54:21.204|User983|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:54:24.514|User983|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:54:24.734|User245|192.168.0.1|0|0|Kupovina|0
+05-21 09:54:25.842|User551|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:54:26.328|User360|192.168.0.1|0|0|Kupovina|0
+05-21 09:54:26.843|User972|192.168.0.1|0|0|Kupovina|0
+05-21 09:54:28.402|User245|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:54:29.919|User972|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:54:30.921|User551|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:54:32.98|User245|192.168.0.1|0|0|Kupovina|0
+05-21 09:54:32.802|User972|192.168.0.1|1|0|Izmena profila|0
+05-21 09:54:33.583|User360|192.168.0.1|0|0|Kupovina|0
+05-21 09:54:34.784|User265|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:54:37.189|User360|192.168.0.1|0|0|Kupovina|0
+05-21 09:54:38.451|User972|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:54:39.554|User245|192.168.0.1|0|0|Kupovina|0
+05-21 09:54:39.741|User972|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:54:40.214|User265|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:54:40.510|User360|192.168.0.1|1|0|Izmena profila|0
+05-21 09:54:42.195|User245|192.168.0.1|1|0|Izmena profila|0
+05-21 09:54:42.405|User972|192.168.0.1|0|0|Kupovina|0
+05-21 09:54:42.662|User265|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:54:44.176|User972|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:54:44.956|User360|192.168.0.1|1|0|Izmena profila|0
+05-21 09:54:47.584|User245|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:54:48.112|User972|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:54:48.343|User265|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:54:49.375|User721|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:54:49.957|User360|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:54:52.332|User360|192.168.0.1|1|0|Izmena profila|0
+05-21 09:54:52.851|User265|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:54:54.513|User360|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:54:55.980|User972|192.168.0.1|0|0|Kupovina|0
+05-21 09:54:56.13|User721|192.168.0.1|0|0|Kupovina|0
+05-21 09:54:56.774|User303|192.168.0.1|0|0|Neuspesna prijava|0
+05-21 09:54:57.764|User972|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:54:57.782|User721|192.168.0.1|1|0|Izmena profila|0
+05-21 09:54:57.893|User948|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:54:58.815|User721|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:55:00.210|User303|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:55:03.336|User721|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:55:03.508|User972|192.168.0.1|1|0|Izmena profila|0
+05-21 09:55:03.680|User303|192.168.0.1|1|0|Izmena profila|0
+05-21 09:55:04.550|User972|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:55:05.229|User948|192.168.0.1|0|0|Kupovina|0
+05-21 09:55:07.206|User948|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:55:07.384|User303|192.168.0.1|0|0|Kupovina|0
+05-21 09:55:07.621|User761|192.168.0.1|0|0|Neuspesna prijava|0
+05-21 09:55:08.947|User721|192.168.0.1|0|0|Kupovina|0
+05-21 09:55:10.118|User303|192.168.0.1|0|0|Kupovina|0
+05-21 09:55:10.700|User948|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:55:11.18|User761|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:55:12.616|User948|192.168.0.1|0|0|Kupovina|0
+05-21 09:55:13.104|User761|192.168.0.1|0|0|Kupovina|0
+05-21 09:55:13.585|User721|192.168.0.1|0|0|Kupovina|0
+05-21 09:55:13.659|User948|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:55:13.812|User303|192.168.0.1|0|0|Kupovina|0
+05-21 09:55:15.746|User303|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:55:16.83|User761|192.168.0.1|0|0|Kupovina|0
+05-21 09:55:16.425|User948|192.168.0.1|0|0|Kupovina|0
+05-21 09:55:16.505|User721|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:55:17.809|User761|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:55:18.691|User521|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:55:21.239|User721|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:55:21.401|User761|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:55:22.201|User948|192.168.0.1|1|0|Izmena profila|0
+05-21 09:55:23.889|User521|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:55:23.988|User721|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:55:24.201|User761|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:55:25.257|User521|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:55:25.332|User948|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:55:25.335|User761|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:55:27.101|User948|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:55:28.92|User721|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:55:30.110|User521|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:55:32.762|User457|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:55:32.999|User761|192.168.0.1|0|0|Kupovina|0
+05-21 09:55:33.664|User721|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:55:33.992|User948|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:55:34.412|User457|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:55:35.634|User457|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:55:36.526|User721|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:55:36.910|User761|192.168.0.1|1|0|Izmena profila|0
+05-21 09:55:37.529|User457|192.168.0.1|0|0|Kupovina|0
+05-21 09:55:39.13|User457|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:55:39.942|User948|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:55:41.323|User761|192.168.0.1|0|0|Kupovina|0
+05-21 09:55:41.936|User457|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:55:42.324|User721|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:55:43.635|User662|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:55:44.669|User457|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:55:44.844|User761|192.168.0.1|1|0|Izmena profila|0
+05-21 09:55:45.293|User721|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:55:45.996|User662|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:55:46.104|User457|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:55:48.94|User721|192.168.0.1|0|0|Kupovina|0
+05-21 09:55:48.602|User761|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:55:49.578|User457|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:55:50.913|User721|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:55:53.420|User662|192.168.0.1|0|0|Kupovina|0
+05-21 09:55:53.422|User457|192.168.0.1|1|0|Izmena profila|0
+05-21 09:55:54.207|User192|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:55:55.488|User761|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:55:55.632|User457|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:55:56.177|User662|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:55:57.94|User74|192.168.0.1|0|0|Neuspesna prijava|0
+05-21 09:55:58.731|User192|192.168.0.1|0|0|Kupovina|0
+05-21 09:55:58.792|User74|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:55:58.919|User662|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:56:01.314|User761|192.168.0.1|1|0|Izmena profila|0
+05-21 09:56:03.131|User662|192.168.0.1|0|0|Kupovina|0
+05-21 09:56:04.232|User662|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:56:04.422|User192|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:56:04.611|User74|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:56:05.859|User420|192.168.0.1|0|0|Neuspesna prijava|0
+05-21 09:56:06.214|User761|192.168.0.1|1|0|Izmena profila|0
+05-21 09:56:06.657|User662|192.168.0.1|0|0|Kupovina|0
+05-21 09:56:07.381|User420|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:56:08.73|User74|192.168.0.1|1|0|Izmena profila|0
+05-21 09:56:08.274|User662|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:56:09.539|User420|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:56:09.555|User74|192.168.0.1|1|0|Izmena profila|0
+05-21 09:56:11.570|User761|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:56:13.11|User74|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:56:14.638|User662|192.168.0.1|0|0|Kupovina|0
+05-21 09:56:14.820|User872|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:56:15.403|User420|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:56:16.137|User74|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:56:17.670|User420|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:56:19.231|User931|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:56:19.438|User662|192.168.0.1|1|0|Izmena profila|0
+05-21 09:56:19.692|User872|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:56:20.107|User74|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:56:21.40|User931|192.168.0.1|0|0|Kupovina|0
+05-21 09:56:22.668|User777|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:56:23.501|User267|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:56:24.439|User931|192.168.0.1|0|0|Kupovina|0
+05-21 09:56:24.654|User267|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:56:25.721|User777|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:56:25.979|User662|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:56:27.175|User662|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:56:28.193|User931|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:56:28.430|User574|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:56:29.53|User692|192.168.0.1|0|0|Neuspesna prijava|0
+05-21 09:56:30.360|User574|192.168.0.1|1|0|Izmena profila|0
+05-21 09:56:31.836|User692|192.168.0.1|0|0|Neuspesna prijava|0
+05-21 09:56:33.268|User574|192.168.0.1|0|0|Kupovina|0
+05-21 09:56:33.288|User662|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:56:33.686|User931|192.168.0.1|0|0|Kupovina|0
+05-21 09:56:35.648|User692|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:56:36.703|User574|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:56:37.506|User662|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:56:37.842|User692|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:56:39.715|User574|192.168.0.1|0|0|Kupovina|0
+05-21 09:56:39.770|User523|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:56:40.332|User931|192.168.0.1|0|0|Kupovina|0
+05-21 09:56:41.166|User841|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:56:42.333|User931|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:56:43.893|User841|192.168.0.1|0|0|Kupovina|0
+05-21 09:56:44.429|User574|192.168.0.1|0|0|Kupovina|0
+05-21 09:56:45.226|User931|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:56:46.380|User523|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:56:47.538|User841|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:56:48.345|User523|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:56:48.749|User172|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:56:49.272|User931|192.168.0.1|1|0|Izmena profila|0
+05-21 09:56:49.901|User574|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:56:50.946|User172|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:56:53.121|User326|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:56:53.306|User523|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:56:53.536|User931|192.168.0.1|0|0|Kupovina|0
+05-21 09:56:53.739|User172|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:56:55.141|User931|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:56:55.458|User326|192.168.0.1|0|0|Kupovina|0
+05-21 09:56:56.508|User797|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:56:59.806|User931|192.168.0.1|1|0|Izmena profila|0
+05-21 09:56:59.924|User326|192.168.0.1|1|0|Izmena profila|0
+05-21 09:57:01.654|User172|192.168.0.1|0|0|Kupovina|0
+05-21 09:57:02.569|User326|192.168.0.1|1|0|Izmena profila|0
+05-21 09:57:04.102|User797|192.168.0.1|0|0|Kupovina|0
+05-21 09:57:04.923|User326|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:57:06.158|User931|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:57:06.877|User172|192.168.0.1|1|0|Izmena profila|0
+05-21 09:57:07.00|User797|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:57:08.488|User931|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:57:08.996|User326|192.168.0.1|1|0|Izmena profila|0
+05-21 09:57:10.757|User172|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:57:11.344|User482|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:57:11.724|User797|192.168.0.1|0|0|Kupovina|0
+05-21 09:57:12.427|User326|192.168.0.1|1|0|Izmena profila|0
+05-21 09:57:12.955|User187|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:57:13.253|User482|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:57:14.412|User326|192.168.0.1|1|0|Izmena profila|0
+05-21 09:57:15.179|User797|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:57:15.316|User482|192.168.0.1|1|0|Izmena profila|0
+05-21 09:57:16.150|User187|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:57:17.409|User482|192.168.0.1|1|0|Izmena profila|0
+05-21 09:57:18.368|User326|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:57:18.439|User797|192.168.0.1|1|0|Izmena profila|0
+05-21 09:57:18.549|User482|192.168.0.1|1|0|Izmena profila|0
+05-21 09:57:18.746|User238|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:57:21.613|User797|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:57:22.544|User482|192.168.0.1|1|0|Izmena profila|0
+05-21 09:57:24.248|User238|192.168.0.1|1|0|Izmena profila|0
+05-21 09:57:24.970|User326|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:57:25.473|User797|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:57:25.587|User482|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:57:25.990|User238|192.168.0.1|1|0|Izmena profila|0
+05-21 09:57:27.64|User326|192.168.0.1|0|0|Kupovina|0
+05-21 09:57:27.363|User97|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:57:28.294|User482|192.168.0.1|1|0|Izmena profila|0
+05-21 09:57:29.151|User238|192.168.0.1|0|0|Kupovina|0
+05-21 09:57:29.316|User326|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:57:29.742|User482|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:57:32.735|User238|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:57:33.142|User97|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:57:33.171|User259|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:57:34.184|User482|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:57:34.426|User238|192.168.0.1|1|0|Izmena profila|0
+05-21 09:57:34.885|User259|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:57:36.454|User238|192.168.0.1|0|0|Kupovina|0
+05-21 09:57:36.695|User616|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:57:36.847|User259|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:57:37.805|User482|192.168.0.1|0|0|Kupovina|0
+05-21 09:57:40.12|User482|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:57:40.650|User616|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:57:41.64|User482|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:57:41.856|User616|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:57:43.133|User238|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:57:43.269|User259|192.168.0.1|0|0|Kupovina|0
+05-21 09:57:43.769|User482|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:57:44.153|User616|192.168.0.1|0|0|Kupovina|0
+05-21 09:57:45.294|User616|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:57:46.318|User482|192.168.0.1|1|0|Izmena profila|0
+05-21 09:57:46.541|User616|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:57:46.699|User259|192.168.0.1|1|0|Izmena profila|0
+05-21 09:57:47.945|User616|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:57:47.964|User238|192.168.0.1|0|0|Kupovina|0
+05-21 09:57:49.171|User259|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:57:50.945|User259|192.168.0.1|0|0|Kupovina|0
+05-21 09:59:33.871|User668|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:59:34.410|User751|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:59:34.583|User461|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:59:35.425|User856|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:59:36.970|User668|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:59:38.84|User461|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:59:38.386|User751|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:59:39.150|User856|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:59:39.365|User543|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:59:39.387|User668|192.168.0.1|1|0|Izmena profila|0
+05-21 09:59:40.440|User543|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:59:42.81|User751|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:59:42.934|User543|192.168.0.1|1|0|Izmena profila|0
+05-21 09:59:46.858|User856|192.168.0.1|0|0|Kupovina|0
+05-21 09:59:47.168|User668|192.168.0.1|0|0|Kupovina|0
+05-21 09:59:48.546|User751|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:59:48.773|User856|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:59:49.332|User543|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:59:50.252|User668|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:59:50.658|User543|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:59:51.871|User827|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:59:52.859|User786|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:59:53.302|User827|192.168.0.1|1|0|Slanje poruke|0
+05-21 09:59:53.430|User856|192.168.0.1|1|0|Izmena profila|0
+05-21 09:59:54.577|User751|192.168.0.1|0|0|Kupovina|0
+05-21 09:59:55.369|User856|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 09:59:55.997|User786|192.168.0.1|1|0|Izmena profila|0
+05-21 09:59:57.751|User786|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 09:59:57.877|User827|192.168.0.1|0|0|Kupovina|0
+05-21 09:59:58.60|User99|192.168.0.1|0|0|Uspesna prijava|0
+05-21 09:59:58.730|User751|192.168.0.1|1|0|Izmena profila|0
+05-21 10:00:00.786|User751|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 10:00:02.51|User786|192.168.0.1|1|0|Slanje poruke|0
+05-21 10:00:02.618|User99|192.168.0.1|1|0|Izmena profila|0
+05-21 10:00:04.183|User786|192.168.0.1|1|0|Izmena profila|0
+05-21 10:00:04.353|User493|192.168.0.1|0|0|Uspesna prijava|0
+05-21 10:00:05.29|User99|192.168.0.1|1|0|Izmena profila|0
+05-21 10:00:05.674|User827|192.168.0.1|0|0|Kupovina|0
+05-21 10:00:08.567|User786|192.168.0.1|1|0|Izmena profila|0
+05-21 10:00:09.190|User493|192.168.0.1|0|0|Kupovina|0
+05-21 10:00:09.645|User827|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 10:00:11.271|User493|192.168.0.1|1|0|Izmena profila|0
+05-21 10:00:11.909|User99|192.168.0.1|0|0|Kupovina|0
+05-21 10:00:12.400|User493|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 10:00:12.521|User802|192.168.0.1|0|0|Uspesna prijava|0
+05-21 10:00:12.531|User786|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 10:00:13.701|User907|192.168.0.1|0|0|Uspesna prijava|0
+05-21 10:00:14.22|User786|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 10:00:15.29|User802|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 10:00:16.133|User924|192.168.0.1|0|0|Uspesna prijava|0
+05-21 10:00:16.730|User99|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 10:00:17.315|User924|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 10:00:17.412|User907|192.168.0.1|1|0|Slanje poruke|0
+05-21 10:00:20.258|User756|192.168.0.1|0|0|Uspesna prijava|0
+05-21 10:00:21.345|User756|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 10:19:27.469|User635|192.168.0.1|0|0|Uspesna prijava|0
+05-21 10:19:28.323|User378|192.168.0.1|0|0|Neuspesna prijava|0
+05-21 10:19:28.404|User594|192.168.0.1|0|0|Uspesna prijava|0
+05-21 10:19:29.159|User560|192.168.0.1|0|0|Neuspesna prijava|0
+05-21 10:19:30.343|User560|192.168.0.1|0|0|Neuspesna prijava|0
+05-21 10:19:31.163|User635|192.168.0.1|0|0|Kupovina|0
+05-21 10:19:31.810|User378|192.168.0.1|0|0|Uspesna prijava|0
+05-21 10:19:32.539|User560|192.168.0.1|0|0|Uspesna prijava|0
+05-21 10:19:33.782|User560|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 10:19:34.389|User594|192.168.0.1|1|0|Slanje poruke|0
+05-21 10:19:34.492|User635|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 10:19:36.930|User148|192.168.0.1|0|0|Neuspesna prijava|0
+05-21 10:19:37.77|User378|192.168.0.1|0|0|Kupovina|0
+05-21 10:19:38.389|User148|192.168.0.1|0|0|Uspesna prijava|0
+05-21 10:19:39.49|User594|192.168.0.1|0|0|Kupovina|0
+05-21 10:19:41.426|User378|192.168.0.1|1|0|Slanje poruke|0
+05-21 10:19:41.931|User635|192.168.0.1|0|0|Kupovina|0
+05-21 10:19:43.941|User594|192.168.0.1|0|0|Kupovina|0
+05-21 10:19:44.265|User635|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 10:19:44.335|User148|192.168.0.1|1|0|Slanje poruke|0
+05-21 10:19:44.354|User378|192.168.0.1|1|0|Slanje poruke|0
+05-21 10:19:44.980|User594|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 10:19:46.619|User635|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 10:19:48.91|User148|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 10:19:48.574|User850|192.168.0.1|0|0|Uspesna prijava|0
+05-21 10:19:49.116|User378|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 10:19:50.336|User850|192.168.0.1|1|0|Slanje poruke|0
+05-21 10:19:50.598|User478|192.168.0.1|0|0|Neuspesna prijava|0
+05-21 10:19:52.241|User586|192.168.0.1|0|0|Uspesna prijava|0
+05-21 10:19:52.604|User478|192.168.0.1|0|0|Neuspesna prijava|0
+05-21 10:19:53.373|User635|192.168.0.1|1|0|Slanje poruke|0
+05-21 10:19:55.702|User586|192.168.0.1|1|0|Izmena profila|0
+05-21 10:19:55.915|User478|192.168.0.1|0|0|Uspesna prijava|0
+05-21 10:19:55.948|User635|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 10:19:56.137|User850|192.168.0.1|1|0|Izmena profila|0
+05-21 10:19:56.981|User626|192.168.0.1|0|0|Uspesna prijava|0
+05-21 10:19:57.693|User850|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 10:19:58.788|User190|192.168.0.1|0|0|Uspesna prijava|0
+05-21 10:19:58.944|User478|192.168.0.1|1|0|Izmena profila|0
+05-21 10:20:00.692|User586|192.168.0.1|1|0|Izmena profila|0
+05-21 10:20:02.835|User626|192.168.0.1|1|0|Izmena profila|0
+05-21 10:20:03.326|User190|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 10:20:04.544|User478|192.168.0.1|1|0|Izmena profila|0
+05-21 10:20:05.334|User586|192.168.0.1|1|0|Izmena profila|0
+05-21 10:20:06.718|User498|192.168.0.1|0|0|Uspesna prijava|0
+05-21 10:20:06.762|User478|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 10:20:07.346|User586|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 10:20:08.183|User425|192.168.0.1|0|0|Uspesna prijava|0
+05-21 10:20:08.373|User626|192.168.0.1|1|0|Izmena profila|0
+05-21 10:20:09.592|User425|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 10:20:10.688|User425|192.168.0.1|1|0|Izmena profila|0
+05-21 10:20:11.113|User626|192.168.0.1|1|0|Izmena profila|0
+05-21 10:20:11.767|User425|192.168.0.1|1|0|Izmena profila|0
+05-21 10:20:11.814|User498|192.168.0.1|0|0|Kupovina|0
+05-21 10:20:12.264|User586|192.168.0.1|0|0|Kupovina|0
+05-21 10:23:17.903|User679|192.168.0.1|0|0|Uspesna prijava|0
+05-21 10:23:18.421|User147|192.168.0.1|0|0|Neuspesna prijava|0
+05-21 10:23:18.534|User614|192.168.0.1|0|0|Uspesna prijava|0
+05-21 10:23:18.896|User33|192.168.0.1|0|0|Neuspesna prijava|0
+05-21 10:23:19.578|User679|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 10:23:19.799|User147|192.168.0.1|0|0|Uspesna prijava|0
+05-21 10:23:20.234|User33|192.168.0.1|0|0|Uspesna prijava|0
+05-21 10:23:22.178|User614|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 10:23:23.466|User679|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 10:23:23.771|User147|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 10:23:25.132|User679|192.168.0.1|1|0|Izmena profila|0
+05-21 10:23:25.930|User711|192.168.0.1|0|0|Uspesna prijava|0
+05-21 10:23:26.659|User33|192.168.0.1|1|0|Slanje poruke|0
+05-21 10:23:28.460|User679|192.168.0.1|1|0|Slanje poruke|0
+05-21 10:23:29.419|User33|192.168.0.1|1|0|Izmena profila|0
+05-21 10:23:30.411|User679|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 10:23:31.672|User147|192.168.0.1|0|0|Kupovina|0
+05-21 10:23:32.60|User33|192.168.0.1|0|0|Kupovina|0
+05-21 10:23:32.642|User711|192.168.0.1|0|0|Kupovina|0
+05-21 10:23:33.28|User679|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 10:23:33.805|User711|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 10:23:33.831|User33|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 10:23:35.758|User711|192.168.0.1|1|0|Slanje poruke|0
+05-21 10:23:36.918|User33|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 10:23:37.845|User147|192.168.0.1|0|0|Kupovina|0
+05-21 10:23:38.672|User679|192.168.0.1|1|0|Izmena profila|0
+05-21 10:23:41.291|User711|192.168.0.1|1|0|Slanje poruke|0
+05-21 10:23:42.330|User679|192.168.0.1|0|0|Kupovina|0
+05-21 10:23:43.344|User147|192.168.0.1|1|0|Izmena profila|0
+05-21 10:23:43.913|User33|192.168.0.1|1|0|Slanje poruke|0
+05-21 10:23:46.285|User147|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 10:23:46.504|User33|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 10:23:46.924|User711|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 10:23:47.751|User679|192.168.0.1|1|0|Izmena profila|0
+05-21 10:23:50.111|User988|192.168.0.1|0|0|Neuspesna prijava|0
+05-21 10:23:50.255|User772|192.168.0.1|0|0|Neuspesna prijava|0
+05-21 10:23:51.608|User772|192.168.0.1|0|0|Uspesna prijava|0
+05-21 10:23:52.476|User988|192.168.0.1|0|0|Uspesna prijava|0
+05-21 10:23:52.562|User679|192.168.0.1|0|0|Kupovina|0
+05-21 10:23:53.137|User33|192.168.0.1|1|0|Slanje poruke|0
+05-21 10:23:54.107|User772|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 10:23:54.576|User33|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 10:23:55.432|User679|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 10:23:56.687|User988|192.168.0.1|0|0|Kupovina|0
+05-21 10:23:56.821|User772|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 10:23:57.183|User467|192.168.0.1|0|0|Uspesna prijava|0
+05-21 10:23:58.674|User772|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 10:23:59.527|User33|192.168.0.1|1|0|Izmena profila|0
+05-21 10:24:00.972|User467|192.168.0.1|0|0|Kupovina|0
+05-21 10:24:01.924|User33|192.168.0.1|0|0|Kupovina|0
+05-21 10:24:02.46|User988|192.168.0.1|1|0|Slanje poruke|0
+05-21 10:24:03.747|User772|192.168.0.1|0|0|Kupovina|0
+05-21 10:24:04.969|User467|192.168.0.1|1|0|Slanje poruke|0
+05-21 10:24:05.406|User33|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 10:24:05.953|User988|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 10:24:06.791|User952|192.168.0.1|0|0|Uspesna prijava|0
+05-21 10:24:07.282|User467|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 10:24:08.654|User339|192.168.0.1|0|0|Uspesna prijava|0
+05-21 10:24:09.399|User451|192.168.0.1|0|0|Neuspesna prijava|0
+05-21 10:24:10.550|User772|192.168.0.1|0|0|Kupovina|0
+05-21 10:24:10.952|User952|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 10:24:11.492|User451|192.168.0.1|0|0|Uspesna prijava|0
+05-21 10:24:12.802|User589|192.168.0.1|0|0|Uspesna prijava|0
+05-21 10:24:15.391|User589|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 10:24:15.891|User339|192.168.0.1|0|0|Kupovina|0
+05-21 10:24:16.495|User772|192.168.0.1|1|0|Slanje poruke|0
+05-21 10:24:17.419|User339|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 10:24:18.769|User339|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 10:24:18.996|User589|192.168.0.1|1|0|Slanje poruke|0
+05-21 10:24:19.17|User451|192.168.0.1|0|0|Kupovina|0
+05-21 10:24:20.321|User772|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 10:24:20.961|User589|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 10:24:21.678|User772|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 10:24:22.399|User339|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 10:24:23.491|User772|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 10:24:23.886|User407|192.168.0.1|0|0|Neuspesna prijava|0
+05-21 10:24:23.976|User994|192.168.0.1|0|0|Neuspesna prijava|0
+05-21 10:24:25.624|User407|192.168.0.1|0|0|Uspesna prijava|0
+05-21 10:24:26.305|User451|192.168.0.1|0|0|Kupovina|0
+05-21 10:24:27.441|User994|192.168.0.1|0|0|Uspesna prijava|0
+05-21 10:24:28.308|User772|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 10:24:29.318|User954|192.168.0.1|0|0|Uspesna prijava|0
+05-21 10:24:29.682|User407|192.168.0.1|1|0|Slanje poruke|0
+05-21 10:24:30.607|User451|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 10:24:30.679|User954|192.168.0.1|1|0|Slanje poruke|0
+05-21 10:24:31.777|User994|192.168.0.1|1|0|Izmena profila|0
+05-21 10:24:33.32|User407|192.168.0.1|0|0|Kupovina|0
+05-21 10:24:33.172|User994|192.168.0.1|1|0|Izmena profila|0
+05-21 10:24:33.837|User850|192.168.0.1|0|0|Uspesna prijava|0
+05-21 10:24:35.462|User954|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 10:24:35.736|User407|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 10:24:36.855|User196|192.168.0.1|0|0|Uspesna prijava|0
+05-21 10:24:37.32|User994|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 10:24:37.166|User850|192.168.0.1|0|0|Kupovina|0
+05-21 10:24:37.951|User196|192.168.0.1|1|0|Slanje poruke|0
+05-21 10:24:38.240|User994|192.168.0.1|0|0|Kupovina|0
+05-21 10:24:39.618|User509|192.168.0.1|0|0|Uspesna prijava|0
+05-21 10:24:39.803|User850|192.168.0.1|1|0|Slanje poruke|0
+05-21 10:24:40.645|User196|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 10:24:40.671|User994|192.168.0.1|1|0|Slanje poruke|0
+05-21 10:24:40.944|User850|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 10:24:43.604|User196|192.168.0.1|1|0|Izmena profila|0
+05-21 10:24:43.664|User519|192.168.0.1|0|0|Neuspesna prijava|0
+05-21 10:24:44.394|User509|192.168.0.1|1|0|Slanje poruke|0
+05-21 10:24:45.652|User994|192.168.0.1|1|0|Slanje poruke|0
+05-21 10:24:46.703|User994|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 10:24:47.80|User519|192.168.0.1|0|0|Uspesna prijava|0
+05-21 10:24:47.390|User509|192.168.0.1|0|0|Kupovina|0
+05-21 10:24:48.570|User737|192.168.0.1|0|0|Uspesna prijava|0
+05-21 10:24:49.117|User509|192.168.0.1|1|0|Izmena profila|0
+05-21 10:24:49.329|User196|192.168.0.1|1|0|Izmena profila|0
+05-21 10:24:50.739|User196|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 10:24:51.926|User509|192.168.0.1|0|0|Kupovina|0
+05-21 10:24:52.987|User519|192.168.0.1|1|0|Slanje poruke|0
+05-21 10:24:54.158|User196|192.168.0.1|0|0|Kupovina|0
+05-21 10:24:55.75|User509|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 10:24:55.986|User737|192.168.0.1|0|0|Kupovina|0
+05-21 10:24:56.126|User196|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 10:24:56.734|User509|192.168.0.1|1|0|Slanje poruke|0
+05-21 10:24:57.277|User519|192.168.0.1|1|0|Slanje poruke|0
+05-21 10:24:59.585|User737|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 10:24:59.870|User509|192.168.0.1|0|0|Kupovina|0
+05-21 10:25:01.336|User519|192.168.0.1|1|0|Slanje poruke|0
+05-21 10:25:01.905|User196|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 10:25:02.722|User509|192.168.0.1|1|0|Slanje poruke|0
+05-21 10:25:04.568|User509|192.168.0.1|1|0|Izmena profila|0
+05-21 10:25:05.575|User737|192.168.0.1|0|0|Kupovina|0
+05-21 10:25:05.620|User851|192.168.0.1|0|0|Uspesna prijava|0
+05-21 10:25:06.503|User519|192.168.0.1|1|0|Slanje poruke|0
+05-21 10:25:08.103|User851|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 10:25:08.754|User509|192.168.0.1|1|0|Izmena profila|0
+05-21 10:25:09.139|User519|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 10:25:10.241|User737|192.168.0.1|1|0|Slanje poruke|0
+05-21 10:25:10.969|User509|192.168.0.1|1|0|Slanje poruke|0
+05-21 10:42:29.594|User185|192.168.0.1|0|0|Uspesna prijava|0
+05-21 10:42:30.131|User698|192.168.0.1|0|0|Uspesna prijava|0
+05-21 10:42:30.560|User753|192.168.0.1|0|0|Uspesna prijava|0
+05-21 10:42:32.506|User623|192.168.0.1|0|0|Uspesna prijava|0
+05-21 10:42:35.932|User753|192.168.0.1|1|0|Izmena profila|0
+05-21 10:42:36.705|User698|192.168.0.1|1|0|Slanje poruke|0
+05-21 10:42:37.217|User185|192.168.0.1|0|0|Kupovina|0
+05-21 10:43:40.691|User75|192.168.0.1|0|0|Uspesna prijava|0
+05-21 10:43:42.362|User599|192.168.0.1|0|0|Uspesna prijava|0
+05-21 10:43:42.419|User75|192.168.0.1|0|0|Kupovina|0
+05-21 10:43:42.956|User834|192.168.0.1|0|0|Uspesna prijava|0
+05-21 10:43:43.474|User941|192.168.0.1|0|0|Uspesna prijava|0
+05-21 10:43:44.417|User75|192.168.0.1|1|0|Izmena profila|0
+05-21 10:43:45.491|User75|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 10:43:45.892|User834|192.168.0.1|0|0|Kupovina|0
+05-21 10:43:47.286|User318|192.168.0.1|0|0|Neuspesna prijava|0
+05-21 10:43:48.767|User599|192.168.0.1|1|0|Slanje poruke|0
+05-21 10:43:49.174|User941|192.168.0.1|1|0|Izmena profila|0
+05-21 10:43:50.47|User599|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 10:43:50.468|User834|192.168.0.1|1|0|Izmena profila|0
+05-21 10:43:50.531|User318|192.168.0.1|0|0|Uspesna prijava|0
+05-21 10:43:53.849|User599|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 10:43:54.679|User834|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 10:43:54.992|User941|192.168.0.1|1|0|Izmena profila|0
+05-21 10:43:56.548|User839|192.168.0.1|0|0|Uspesna prijava|0
+05-21 10:43:56.658|User941|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 10:43:56.766|User318|192.168.0.1|0|0|Kupovina|0
+05-21 10:43:57.270|User599|192.168.0.1|0|0|Kupovina|0
+05-21 10:43:59.692|User941|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 10:43:59.884|User318|192.168.0.1|0|0|Odjava sa sistema|0
+05-21 10:44:00.462|User839|192.168.0.1|1|0|Izmena profila|0
+05-21 10:44:01.201|User599|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 10:44:01.280|User628|192.168.0.1|0|0|Uspesna prijava|0
+05-21 10:44:01.528|User211|192.168.0.1|0|0|Uspesna prijava|0
+05-21 10:44:02.446|User628|192.168.0.1|1|0|Slanje poruke|0
+05-21 10:44:04.905|User599|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 10:44:05.178|User628|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 10:44:06.20|User839|192.168.0.1|1|0|Slanje poruke|0
+05-21 10:44:06.183|User599|192.168.0.1|1|0|Slanje poruke|0
+05-21 10:44:07.73|User211|192.168.0.1|0|0|Kupovina|0
+05-21 10:44:07.743|User599|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 10:44:09.322|User599|192.168.0.1|0|0|Pristup nedozvoljenom fajlu|0
+05-21 10:44:10.497|User628|192.168.0.1|1|0|Izmena profila|0
+05-21 10:44:10.864|User211|192.168.0.1|0|0|Kupovina|0
+05-21 10:44:11.502|User839|192.168.0.1|0|0|Odjava sa sistema|0

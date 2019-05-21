@@ -71,7 +71,8 @@ public class LogService {
                 return  true;
             }
         }
-        return  false;
+
+        return filters.size() == 0;
     }
 
     private boolean checkRegex(String line, Set<String> dataRegex)
