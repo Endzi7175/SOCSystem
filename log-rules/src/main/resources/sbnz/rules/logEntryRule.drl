@@ -68,11 +68,20 @@ rule "Pojava loga koji je tipa error log level = 1 kad je error"
 end
 rule "Neuspesan pokusaj prijave na sistem od stane korisnika koji nije bio aktivan vise od 90 dana"
     when
-        $l1 : LogEntry(message.equals("Neuspesna prijava na sistem"), $m: message, $id: userId) 
+        $l1 : LogEntry(message.equals("Neuspesna prijava na sistem"), $m: message, $id: userId)
+        not (AlarmTriggered(customerId == $id, type == AlarmTriggered.POKUSAJ_PRIJAVE_NEAKTIVAN_KORISNIK))
+        Number(intValue == 0) from accumulate(
+            $l2: LogEntry(
+                this != $l1, 
+                message.equals("Uspesna prijava na sistem"),
+                userId == $id, 
+                this meets[90d] $l1
+            ),
+            count($l2)
+        ) 
         //not (LogEntry())
         //
-        $l4 : LogEntry(message.equals("Neuspesna prijava na sistem"), userId == $id, this after $l1)
-        $l2 : LogEntry(message.equals("Uspesna prijava na sistem"), userId == $id, this before[90d] $l4)
+        //not(LogEntry(message.equals("Neuspesna prijava na sistem"), userId == $id, this meets[90d] $l1))
         //$l3 : (LogEntry(message.equals("Neuspesna prijava na sistem"), userId == $id, this before[90d] $l2)
         //not (AlarmTriggered(customerId == $id))
         

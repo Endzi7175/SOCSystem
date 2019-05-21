@@ -10,7 +10,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 
-import com.sbnz.SIEMCenter2.repository.MaliciousIpRepository;
 import com.sbnz.SIEMCenter2.service.KieService;
 
 

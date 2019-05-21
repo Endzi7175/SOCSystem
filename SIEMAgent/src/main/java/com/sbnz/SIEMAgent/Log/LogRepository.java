@@ -85,7 +85,7 @@ public class LogRepository {
             perms.add(PosixFilePermission.GROUP_WRITE);
             perms.add(PosixFilePermission.GROUP_EXECUTE);
             
-            Files.setPosixFilePermissions(Paths.get(fileName), perms);
+            //Files.setPosixFilePermissions(Paths.get(fileName), perms);
             fstream.write(getGSON().toJson(logs));
         } catch (IOException e) {
             e.printStackTrace();

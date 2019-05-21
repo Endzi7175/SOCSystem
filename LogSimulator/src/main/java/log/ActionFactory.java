@@ -19,7 +19,7 @@ public class ActionFactory {
 					}
 					int loginChance = random.nextInt(5);
 					if (loginChance == 0){
-						return new LogEntry(0, "Neuspesna prijava", 0, 0, "192.168.0.1", user.getUsername(), new Date());
+						return new LogEntry(0, "Neuspesna prijava na sistem", 0, 0, "192.168.0.1", user.getUsername(), new Date());
 					}else{
 						user.setState(UserState.AUTHORIZED);
 						return new LogEntry(0, "Uspesna prijava", 0, 0, "192.168.0.1", user.getUsername(), new Date());
@@ -82,7 +82,7 @@ public class ActionFactory {
 					//1 - 30 login sansa
 					int loginChance = random.nextInt(30);
 					if (loginChance > 0){
-						return new LogEntry(0, "Neuspesna prijava", 0, 0, "192.168.0.1", user.getUsername(), new Date());
+						return new LogEntry(0, "Neuspesna prijava na sistem", 0, 0, "192.168.0.1", user.getUsername(), new Date());
 					}else{
 						user.setState(UserState.AUTHORIZED);
 						return new LogEntry(0, "Uspesna prijava", 0, 0, "192.168.0.1", user.getUsername(), new Date());

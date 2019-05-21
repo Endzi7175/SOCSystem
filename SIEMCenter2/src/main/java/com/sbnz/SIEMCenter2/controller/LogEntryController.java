@@ -32,7 +32,7 @@ public class LogEntryController {
 	}
 	@PostMapping(produces =MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public void addnewPost(@RequestBody List<LogEntry> logs){
-
+		
 		kieService.insertLogEntries(logs);
 		for (LogEntry log : logs){
 			logService.save(log);
