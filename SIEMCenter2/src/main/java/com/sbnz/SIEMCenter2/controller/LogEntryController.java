@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.kie.api.runtime.KieSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,14 +22,27 @@ import com.sbnz.SIEMCenter2.service.LogEntryService;
 public class LogEntryController {
 	@Autowired
 	KieService kieService;
+	@Autowired
+	KieSession kieSession;
 	@Autowired 
 	LogEntryService logService;
 	@GetMapping(produces =MediaType.APPLICATION_JSON_VALUE)
 	public void addnew(){
 		Date date = new Date(2019, 5, 19, 20, 0);
 		List<LogEntry > list = new ArrayList<LogEntry>();
-		list.add(new LogEntry(1, "Neuspesna prijava", "asd", 1, "192.168.0.1", "1", date));
-		kieService.insertLogEntries(list);
+		//LogEntry log = new LogEntry(1, "Neuspesna prijava na sistem", "asd", 1, "192.168.0.1", "1", date);
+		//kieSession.insert(log);
+		//kieSession.fireAllRules();
+	}
+	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE, value = "/1")
+	public void addneww(){
+		Date date = new Date(2019, 5, 19, 20, 0);
+		List<LogEntry > list = new ArrayList<LogEntry>();
+		//LogEntry log = new LogEntry(1, "Neuspesna prijava", "asd", 0, "192.168.0.1", "0", date);
+		//kieSession.insert(log);
+		kieSession.fireAllRules();
+		
+		//kieSession.
 	}
 	@PostMapping(produces =MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public void addnewPost(@RequestBody List<LogEntry> logs){

@@ -19,7 +19,7 @@ import org.kie.api.definition.type.Timestamp;
 import com.fasterxml.jackson.annotation.JsonFormat;
 @Role(Role.Type.EVENT)
 @Timestamp("timeStamp")
-@Expires("2h30m")
+@Expires("200d")
 @Entity
 public class LogEntry implements Serializable{
 	@Id
@@ -40,15 +40,17 @@ public class LogEntry implements Serializable{
 	@Column(nullable = false)
     private String userId;
 	@Column(nullable = false)
+	private String machineId;
+	@Column(nullable = false)
 	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="MM-dd hh:mm:ss.SS")
     private Date timestamp;
 	
-    private static DateFormat sdf = new SimpleDateFormat("MM-DD hh:mm:ss.SS");
+    private static DateFormat sdf = new SimpleDateFormat("MM-dd hh:mm:ss.SS");
 
 
 
 	public LogEntry(int informationSystemType, String message, String category, int logLevel, String ipAddress,
-			String userId, Date timestamp) {
+			String userId, Date timestamp, String machineId) {
 		super();
 		this.informationSystemType = informationSystemType;
 		this.message = message;
@@ -57,6 +59,8 @@ public class LogEntry implements Serializable{
 		this.ipAddress = ipAddress;
 		this.userId = userId;
 		this.timestamp = timestamp;
+		this.timestamp.setYear((new Date()).getYear());
+		this.machineId = machineId;
 	}
 	
 
@@ -65,6 +69,7 @@ public class LogEntry implements Serializable{
     	String[] tokens = line.split("\\|");
         try {
             timestamp = sdf.parse(tokens[0]);
+            timestamp.setYear((new Date()).getYear());
             userId = tokens[1];
             ipAddress = tokens[2];
             logLevel = Integer.parseInt(tokens[3]);
@@ -161,4 +166,11 @@ public class LogEntry implements Serializable{
     public int getLogLevel() {
         return logLevel;
     }
+	public String getMachineId() {
+		return machineId;
+	}
+	public void setMachineId(String machineId) {
+		this.machineId = machineId;
+	}
+    
 }

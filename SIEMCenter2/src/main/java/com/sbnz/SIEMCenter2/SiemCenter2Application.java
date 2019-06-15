@@ -37,17 +37,6 @@ public class SiemCenter2Application implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-//		  Date date = new Date(2019, 5, 19, 20, 0);
-//	        LogEntry le = new LogEntry(1, "Neuspesna prijava", "asd", 1, "192.168.0.1", "1", date);
-//	        LogEntry le1 = new LogEntry(2, "Neuspesna prijavaa", "asd", 2, "192.168.0.1", "1", date);
-//	        LogEntry le2 = new LogEntry(3, "Neuspesna prijava", "asd", 3, "192.168.0.1", "1", date);
-//	        List<LogEntry> entries = new ArrayList<>();
-//	        entries.add(le);
-//	        entries.add(le1);
-//	        entries.add(le2);
-//	        
-//	        kieService.insertLogEntries(entries);
-			//kieSession.insert(new LogEntry(1, "Neuspesna prijava", "1", 1, "128.212.", "1", new Date()));
 		 Condition condition = new Condition();
 		 condition.field = "message";
 		 condition.value = "Pera";
@@ -66,7 +55,7 @@ public class SiemCenter2Application implements CommandLineRunner {
 		 
 		 rule.conditions.add(condition);
 		 
-		 kieService.insertNewRule(rule);
+		 //kieService.insertNewRule(rule);
 
 	}
 	@Bean

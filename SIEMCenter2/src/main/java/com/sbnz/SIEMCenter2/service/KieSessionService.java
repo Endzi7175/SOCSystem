@@ -13,7 +13,7 @@ public class KieSessionService {
 	static KieSession session;
 	@Autowired
 	public KieSessionService(KieContainer kContainer){
-		session = kContainer.newKieSession();
+		//session = kContainer.newKieSession();
 		//System.out.println("usao");
 		//session.setGlobal("alarmService", this.alarmService);
 	}

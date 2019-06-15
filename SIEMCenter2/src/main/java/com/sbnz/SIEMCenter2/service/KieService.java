@@ -21,11 +21,17 @@ import org.apache.maven.shared.invoker.InvocationRequest;
 import org.apache.maven.shared.invoker.Invoker;
 import org.apache.maven.shared.invoker.MavenInvocationException;
 import org.drools.template.ObjectDataCompiler;
+import org.kie.api.KieBase;
+import org.kie.api.KieBaseConfiguration;
 import org.kie.api.KieServices;
 import org.kie.api.builder.KieScanner;
+import org.kie.api.conf.EventProcessingOption;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 import com.sbnz.SIEMCenter2.model.AlarmTriggered;
@@ -41,21 +47,45 @@ public class KieService {
 	private KieContainer kieCointainer;
 	@Autowired
 	AlarmTriggeredService alarmService;
-	
 	@Autowired
 	LogEntryService logService;
+	@Bean
+	@Scope(value = ConfigurableBeanFactory.SCOPE_SINGLETON)
+	public KieSession getKieSession(){
+		KieServices ks = KieServices.Factory.get();
+		KieBaseConfiguration config = KieServices.Factory.get().newKieBaseConfiguration();
 
+		config.setOption( EventProcessingOption.STREAM );
+		
+		KieContainer kContainer = ks
+				 .newKieContainer(ks.newReleaseId("com.sbnz.drools", "log-rules", "0.0.1-SNAPSHOT"));
+		KieBase kBase = kContainer.newKieBase(config);
+		
+		this.kieCointainer = kContainer;
+		KieScanner kScanner = ks.newKieScanner(kContainer);
+		kScanner.start(10_000);
+		kieSession = kBase.newKieSession();
+		kieSession.setGlobal("alarmService", this.alarmService);
+		return kieSession;
+	}
 
 	public KieService() 
 	{
 		KieServices ks = KieServices.Factory.get();
+		KieBaseConfiguration config = KieServices.Factory.get().newKieBaseConfiguration();
+
+		config.setOption( EventProcessingOption.STREAM );
+		
 		KieContainer kContainer = ks
 				 .newKieContainer(ks.newReleaseId("com.sbnz.drools", "log-rules", "0.0.1-SNAPSHOT"));
+		KieBase kBase = kContainer.newKieBase(config);
+		
 		this.kieCointainer = kContainer;
 		KieScanner kScanner = ks.newKieScanner(kContainer);
 		kScanner.start(10_000);
-		kieSession = kContainer.newKieSession();
+		kieSession = kBase.newKieSession();
 		alarms = new ArrayList<AlarmTriggered>();
+
 		//kieSession.setGlobal("alarms", alarms);
 
 
@@ -75,13 +105,18 @@ public class KieService {
         	kieSession.insert(ent);
 
         }
-        for(LogEntry entry : entries) {
+        
+	  for(LogEntry entry : entries) {
         	kieSession.insert(entry);
         } 
+        	  
+        
+        System.out.println("usao");
+        //kieSession.halt();
      
 		int x = kieSession.fireAllRules();
 		
-		kieSession.dispose();
+		//kieSession.dispose();
 	}
 	
 	public void insertNewRule(Rule rule) throws IOException {
