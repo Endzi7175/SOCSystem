@@ -70,5 +70,8 @@ public class AlarmTriggered {
 	public static int VIRUS = 4;
 	public static int VISE_OD_15_PRIJAVA_RAZLICITI_SISTEMI = 5;
 	public static int POJAVLJIVANJE_VIRUSA = 6;
+	public static int DOS_NAPAD = 7;
+	public static int PAYMENT_NAPAD = 8;
+	public static int BRUTEFORCE_NAPAD = 9;
 	
 }

@@ -7,4 +7,6 @@ import com.sbnz.SIEMCenter2.model.MaliciousIpAddress;
 @Repository
 public interface MaliciousIpRepository extends JpaRepository<MaliciousIpAddress, Long>{
 
+	MaliciousIpAddress findByIp(String ip);
+
 }

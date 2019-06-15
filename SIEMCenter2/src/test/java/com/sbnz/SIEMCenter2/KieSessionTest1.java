@@ -1,6 +1,7 @@
 package com.sbnz.SIEMCenter2;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import java.text.ParseException;
 import java.util.Calendar;
@@ -9,13 +10,15 @@ import java.util.Date;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.kie.api.runtime.KieSession;
-import org.kie.api.time.SessionClock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.sbnz.SIEMCenter2.model.AlarmTriggered;
 import com.sbnz.SIEMCenter2.model.LogEntry;
 import com.sbnz.SIEMCenter2.model.MaliciousIpAddress;
+import com.sbnz.SIEMCenter2.repository.MaliciousIpRepository;
+import com.sbnz.SIEMCenter2.service.AlarmTriggeredService;
 import com.sbnz.SIEMCenter2.service.KieService;
 
 @SpringBootTest
@@ -24,6 +27,10 @@ public class KieSessionTest1 {
 
 	@Autowired
 	KieService kieService;
+	@Autowired
+	AlarmTriggeredService alarmService;
+	@Autowired
+	MaliciousIpRepository ipRepo;
 	@Test
 	public void test_neuspesnePrijaveNaIstojMasini(){
 		KieSession session = kieService.getKieSession();
@@ -213,6 +220,80 @@ public class KieSessionTest1 {
 		assertEquals(1, rulesFired);
 
 	}
+	@Test
+	public void test_DosNapad(){
+		KieSession session = kieService.getKieSession();
+		for (int i = 0; i < 11; i++){
+			LogEntry log = new LogEntry(1, "Placanje", "payment", 0, "222.222.222.222", "1", new Date(), "1");
+			session.insert(log);
+		}
+		for (int i = 0; i < 35; i++){
+			LogEntry log = new LogEntry(1, "Izmena profila", "security related", 0, "222.222.222.222", "1", new Date(), "1");
+			session.insert(log);
+		}
+		for (int i = 0; i < 4; i++){
+			LogEntry log = new LogEntry(1, "Neuspesna prijava na sistem", "security related", 0, "222.222.222.222",i+"", new Date(), i+"");
+			session.insert(log);
+		}
 
+		int rulesFired = session.fireAllRules();
+		assertEquals(1, rulesFired);
+		AlarmTriggered alarm = alarmService.findByType(AlarmTriggered.DOS_NAPAD);
+		assertNotNull(alarm);
+		assertEquals(AlarmTriggered.DOS_NAPAD, alarm.getType());
+	}
+	@Test
+	public void test_paymentNapad(){
+		KieSession session = kieService.getKieSession();
+		for (int i = 0; i < 12; i++){
+			LogEntry log = new LogEntry(1, "Placanje", "payment", 0, "222.222.222.222", "1", new Date(), "1");
+			session.insert(log);
+		}
+		for (int i = 0; i < 34; i++){
+			LogEntry log = new LogEntry(1, "nesto sedmo", "security related", 0, "222.222.222.222", "1", new Date(), "1");
+			session.insert(log);
+		}
+		for (int i = 0; i < 4; i++){
+			LogEntry log = new LogEntry(1, "Neuspesna prijava na sistem", "security related", 0, "222.222.222.222",i+"", new Date(), i+"");
+			session.insert(log);
+		}
+		int rulesFired = session.fireAllRules();
+		assertEquals(1, rulesFired);
+		AlarmTriggered alarm = alarmService.findByType(AlarmTriggered.PAYMENT_NAPAD);
+		assertNotNull(alarm);
+		assertEquals(AlarmTriggered.PAYMENT_NAPAD, alarm.getType());
+	}
+	@Test
+	public void test_bruteForceNapad(){
+		KieSession session = kieService.getKieSession();
+		for (int i = 0; i < 10; i++){
+			LogEntry log = new LogEntry(1, "Placanje", "payment", 0, "222.222.222.222", "1", new Date(), "1");
+			session.insert(log);
+		}
+		for (int i = 0; i < 32; i++){
+			LogEntry log = new LogEntry(1, "Izmena profila", "security related", 0, "222.222.222.222", "1", new Date(), "1");
+			session.insert(log);
+		}
+		for (int i = 0; i < 8; i++){
+			LogEntry log = new LogEntry(1, "Neuspesna prijava na sistem", "security related", 0, "222.222.222.222",i+"", new Date(), i+"");
+			session.insert(log);
+		}
+		int rulesFired = session.fireAllRules();
+		assertEquals(1, rulesFired);
+		AlarmTriggered alarm = alarmService.findByType(AlarmTriggered.BRUTEFORCE_NAPAD);
+		assertNotNull(alarm);
+		assertEquals(AlarmTriggered.BRUTEFORCE_NAPAD, alarm.getType());
+	}
+	@Test
+	public void test_30IliViseNeuspesnihPrijavaSaIsteIpAdrese(){
+		KieSession session = kieService.getKieSession();
+		session.setGlobal("ipRepo", ipRepo);
+		for (int i = 0; i < 31; i++){
+			LogEntry log = new LogEntry(1, "Neuspesna prijava na sistem", "security related", 0, "222.222.222.222", i+"1", new Date(), i+ "1");
+			session.insert(log);
+		}
+		MaliciousIpAddress maliciousIp = ipRepo.findByIp("222.222.222.222");
+		assertNotNull(maliciousIp);
+	}
 
 }

@@ -21,7 +21,9 @@ public class AlarmTriggeredService {
 	public AlarmTriggered save(AlarmTriggered alarm){
 		return alarmRepo.save(alarm);
 	}
-
+	public AlarmTriggered findByType(int type){
+		return alarmRepo.findByType(type);
+	}
 	public List<AlarmTriggered> fidnAll() {
 		// TODO Auto-generated method stub
 		return alarmRepo.findAll();

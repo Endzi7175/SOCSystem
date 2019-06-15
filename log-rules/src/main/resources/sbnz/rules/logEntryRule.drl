@@ -5,10 +5,12 @@ import com.sbnz.SIEMCenter2.model.SuccessLoginLog
 import com.sbnz.SIEMCenter2.model.AlarmTriggered
 import com.sbnz.SIEMCenter2.model.MaliciousIpAddress
 import com.sbnz.SIEMCenter2.service.AlarmTriggeredService;
+import com.sbnz.SIEMCenter2.repository.MaliciousIpRepository;
 import org.kie.api.time.SessionClock;
 import java.util.ArrayList
 global ArrayList<AlarmTriggered> alarms;
 global AlarmTriggeredService alarmService;
+global MaliciousIpRepository ipRepo;
 
 rule "Vise od 9 neuspesnih prijava sa istim korisnickim imenom"
     when
@@ -151,6 +153,58 @@ rule "Pojava loga sa maliciozne ip adrese"
         System.out.println("Pojava loga sa maliciozne ip adrese");
     	insert(new AlarmTriggered($ip, "Pojava loga sa maliciozne ip adrese" + $ip, AlarmTriggered.POJAVLJIVANJE_VIRUSA));
 end
+rule "Suvise ucestali napadi (50 u roku od 60s)"
+	when
+		$dos : Number() 
+			from accumulate ($l1 : LogEntry(category != "payment", message != "Neuspesna prijava na sistem") over window:time(60s), count($l1))
+		$payment : Number() 
+			from accumulate ($l2 : LogEntry(category == "payment") over window:time(60s), count($l2))
+		$bruteForce : Number() 
+			from accumulate ($l3 : LogEntry(category == "security related", message == "Neuspesna prijava na sistem") over window:time(60s), count($l3))
+		eval($dos.intValue() + $payment.intValue() + $bruteForce.intValue() >= 50)
+	then
+		if ($bruteForce.intValue() * 5 >= $payment.intValue() * 3){
+			if ($bruteForce.intValue() * 5 >= $dos.intValue()){
+				System.out.println("Brute force napad");
+				alarmService.save(new AlarmTriggered("1", "Brute force napad", AlarmTriggered.BRUTEFORCE_NAPAD));
+    			insert(new AlarmTriggered("1", "Brute force napad", AlarmTriggered.BRUTEFORCE_NAPAD));
+			}else{
+				System.out.println("Dos napad");
+				alarmService.save(new AlarmTriggered("1", "DoS napad", AlarmTriggered.DOS_NAPAD));
+    			insert(new AlarmTriggered("1", "Dos napad", AlarmTriggered.DOS_NAPAD));
+			}
+		}else{
+			if ($payment.intValue() * 3 >= $dos.intValue() ){
+				alarmService.save(new AlarmTriggered("1", "Payment napad", AlarmTriggered.PAYMENT_NAPAD));
+    			insert(new AlarmTriggered("1", "Payment napad", AlarmTriggered.PAYMENT_NAPAD));
+				System.out.println("Payment napad");
+			}else{
+				System.out.println("Dos napad");
+				alarmService.save(new AlarmTriggered("1", "DoS napad", AlarmTriggered.DOS_NAPAD));
+    			insert(new AlarmTriggered("1", "Dos napad", AlarmTriggered.DOS_NAPAD));
 
+			}
+		}
+
+end
+rule "30 ili vise neuspesnih prijava na sistem sa iste ip adrese"
+    when
+        $l1: LogEntry(message.equals("Neuspesna prijava na sistem"), $ip: ipAddress, $m: message) 
+        $broj : Number() from accumulate(
+            $l2: LogEntry(
+                this != $l1, 
+                message == $m,
+                ipAddress == $ip,
+                this after[0s, 24h] $l1
+            ),
+            count($l2)
+        )
+        eval($broj.intValue() >= 30)
+        
+    then
+        System.out.println("Malicious ip address " + $ip + " added to database");
+        ipRepo.save(new MaliciousIpAddress($ip));
+    	insert(new MaliciousIpAddress($ip));
+end
 
 

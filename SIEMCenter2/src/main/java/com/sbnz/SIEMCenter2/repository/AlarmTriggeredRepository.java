@@ -10,5 +10,7 @@ import com.sbnz.SIEMCenter2.model.AlarmTriggered;
 @Repository
 public interface AlarmTriggeredRepository extends JpaRepository<AlarmTriggered, Long>{
 
+	AlarmTriggered findByType(int type);
+
 	
 }
