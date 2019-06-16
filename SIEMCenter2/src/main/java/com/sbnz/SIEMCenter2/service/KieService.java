@@ -85,8 +85,11 @@ public class KieService {
 		kScanner.start(10_000);
 		kieSession = kBase.newKieSession();
 		alarms = new ArrayList<AlarmTriggered>();
-
-		//kieSession.setGlobal("alarms", alarms);
+		(new Thread(){
+			public void run(){
+				kieSession.fireUntilHalt();
+			}
+		}).start();
 
 
 		

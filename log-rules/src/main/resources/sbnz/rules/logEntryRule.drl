@@ -80,7 +80,7 @@ rule "Neuspesan pokusaj prijave na sistem od stane korisnika koji nije bio aktiv
                 this != $l1, 
                 message.equals("Uspesna prijava na sistem"),
                 userId == $id, 
-                this meets[90d] $l1
+                this before[0s, 90d] $l1
             ),
             count($l2)
         ) 
@@ -224,7 +224,7 @@ end
 rule "user admin"
 	when
 		$u : User(isAdmin == true, $email : email, $id : id)
-		$l : LogEntry(message=="Neuspesna prijava na sistem", userId == $id)
+		//not(AlarmTriggered(userId == $id) over window:time(90d))
 	then
 		System.out.println("User se poajvio sa emailom : " + $email);
 end

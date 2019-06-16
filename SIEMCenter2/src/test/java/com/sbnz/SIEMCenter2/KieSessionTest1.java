@@ -114,6 +114,7 @@ public class KieSessionTest1 {
 	@Test
 	public void test_viseOd15NeuspesnihPrijavaNaRazliciteDeloveInformacionihSistemaSaIsteIpAdreseURokuOd5Dana(){
 		KieSession session = kieService.getKieSession();
+
 		Calendar cal = Calendar.getInstance();
 		cal.add(Calendar.DAY_OF_YEAR, -5);
 		//15 jednakih intervala po 8 sati (ukupno 5 dana)
@@ -326,10 +327,10 @@ public class KieSessionTest1 {
 		User admin = new User("1", "a@a.com", "password", true, SecurityStatus.LOW, 9, 17);
 		LogEntry loglogin = new LogEntry(1, "Neuspesna prijava na sistem", "security related", 0, "123.123.123.123", "1", new Date(), "1");
 
-		User admin2 = userService.save(admin);
+		//User admin2 = userService.save(admin);
 		session.insert(admin);
 		session.insert(loglogin);
-		session.fireAllRules();
+		//session.fireAllRules();
 		
 	}
 
