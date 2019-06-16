@@ -5,6 +5,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+
+
 public class LogEntry {
 
     private int informationSystemType;
@@ -15,6 +17,7 @@ public class LogEntry {
     private String userId;
     private Date timestamp;
     private static DateFormat sdf = new SimpleDateFormat("MM-DD hh:mm:ss.SS");
+	private String machineId;
 
     public int getInformationSystemType() {
         return informationSystemType;
@@ -78,6 +81,8 @@ public class LogEntry {
             category = tokens[4];
             message = tokens[5];
             informationSystemType = Integer.parseInt(tokens[6]);
+            machineId = tokens[7];
+            
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -96,6 +101,14 @@ public class LogEntry {
                 '}';
     }
 
+
+	public String getMachineId() {
+		return machineId;
+	}
+
+	public void setMachineId(String machineId) {
+		this.machineId = machineId;
+	}
 
 	public Date getTimeStamp(){
         return timestamp;

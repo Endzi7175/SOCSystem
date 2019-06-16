@@ -2,5 +2,9 @@
   {
     "path": "D:\\4.godina\\Bezbednost\\Projekat\\SOCSystem\\LogSimulator\\attack.log",
     "lastLine": "05-21 15:07:50.554|User909|192.168.0.1|1|0|Izmena profila|0"
+  },
+  {
+    "path": "D:\\4.godina\\Bezbednost\\Projekat\\SOCSystem\\LogSimulator\\normal.log",
+    "lastLine": "06-16 21:09:30.931|User880|192.168.0.1|0|0|Uspesna prijava|0|1"
   }
 ]

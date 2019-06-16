@@ -252,6 +252,7 @@ public class KieSessionTest1 {
 	@Test
 	public void test_paymentNapad(){
 		KieSession session = kieService.getKieSession();
+		
 		for (int i = 0; i < 12; i++){
 			LogEntry log = new LogEntry(1, "Placanje", "payment", 0, "222.222.222.222", "1", new Date(), "1");
 			session.insert(log);
