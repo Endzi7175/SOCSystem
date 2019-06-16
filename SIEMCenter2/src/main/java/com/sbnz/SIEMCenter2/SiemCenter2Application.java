@@ -38,8 +38,7 @@ public class SiemCenter2Application implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-			//AlarmTriggered a = new AlarmTriggered(null, null, null, "asd", 0);
-			//System.out.println(a.getUserId() == "1");
+
 		 Condition condition = new Condition();
 		 condition.field = "message";
 		 condition.value = "Pera";

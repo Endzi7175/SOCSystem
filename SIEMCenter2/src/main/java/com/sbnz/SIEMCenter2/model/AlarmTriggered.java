@@ -1,12 +1,19 @@
 package com.sbnz.SIEMCenter2.model;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.kie.api.definition.type.Role;
+import org.kie.api.definition.type.Timestamp;
+
 @Entity
+@Timestamp("dateTriggered")
+@Role(Role.Type.EVENT)
 public class AlarmTriggered {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,10 +30,19 @@ public class AlarmTriggered {
 	private String machineId;
 	@Column
 	private String ip;
-	
+	@Column(nullable = false)
+	private Date dateTriggered;
 	
 
 	
+	public Date getDateTriggered() {
+		return dateTriggered;
+	}
+
+	public void setDateTriggered(Date dateTriggered) {
+		this.dateTriggered = dateTriggered;
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -81,21 +97,23 @@ public class AlarmTriggered {
 		this.ip = ip;
 	}
 
-	public AlarmTriggered(String userId, String message, int type) {
+	public AlarmTriggered(String userId, String message, int type, Date date) {
 		super();
 		this.userId = userId;
 		this.message = message;
 		this.type = type;
+		this.dateTriggered = date;
 		//this.machineId = machineId;
 		//this.ip = ip;
 	}
-	public AlarmTriggered(String userId,String machineId, String ip, String message, int type) {
+	public AlarmTriggered(String userId,String machineId, String ip, String message, int type, Date date) {
 		super();
 		this.userId = userId;
 		this.message = message;
 		this.type = type;
 		this.machineId = machineId;
 		this.ip = ip;
+		this.dateTriggered = date;
 	}
 	
 	public static int VISE_OD_2_PRIJAVE_ISTI_KORISNIK = 0;

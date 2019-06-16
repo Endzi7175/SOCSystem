@@ -36,6 +36,7 @@ public class KieSessionTest1 {
 	MaliciousIpRepository ipRepo;
 	@Autowired
 	UserService userService;
+	
 	@Test
 	public void test_neuspesnePrijaveNaIstojMasini(){
 		KieSession session = kieService.getKieSession();
@@ -321,16 +322,183 @@ public class KieSessionTest1 {
 		assertEquals(1, rulesFired);
 	}
 	@Test
-	public void test_admin(){
+	public void test_korisnikKojiNijeBioAsociranSaAlarmimaUProteklih90Dana(){
 		KieSession session = kieService.getKieSession();
-
-		User admin = new User("1", "a@a.com", "password", true, SecurityStatus.LOW, 9, 17);
-		LogEntry loglogin = new LogEntry(1, "Neuspesna prijava na sistem", "security related", 0, "123.123.123.123", "1", new Date(), "1");
-
-		//User admin2 = userService.save(admin);
+		Calendar cal = Calendar.getInstance();
+		session.setGlobal("userService", userService);
+		User admin = new User("1", "a@a.com", "password", true, SecurityStatus.MODERATE, 9, 17);
+		
+		cal.add(Calendar.DAY_OF_YEAR, -91);
+		Date date = cal.getTime();
+		
+		
+		AlarmTriggered alarm = new AlarmTriggered("1","Neuspesni pokusaji prijave na sistem sa istim korisnickim imenom", AlarmTriggered.VISE_OD_2_PRIJAVE_ISTI_KORISNIK, date);
+		
+		session.insert(alarm);
 		session.insert(admin);
-		session.insert(loglogin);
-		//session.fireAllRules();
+		int rulesFired = session.fireAllRules();
+		assertEquals(1, rulesFired);
+		
+		User user = userService.findOne("1");
+		assertEquals(user.getStatus(), User.SecurityStatus.LOW);
+		//alarm2 triggered 89 days ago
+	
+	}
+	@Test
+	public void test_korisnikPovezanSaAlarmomKojiJeIzazvaoVirusUProteklih6Meseci(){
+		KieSession session = kieService.getKieSession();
+		Calendar cal = Calendar.getInstance();
+		session.setGlobal("userService", userService);
+		User admin = new User("1", "a@a.com", "password", true, SecurityStatus.LOW, 9, 17);
+		
+		cal.add(Calendar.DAY_OF_YEAR, -181);
+		Date date = cal.getTime();	
+		
+		AlarmTriggered alarm = new AlarmTriggered("1","Neuspesni pokusaji prijave na sistem sa istim korisnickim imenom", AlarmTriggered.VIRUS, date);
+		
+		session.insert(alarm);
+		session.insert(admin);
+		int rulesFired = session.fireAllRules();
+		assertEquals(0, rulesFired);
+		
+
+		//alarm2 triggered 89 days ago
+		cal.add(Calendar.DAY_OF_YEAR, 2);
+		Date date2 = cal.getTime();
+		AlarmTriggered alarm2 = new AlarmTriggered("1","Neuspesni pokusaji prijave na sistem sa istim korisnickim imenom", AlarmTriggered.VIRUS, date2);
+		
+		session.insert(alarm2);
+		rulesFired = session.fireAllRules();
+		assertEquals(1, rulesFired);
+		
+		User user = userService.findOne("1");
+		assertEquals(user.getStatus(), User.SecurityStatus.MODERATE);
+		
+	}
+	@Test
+	public void test_KorisnickiNalogJeImaoViseOd15NeuspesnihPokusajaPrijavljivanjaUPoslednjih90dana_MODERATE(){
+		KieSession session = kieService.getKieSession();
+		Calendar cal = Calendar.getInstance();
+		cal.add(Calendar.DAY_OF_YEAR, -90);
+		
+		session.setGlobal("userService", userService);
+		User admin = new User("1", "a@a.com", "password", true, SecurityStatus.LOW, 9, 17);
+		session.insert(admin);
+		for (int i = 0; i < 16; i++){
+			LogEntry log = new LogEntry(1, "Neuspesna prijava na sistem", "security related", 0, "222.222.222.222", "1", cal.getTime(), i+"");
+			session.insert(log);
+			cal.add(Calendar.DAY_OF_YEAR, 5);
+		}
+		int rulesFired = session.fireAllRules();
+		assertEquals(2, rulesFired);
+		User user = userService.findOne("1");
+		assertEquals(user.getStatus(), User.SecurityStatus.MODERATE);
+	}
+	@Test
+	public void test_korisnikPovezanSaAlarmomUProteklih30danaIImaAdministratorskePrivilegije_HIGH(){
+		KieSession session = kieService.getKieSession();
+		Calendar cal = Calendar.getInstance();
+		session.setGlobal("userService", userService);
+		User admin = new User("1", "a@a.com", "password", true, SecurityStatus.LOW, 9, 17);
+		
+		cal.add(Calendar.DAY_OF_YEAR, -31);
+		Date date = cal.getTime();
+		
+		
+		AlarmTriggered alarm = new AlarmTriggered("1","Neuspesni pokusaji prijave na sistem sa istim korisnickim imenom", AlarmTriggered.VISE_OD_2_PRIJAVE_ISTI_KORISNIK, date);
+		
+		session.insert(alarm);
+		session.insert(admin);
+		int rulesFired = session.fireAllRules();
+		assertEquals(0, rulesFired);
+		
+		
+		//alarm2 triggered 89 days ago
+		cal.add(Calendar.DAY_OF_YEAR, 2);
+		Date date2 = cal.getTime();
+		AlarmTriggered alarm2 = new AlarmTriggered("1","Neuspesni pokusaji prijave na sistem sa istim korisnickim imenom", AlarmTriggered.VISE_OD_2_PRIJAVE_ISTI_KORISNIK, date2);
+		
+		session.insert(alarm2);
+		rulesFired = session.fireAllRules();
+		assertEquals(1, rulesFired);	
+		
+		User user = userService.findOne("1");
+		assertEquals(user.getStatus(), User.SecurityStatus.HIGH);
+	}
+	@Test
+	public void test_korisnikUlogovanVanRadnogVremena_HIGH(){
+		KieSession session = kieService.getKieSession();
+		Calendar cal = Calendar.getInstance();
+		session.setGlobal("userService", userService);
+		User admin = new User("1", "a@a.com", "password", true, SecurityStatus.LOW, 9, 17);
+		
+	
+		
+		LogEntry log = new LogEntry(1, "Neuspesna prijava na sistem", "security related", 0, "124.142.345.123", "1", cal.getTime(),"1");
+		cal.add(Calendar.MINUTE, 3);
+		LogEntry log2 = new LogEntry(1, "Neuspesna prijava na sistem", "security related", 0, "124.142.345.123", "1", cal.getTime(),"1");
+		cal.add(Calendar.MINUTE, 3);
+
+		LogEntry log3 = new LogEntry(1, "Uspesna prijava na sistem", "security related", 0, "124.142.345.123", "1", cal.getTime(),"1");
+		
+		session.insert(log);
+		session.insert(log2);
+		session.insert(log3);
+		
+		
+		session.insert(admin);
+		int rulesFired = session.fireAllRules();
+		assertEquals(1, rulesFired);	
+		
+		User user = userService.findOne("1");
+		assertEquals(user.getStatus(), User.SecurityStatus.HIGH);
+		
+	}
+	@Test
+	public void test_KorisnikSePrijavioSaMaliciozneIpAdrese(){
+		KieSession session = kieService.getKieSession();
+		session.setGlobal("userService", userService);
+		User user = new User("1", "a@a.com", "password", true, SecurityStatus.LOW, 9, 17);
+
+		MaliciousIpAddress m = new MaliciousIpAddress("222.222.222.222");
+		LogEntry log = new LogEntry(1, "Uspesna prijava na sistem", "security related", 0, "222.222.222.222", "1", new Date(),"1");
+		session.insert(m);
+		session.insert(log);
+		session.insert(user);
+		int rulesFired = session.fireAllRules();
+		assertEquals(2, rulesFired);
+		
+		user = userService.findOne("1");
+		assertEquals( User.SecurityStatus.EXTREME, user.getStatus());
+	}
+	@Test
+	public void test_korisnikAsociranSaAlarmomAntivirusaKojiJeIzmenioProfilNakon2NeuspesnePrijaveNaSistem(){
+		KieSession session = kieService.getKieSession();
+		session.setGlobal("userService", userService);
+		User user = new User("1", "a@a.com", "password", true, SecurityStatus.LOW, 9, 17);
+		
+		AlarmTriggered alarm = new AlarmTriggered("1","Virus", AlarmTriggered.VIRUS, new Date());
+		Calendar cal = Calendar.getInstance();
+		LogEntry log = new LogEntry(1, "Neuspesna prijava na sistem", "security related", 0, "222.222.222.222", "1", cal.getTime(),"1");
+		cal.add(Calendar.MINUTE, 5);
+		LogEntry log1 = new LogEntry(1, "Neuspesna prijava na sistem", "security related", 0, "222.222.222.222", "1", cal.getTime(),"1");
+		cal.add(Calendar.MINUTE, 5);
+		LogEntry log2 = new LogEntry(1, "Uspesna prijava na sistem", "security related", 0, "222.222.222.222", "1", cal.getTime(),"1");
+		cal.add(Calendar.MINUTE, 5);
+		LogEntry log3 = new LogEntry(1, "Izmena profila", "security related", 0, "222.222.222.222", "1", cal.getTime(),"1");
+		
+		session.insert(user);
+		session.insert(alarm);
+		session.insert(log);
+		session.insert(log1);
+		session.insert(log2);
+		session.insert(log3);
+		
+		int rulesFired = session.fireAllRules();
+		assertEquals(2, rulesFired);
+		
+		user = userService.findOne("1");
+		assertEquals( User.SecurityStatus.EXTREME, user.getStatus());
 		
 	}
 
