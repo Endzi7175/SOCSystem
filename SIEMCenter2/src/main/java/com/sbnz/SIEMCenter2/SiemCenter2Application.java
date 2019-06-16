@@ -31,9 +31,6 @@ public class SiemCenter2Application implements CommandLineRunner {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SiemCenter2Application.class, args);
-	
-
-
 	}
 
 	@Override

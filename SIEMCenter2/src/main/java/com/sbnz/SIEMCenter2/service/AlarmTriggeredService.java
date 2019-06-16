@@ -2,6 +2,7 @@ package com.sbnz.SIEMCenter2.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
 
 import com.sbnz.SIEMCenter2.model.AlarmTriggered;
@@ -17,9 +18,14 @@ public class AlarmTriggeredService {
 
 	@Autowired
 	private AlarmTriggeredRepository alarmRepo;
+
+	@Autowired
+	private SimpMessagingTemplate simpMessagingTemplate;
 	
 	public AlarmTriggered save(AlarmTriggered alarm){
-		return alarmRepo.save(alarm);
+		AlarmTriggered alarmTriggered = alarmRepo.save(alarm);
+		simpMessagingTemplate.convertAndSend("/socket/alarm", alarmTriggered);
+		return alarmTriggered;
 	}
 	public AlarmTriggered findByType(int type){
 		return alarmRepo.findByType(type);

@@ -23,10 +23,10 @@ public class AlarmTriggered {
 	private String machineId;
 	@Column
 	private String ip;
-	
-	
 
-	
+
+
+
 	public Long getId() {
 		return id;
 	}

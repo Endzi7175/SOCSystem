@@ -119,32 +119,35 @@ public class KieService {
 		//kieSession.dispose();
 	}
 	
-	public void insertNewRule(Rule rule) throws IOException {
-		
-		
-		
-		 File initialFile = new File("src\\main\\resources\\templates\\template.drl");
-		 InputStream targetStream = new FileInputStream(initialFile);	 
-		 Path dir = Paths.get("D:\\4.godina\\Bezbednost\\Projekat\\SOCSystem\\log-rules\\src\\main\\resources\\sbnz\\rules");
+	public void insertNewRule(Rule rule, String interval, int count, String alarmMessage ) throws IOException {
+
+		 File initialFile = Paths.get("src","main","resources","templates","template.drl").toFile();
+		 InputStream targetStream = new FileInputStream(initialFile);
+		 String gitDir = Paths.get("").toFile().getParent();
+		 Path dir = Paths.get(gitDir, "log-rules","src","main","resources","sbnz","rules");
+
 		 int i = 0;
-		 while(Paths.get(dir.toString(), Integer.toString(i)+ ".drl").toFile().exists()) {
+		 while(Paths.get(dir.toString(), i + ".drl").toFile().exists()) {
 			 i++;
 		 }
 		 ObjectDataCompiler objectDataCompiler = new ObjectDataCompiler();
 		 
-		 Map<String, Object> data = new HashMap<String, Object>();
+		 Map<String, Object> data = new HashMap<>();
 		 data.put("ruleNum", i);
 		 data.put("rule", rule);
+		 data.put("count", count);
+		 data.put("interval", interval);
+		 data.put("alarmMessage", alarmMessage);
 		 
-		 String drl = objectDataCompiler.compile(Arrays.asList(data), targetStream);
+		 String drl = objectDataCompiler.compile(Collections.singletonList(data), targetStream);
 		 
-		 PrintWriter out = new PrintWriter(Paths.get(dir.toString(), Integer.toString(i)+".drl").toString());
+		 PrintWriter out = new PrintWriter(Paths.get(dir.toString(), i +".drl").toString());
 		 out.print(drl);
 		 out.close();
 		 targetStream.close();
 		 
 		 InvocationRequest request = new DefaultInvocationRequest();
-		 request.setPomFile(new File("D:\\4.godina\\Bezbednost\\Projekat\\SOCSystem\\log-rules\\pom.xml"));
+		 request.setPomFile(Paths.get(gitDir,"log-rules","pom.xml").toFile());
 		 request.setGoals(Collections.singletonList("install"));
 		 Invoker invoker = new DefaultInvoker();
 	 

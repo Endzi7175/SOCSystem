@@ -14,10 +14,8 @@ public class Rule {
 		
 		private static transient List<String> fieldsNames;
 		static {
-			fieldsNames = Arrays
-					.asList(LogEntry.class.getFields())
-					.stream()
-					.map(f->f.getName())
+			fieldsNames = Arrays.stream(LogEntry.class.getFields())
+					.map(f->f.getName().toLowerCase())
 					.collect(Collectors.toList());
 		}
 
@@ -50,9 +48,9 @@ public class Rule {
 	                    break;
 	            }
 	            
-	            if(!fieldsNames.contains(condition.getField()))
+	            if(!fieldsNames.contains(condition.getField().toLowerCase()))
 	            {
-	            	//throw new IllegalArgumentException();
+	            	throw new IllegalArgumentException();
 	            }
 	            
 	            statementBuilder.append(condition.getField()).append(" ").append(operator).append(" ");

@@ -29,7 +29,7 @@ public class LogEntryController {
 	@GetMapping(produces =MediaType.APPLICATION_JSON_VALUE)
 	public void addnew(){
 		Date date = new Date(2019, 5, 19, 20, 0);
-		List<LogEntry > list = new ArrayList<LogEntry>();
+		List<LogEntry > list = new ArrayList<>();
 		//LogEntry log = new LogEntry(1, "Neuspesna prijava na sistem", "asd", 1, "192.168.0.1", "1", date);
 		//kieSession.insert(log);
 		//kieSession.fireAllRules();
@@ -37,7 +37,7 @@ public class LogEntryController {
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE, value = "/1")
 	public void addneww(){
 		Date date = new Date(2019, 5, 19, 20, 0);
-		List<LogEntry > list = new ArrayList<LogEntry>();
+		List<LogEntry > list = new ArrayList<>();
 		//LogEntry log = new LogEntry(1, "Neuspesna prijava", "asd", 0, "192.168.0.1", "0", date);
 		//kieSession.insert(log);
 		kieSession.fireAllRules();

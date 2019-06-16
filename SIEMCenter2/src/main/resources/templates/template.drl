@@ -16,10 +16,18 @@ template "alert"
 
 rule "alert_@{ruleNum}"
 when
-     l : LogEntry(@{rule})
+     $l1 : LogEntry(@{rule})
+      and
+      Number(intValue >= @{count}) from accumulate(
+          $l2: LogEntry(
+              @{rule} and
+              this meets[@{interval}] $l1
+          ),
+          count($l2)
+     )
 then
      System.out.println(l);
-     alarmService.save(new AlarmTriggered("1", "Neuspesna prijava na istoj masini", AlarmTriggered.VISE_OD_4_PRIJAVE_ISTA_MASINA));
+     alarmService.save(new AlarmTriggered(l.userId, @{alarmMessage}, -1));
 end
 
 end template
