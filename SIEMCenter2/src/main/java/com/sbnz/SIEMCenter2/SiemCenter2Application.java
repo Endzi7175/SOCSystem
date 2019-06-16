@@ -14,6 +14,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 
+import com.sbnz.SIEMCenter2.model.AlarmTriggered;
 import com.sbnz.SIEMCenter2.model.Condition;
 import com.sbnz.SIEMCenter2.model.Condition.BooleanTrailingOperator;
 import com.sbnz.SIEMCenter2.model.Rule;
@@ -37,6 +38,8 @@ public class SiemCenter2Application implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
+			//AlarmTriggered a = new AlarmTriggered(null, null, null, "asd", 0);
+			//System.out.println(a.getUserId() == "1");
 		 Condition condition = new Condition();
 		 condition.field = "message";
 		 condition.value = "Pera";

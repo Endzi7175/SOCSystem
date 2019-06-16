@@ -17,9 +17,12 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.sbnz.SIEMCenter2.model.AlarmTriggered;
 import com.sbnz.SIEMCenter2.model.LogEntry;
 import com.sbnz.SIEMCenter2.model.MaliciousIpAddress;
+import com.sbnz.SIEMCenter2.model.User;
+import com.sbnz.SIEMCenter2.model.User.SecurityStatus;
 import com.sbnz.SIEMCenter2.repository.MaliciousIpRepository;
 import com.sbnz.SIEMCenter2.service.AlarmTriggeredService;
 import com.sbnz.SIEMCenter2.service.KieService;
+import com.sbnz.SIEMCenter2.service.UserService;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
@@ -31,6 +34,8 @@ public class KieSessionTest1 {
 	AlarmTriggeredService alarmService;
 	@Autowired
 	MaliciousIpRepository ipRepo;
+	@Autowired
+	UserService userService;
 	@Test
 	public void test_neuspesnePrijaveNaIstojMasini(){
 		KieSession session = kieService.getKieSession();
@@ -289,11 +294,43 @@ public class KieSessionTest1 {
 		KieSession session = kieService.getKieSession();
 		session.setGlobal("ipRepo", ipRepo);
 		for (int i = 0; i < 31; i++){
-			LogEntry log = new LogEntry(1, "Neuspesna prijava na sistem", "security related", 0, "222.222.222.222", i+"1", new Date(), i+ "1");
+			LogEntry log = new LogEntry(1, "Neuspesna prijava na sistem", "security related", 0, "124.142.345.123", i+"1", new Date(), i+ "1");
 			session.insert(log);
 		}
-		MaliciousIpAddress maliciousIp = ipRepo.findByIp("222.222.222.222");
+		session.fireAllRules();
+		MaliciousIpAddress maliciousIp = ipRepo.findByIp("124.142.345.123");
 		assertNotNull(maliciousIp);
+	}
+	@Test
+	public void test_UpsesnaPrijavaPracenaIzmenomPodataka(){
+		KieSession session = kieService.getKieSession();
+		Calendar cal = Calendar.getInstance();
+		LogEntry logProfileChange = new LogEntry(1, "Izmena profila", "security related", 0, "123.123.123.123", "1", cal.getTime(), "1");
+		cal.add(Calendar.MINUTE, -1);
+		LogEntry logSuccessLogin = new LogEntry(1, "Uspesna prijava na sistem", "security related", 0, "123.123.123.123", "1", cal.getTime(), "1");
+		
+		for (int i = 0; i < 5; i++){
+			cal.add(Calendar.SECOND, -13);
+			LogEntry loglogin = new LogEntry(1, "Neuspesna prijava na sistem", "security related", 0, "123.123.123.123", i+"1", cal.getTime(), "1");
+			session.insert(loglogin);
+		}
+		session.insert(logSuccessLogin);
+		session.insert(logProfileChange);
+		int rulesFired = session.fireAllRules();
+		assertEquals(1, rulesFired);
+	}
+	@Test
+	public void test_admin(){
+		KieSession session = kieService.getKieSession();
+
+		User admin = new User("1", "a@a.com", "password", true, SecurityStatus.LOW, 9, 17);
+		LogEntry loglogin = new LogEntry(1, "Neuspesna prijava na sistem", "security related", 0, "123.123.123.123", "1", new Date(), "1");
+
+		User admin2 = userService.save(admin);
+		session.insert(admin);
+		session.insert(loglogin);
+		session.fireAllRules();
+		
 	}
 
 }

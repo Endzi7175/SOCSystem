@@ -12,12 +12,19 @@ public class AlarmTriggered {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column
 	private Long id;
-	@Column(nullable = false)
-	private String customerId;
+
 	@Column(nullable = false)
 	private String message;
 	@Column(nullable = false)
 	private int type;
+	@Column
+	private String userId;
+	@Column
+	private String machineId;
+	@Column
+	private String ip;
+	
+	
 
 	
 	public Long getId() {
@@ -36,13 +43,7 @@ public class AlarmTriggered {
 		this.message = message;
 	}
 
-	public String getCustomerId() {
-		return customerId;
-	}
 
-	public void setCustomerId(String customerId) {
-		this.customerId = customerId;
-	}
 	
 	public int getType() {
 		return type;
@@ -56,11 +57,45 @@ public class AlarmTriggered {
 		super();
 	}
 
-	public AlarmTriggered(String customerId, String message, int type) {
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
+	public String getMachineId() {
+		return machineId;
+	}
+
+	public void setMachineId(String machineId) {
+		this.machineId = machineId;
+	}
+
+	public String getIp() {
+		return ip;
+	}
+
+	public void setIp(String ip) {
+		this.ip = ip;
+	}
+
+	public AlarmTriggered(String userId, String message, int type) {
 		super();
-		this.customerId = customerId;
+		this.userId = userId;
 		this.message = message;
 		this.type = type;
+		//this.machineId = machineId;
+		//this.ip = ip;
+	}
+	public AlarmTriggered(String userId,String machineId, String ip, String message, int type) {
+		super();
+		this.userId = userId;
+		this.message = message;
+		this.type = type;
+		this.machineId = machineId;
+		this.ip = ip;
 	}
 	
 	public static int VISE_OD_2_PRIJAVE_ISTI_KORISNIK = 0;
