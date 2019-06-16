@@ -7,5 +7,5 @@ import com.sbnz.SIEMCenter2.model.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long>{
-	
+	User findById(String id);
 }

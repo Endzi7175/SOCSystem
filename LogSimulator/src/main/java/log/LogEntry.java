@@ -15,11 +15,12 @@ public class LogEntry {
     private String userId;
     private Date timestamp;
     private static DateFormat sdf = new SimpleDateFormat("MM-DD hh:mm:ss.SS");
+    private String machineId;
 
     
     
     public LogEntry(int informationSystemType, String message, int category, int logLevel, String ipAddress,
-			String username, Date timestamp) {
+			String username, Date timestamp, String machineId) {
 		super();
 		this.informationSystemType = informationSystemType;
 		this.message = message;
@@ -28,6 +29,7 @@ public class LogEntry {
 		this.ipAddress = ipAddress;
 		this.userId = username;
 		this.timestamp = timestamp;
+		this.machineId = machineId;
 	}
     public LogEntry(String line) {
     	String[] tokens = line.split("\\|");
@@ -39,6 +41,7 @@ public class LogEntry {
             category = tokens[4].charAt(0);
             message = tokens[5];
             informationSystemType = Integer.parseInt(tokens[6]);
+            machineId = tokens[6];
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -57,7 +60,13 @@ public class LogEntry {
                 '}';
     }
 
-    public int getInformationSystemType() {
+    public String getMachineId() {
+		return machineId;
+	}
+	public void setMachineId(String machineId) {
+		this.machineId = machineId;
+	}
+	public int getInformationSystemType() {
 		return informationSystemType;
 	}
 

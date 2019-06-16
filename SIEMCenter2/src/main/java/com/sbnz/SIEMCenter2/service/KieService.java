@@ -7,10 +7,8 @@ import java.io.InputStream;
 import java.io.PrintWriter;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -34,21 +32,23 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
-import com.sbnz.SIEMCenter2.model.AlarmTriggered;
 import com.sbnz.SIEMCenter2.model.LogEntry;
-import com.sbnz.SIEMCenter2.model.MaliciousIpAddress;
 import com.sbnz.SIEMCenter2.model.Rule;
+import com.sbnz.SIEMCenter2.repository.MaliciousIpRepository;
 
 
 @Service
 public class KieService {
 	private KieSession kieSession;
-	private  List<AlarmTriggered> alarms;
 	private KieContainer kieCointainer;
 	@Autowired
 	AlarmTriggeredService alarmService;
 	@Autowired
+	UserService userService;
+	@Autowired
 	LogEntryService logService;
+	@Autowired
+	MaliciousIpRepository ipRepo;
 	@Bean
 	@Scope(value = ConfigurableBeanFactory.SCOPE_SINGLETON)
 	public KieSession getKieSession(){
@@ -64,7 +64,7 @@ public class KieService {
 		this.kieCointainer = kContainer;
 		KieScanner kScanner = ks.newKieScanner(kContainer);
 		kScanner.start(10_000);
-		kieSession = kBase.newKieSession();
+		KieSession kieSession = kBase.newKieSession();
 		kieSession.setGlobal("alarmService", this.alarmService);
 		return kieSession;
 	}
@@ -84,27 +84,22 @@ public class KieService {
 		KieScanner kScanner = ks.newKieScanner(kContainer);
 		kScanner.start(10_000);
 		kieSession = kBase.newKieSession();
-		alarms = new ArrayList<AlarmTriggered>();
-
-		//kieSession.setGlobal("alarms", alarms);
-
-
 		
+	}
+	public void startKieService(){
+		kieSession.setGlobal("alarmService", this.alarmService);
+		System.out.println(this.alarmService != null);
+		kieSession.setGlobal("userService", this.userService);
+		kieSession.setGlobal("ipRepo", this.ipRepo);
+		(new Thread(){
+			public void run(){
+				kieSession.fireUntilHalt();
+			}
+		}).start();
 	}
 	
 	public void insertLogEntries(List<LogEntry> entries) {
-		kieSession = this.kieCointainer.newKieSession();
-		kieSession.setGlobal("alarmService", this.alarmService);
-        Date date = new Date(2019, 5, 19, 20, 0);
-        kieSession.insert(new MaliciousIpAddress("222.222.222.222"));
-        kieSession.insert(new MaliciousIpAddress("111.111.111.111"));
-        for (AlarmTriggered alarm : alarmService.fidnAll()){
-        	kieSession.insert(alarm);
-        }
-        for (LogEntry ent : logService.findAll()){
-        	kieSession.insert(ent);
-
-        }
+		
         
 	  for(LogEntry entry : entries) {
         	kieSession.insert(entry);
@@ -114,7 +109,7 @@ public class KieService {
         System.out.println("usao");
         //kieSession.halt();
      
-		int x = kieSession.fireAllRules();
+		
 		
 		//kieSession.dispose();
 	}
