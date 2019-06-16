@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.Date;
 
 @Entity
 public class AlarmTriggered {
@@ -24,7 +25,16 @@ public class AlarmTriggered {
 	@Column
 	private String ip;
 
+	@Column(nullable = false)
+	private Date dateTriggered;
 
+	public Date getDateTriggered() {
+		return dateTriggered;
+	}
+
+	public void setDateTriggered(Date dateTriggered) {
+		this.dateTriggered = dateTriggered;
+	}
 
 
 	public Long getId() {
@@ -81,23 +91,25 @@ public class AlarmTriggered {
 		this.ip = ip;
 	}
 
-	public AlarmTriggered(String userId, String message, int type) {
+	public AlarmTriggered(String userId, String message, int type, Date date) {
 		super();
 		this.userId = userId;
 		this.message = message;
 		this.type = type;
+		this.dateTriggered = date;
 		//this.machineId = machineId;
 		//this.ip = ip;
 	}
-	public AlarmTriggered(String userId,String machineId, String ip, String message, int type) {
+	public AlarmTriggered(String userId,String machineId, String ip, String message, int type, Date date) {
 		super();
 		this.userId = userId;
 		this.message = message;
 		this.type = type;
 		this.machineId = machineId;
 		this.ip = ip;
+		this.dateTriggered = date;
 	}
-	
+
 	public static int VISE_OD_2_PRIJAVE_ISTI_KORISNIK = 0;
 	public static int VISE_OD_4_PRIJAVE_ISTA_MASINA = 1;
 	public static int POKUSAJ_PRIJAVE_NEAKTIVAN_KORISNIK = 2;
@@ -108,5 +120,6 @@ public class AlarmTriggered {
 	public static int DOS_NAPAD = 7;
 	public static int PAYMENT_NAPAD = 8;
 	public static int BRUTEFORCE_NAPAD = 9;
+
 	
 }

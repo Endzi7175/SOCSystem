@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-search-table',
   templateUrl: './search-table.component.html',

@@ -1,48 +1,67 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Bootstrap 4 Simple Table</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-</head>
-<body>
-<div class="bs-example">
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Row</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Email</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td>Clark</td>
-                <td>Kent</td>
-                <td>clarkkent@mail.com</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>John</td>
-                <td>Carter</td>
-                <td>johncarter@mail.com</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Peter</td>
-                <td>Parker</td>
-                <td>peterparker@mail.com</td>
-            </tr>            
-        </tbody>
+<mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+  
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+  
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Information System Type </th>
+        <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+      </ng-container>
+  
+      <!-- message Column -->
+      <ng-container matColumnDef="message">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Message </th>
+        <td mat-cell *matCellDef="let row"> {{row.message}}% </td>
+      </ng-container>
+  
+      <!-- category Column -->
+      <ng-container matColumnDef="category">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Category </th>
+        <td mat-cell *matCellDef="let row"> {{row.category}} </td>
+      </ng-container>
+  
+      <!-- logLevel Column -->
+      <ng-container matColumnDef="logLevel">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Log Level </th>
+        <td mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.logLevel}} </td>
+      </ng-container>
+  
+      <!-- ipAddress Column -->
+      <ng-container matColumnDef="ipAddress">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>  Ip Address </th>
+        <td mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.ipAddress}} </td>
+      </ng-container>
+  
+      <!-- userId Column -->
+      <ng-container matColumnDef="userId">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>  User Id </th>
+        <td mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.userId}} </td>
+      </ng-container>
+  
+      <!-- machineId Column -->
+      <ng-container matColumnDef="machineId">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>  Machine Id </th>
+        <td mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.machineId}} </td>
+      </ng-container>
+  
+      <!-- timestamp Column -->
+      <ng-container matColumnDef="timestamp">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>  Timestamp </th>
+        <td mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.timestamp}} </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+      </tr>
     </table>
-</div>
-</body>
-</html>                            
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
+  
+  
+  <!-- Copyright 2019 Google Inc. All Rights Reserved.
+      Use of this source code is governed by an MIT-style license that
+      can be found in the LICENSE file at http://angular.io/license -->
