@@ -2,11 +2,11 @@
     <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
   </mat-form-field>
   
-  <div class="mat-elevation-z8">
-    <table mat-table [dataSource]="dataSource" matSort>
+  <div class="mat-elevation-z23">
+    <table mat-table  matSort>
   
       <!-- ID Column -->
-      <ng-container matColumnDef="id">
+      <ng-container matColumnDef="informationSystemType">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Information System Type </th>
         <td mat-cell *matCellDef="let row"> {{row.id}} </td>
       </ng-container>

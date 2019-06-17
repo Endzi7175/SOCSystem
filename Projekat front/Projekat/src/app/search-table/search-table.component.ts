@@ -13,4 +13,6 @@ export class SearchTableComponent implements OnInit {
   ngOnInit() {
   }
 
+  displayedColumns: string[] = ['informationSystemType', 'message', 'category', 'logLevel', 'ipAddress', 'userId', 'machineId', 'timestamp',];
+ 
 }

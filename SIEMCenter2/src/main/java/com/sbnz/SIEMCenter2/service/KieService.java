@@ -7,9 +7,12 @@ import java.io.InputStream;
 import java.io.PrintWriter;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -26,6 +29,8 @@ import org.kie.api.builder.KieScanner;
 import org.kie.api.conf.EventProcessingOption;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
+import org.kie.api.runtime.rule.QueryResults;
+import org.kie.api.runtime.rule.QueryResultsRow;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
@@ -96,6 +101,14 @@ public class KieService {
 				kieSession.fireUntilHalt();
 			}
 		}).start();
+		LogEntry log = new LogEntry("1", "Neuspesna prijava na sistem", "security related", "0", "124.142.345.123", "1", new Date(),"1");
+		LogEntry log1 = new LogEntry("1", "Virus", "security related", "0", "124.142.345.123", "1", new Date(),"1");
+		LogEntry log2= new LogEntry("1", "Proba", "security related", "0", "124.142.345.123", "1", new Date(),"1");
+
+		kieSession.insert(log);
+		kieSession.insert(log1);
+		kieSession.insert(log2);
+		
 	}
 	
 	public void insertLogEntries(List<LogEntry> entries) {
@@ -104,14 +117,7 @@ public class KieService {
 	  for(LogEntry entry : entries) {
         	kieSession.insert(entry);
         } 
-        	  
-        
-        System.out.println("usao");
-        //kieSession.halt();
-     
-		
-		
-		//kieSession.dispose();
+
 	}
 	
 	public void insertNewRule(Rule rule, String interval, int count, String alarmMessage ) throws IOException {
@@ -149,11 +155,34 @@ public class KieService {
 		 try {
 			invoker.execute(request);
 		} catch (MavenInvocationException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		 
 		
+	}
+
+	public List<LogEntry> getAllFromMemory(String[] queryParams) {
+		 for (int i = 0; i < queryParams.length; i++){
+			 if (queryParams[i].equals("")){
+				 queryParams[i] = ".*";
+			 }
+		 }
+		 List<LogEntry> results = new ArrayList<LogEntry>();
+		 QueryResults qr = kieSession
+				 .getQueryResults("getLogsWithMessage", 
+						 queryParams[0], 
+						 queryParams[1], 
+						 queryParams[2], 
+						 queryParams[3], 
+						 queryParams[4], 
+						 queryParams[5],
+						 queryParams[6]);
+		 for (Iterator<QueryResultsRow> iterator=qr.iterator(); iterator.hasNext(); ) {
+			    QueryResultsRow row=iterator.next();
+			    LogEntry l=(LogEntry)row.get("$l");
+			    results.add(l);
+		 }
+		return results;
 	}
 	
 }
