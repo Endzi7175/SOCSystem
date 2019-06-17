@@ -19,7 +19,7 @@ import org.springframework.data.elasticsearch.annotations.Document;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 @Role(Role.Type.EVENT)
-@Timestamp("timeStamp")
+@Timestamp("timestamp")
 @Expires("200d")
 
 @Document(indexName="log", type="log")
@@ -164,9 +164,7 @@ public class LogEntry implements Serializable{
 		this.logLevel = logLevel;
 	}
 
-	public Date getTimeStamp(){
-        return timestamp;
-    }
+	
 
     public String getMessage() {
         return  message;

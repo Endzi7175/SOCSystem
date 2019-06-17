@@ -27,10 +27,7 @@ public class SearchQueryBuilder {
 				queryParams[i] = ".*";
 			}
 		}
-		for (int i = 0; i < queryParams.length; i++){
-			System.out.println(queryParams[i]);
-			
-		}
+		
 		System.out.println(queryParams[7] + "asdasd");
 		BoolQueryBuilder query = QueryBuilders.boolQuery()
 				.must(QueryBuilders.regexpQuery("message", queryParams[0]))

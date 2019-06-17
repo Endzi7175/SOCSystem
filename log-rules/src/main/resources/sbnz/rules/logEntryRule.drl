@@ -97,7 +97,7 @@ end
 //sredi
 rule "Vise od 15 neuspesnih prijava na razlicite delove informacionog sistema sa iste ip adrese"
     when
-        $l1: LogEntry(message.equals("Neuspesna prijava na sistem"),  $m: message, $ip: ipAddress, $isType : informationSystemType, $ts : timeStamp)
+        $l1: LogEntry(message.equals("Neuspesna prijava na sistem"),  $m: message, $ip: ipAddress, $isType : informationSystemType, $ts : timestamp)
         not (AlarmTriggered(ip == $ip, type == AlarmTriggered.VISE_OD_15_PRIJAVA_RAZLICITI_SISTEMI))
         Number(intValue >= 14) from accumulate(
             $l2: LogEntry(
@@ -118,7 +118,7 @@ end
 rule "Neuklonjen virus"
     when
     	$clock : SessionClock()
-        $l1: LogEntry(message.equals("Virus"), timeStamp.getTime() < $clock.getCurrentTime() - 60*60*1000,  $m: message, $machineId: machineId, $userId : userId )
+        $l1: LogEntry(message.equals("Virus"), timestamp.getTime() < $clock.getCurrentTime() - 60*60*1000,  $m: message, $machineId: machineId, $userId : userId )
        	not(LogEntry(message.equals("Uklonjen virus"),machineId == $machineId, this after[0s, 1h] $l1))
         //not (AlarmTriggered(userId == $ip, type == AlarmTriggered.VIRUS))
         
