@@ -23,8 +23,7 @@ import com.sbnz.SIEMCenter2.service.SearchQueryBuilder;
 public class LogEntryController {
 	@Autowired
 	KieService kieService;
-	@Autowired
-	KieSession kieSession;
+
 	@Autowired 
 	LogEntryService logService;
 
@@ -40,9 +39,13 @@ public class LogEntryController {
 			logService.save(log);
 		}
 	}
-	@RequestMapping(value="/search")
-	public List<LogEntry> getAll(@RequestBody String queryParams[]){
+	@RequestMapping(value="/searchDB")
+	public List<LogEntry> getAllFromDatabase(@RequestBody String queryParams[]){
 		return searchQueryBuilder.getAll(queryParams);
+	}
+	@RequestMapping(value="/searchMemory")
+	public List<LogEntry> getAllFromSessionMemory(@RequestBody String queryParams[]){
+		return kieService.getAllFromMemory(queryParams);
 	}
 	@RequestMapping(value="/save")
 	public List<LogEntry> save(){

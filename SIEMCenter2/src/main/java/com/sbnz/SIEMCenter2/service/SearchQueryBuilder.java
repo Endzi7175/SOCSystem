@@ -28,7 +28,6 @@ public class SearchQueryBuilder {
 			}
 		}
 		
-		System.out.println(queryParams[7] + "asdasd");
 		BoolQueryBuilder query = QueryBuilders.boolQuery()
 				.must(QueryBuilders.regexpQuery("message", queryParams[0]))
 				.must(QueryBuilders.regexpQuery("category", queryParams[1]))

@@ -4,11 +4,15 @@ package com.sbnz.SIEMCenter2;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
+import java.util.Iterator;
 
+import org.aspectj.weaver.patterns.TypePatternQuestions.Question;
 import org.kie.api.KieServices;
 import org.kie.api.builder.KieScanner;
 import org.kie.api.runtime.KieContainer;
+import org.kie.api.runtime.KieSession;
+import org.kie.api.runtime.rule.QueryResults;
+import org.kie.api.runtime.rule.QueryResultsRow;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -58,6 +62,7 @@ public class SiemCenter2Application implements CommandLineRunner {
 		 
 		 kieService.startKieService();
 		 //kieService.insertNewRule(rule);
+
 
 	}
 	@Bean

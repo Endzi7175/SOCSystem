@@ -313,5 +313,8 @@ rule "korisnik status EXTREME 2" salience 1
 		insert(new UserChanged($id));
 		userService.save($u);
 end
+query getLogsWithMessage (String messageReg, String categoryReg, String isTypeReg, String logLevelReg, String ipAddressReg, String userIdReg, String machineIdReg)
 
+    $l : LogEntry(message matches messageReg, category matches categoryReg, informationSystemType matches isTypeReg, logLevel matches logLevelReg, ipAddress matches ipAddressReg, userId matches userIdReg, machineId matches machineIdReg) 
+end
 		

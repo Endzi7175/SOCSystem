@@ -6,18 +6,16 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.jboss.logging.Field;
 import org.kie.api.definition.type.Expires;
 import org.kie.api.definition.type.Role;
 import org.kie.api.definition.type.Timestamp;
 import org.springframework.data.elasticsearch.annotations.Document;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.google.protobuf.WireFormat.FieldType;
 @Role(Role.Type.EVENT)
 @Timestamp("timestamp")
 @Expires("200d")
@@ -41,9 +39,10 @@ public class LogEntry implements Serializable{
     private String userId;
 
 	private String machineId;
+	
 
-	//@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="MM-dd hh:mm:ss.SS")
-    private Date timestamp;
+	//@JsonFormat (shape = JsonFormat.Shape.STRING, pattern ="yyyy-MM-dd'T'HH:mm:ss.SSSZZ")    
+	private Date timestamp;
 	
     private static DateFormat sdf = new SimpleDateFormat("MM-dd hh:mm:ss.SS");
 
