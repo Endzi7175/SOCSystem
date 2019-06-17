@@ -1,5 +1,8 @@
 package com.sbnz.SIEMCenter2.model;
 
+import org.kie.api.definition.type.Role;
+import org.kie.api.definition.type.Timestamp;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,6 +11,8 @@ import javax.persistence.Id;
 import java.util.Date;
 
 @Entity
+@Role(Role.Type.EVENT)
+@Timestamp("dateTriggered")
 public class AlarmTriggered {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

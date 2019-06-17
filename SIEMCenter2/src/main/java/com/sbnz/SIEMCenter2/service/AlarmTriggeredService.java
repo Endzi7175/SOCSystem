@@ -24,7 +24,7 @@ public class AlarmTriggeredService {
 	
 	public AlarmTriggered save(AlarmTriggered alarm){
 		AlarmTriggered alarmTriggered = alarmRepo.save(alarm);
-		simpMessagingTemplate.convertAndSend("/socket/alarm", alarmTriggered);
+		simpMessagingTemplate.convertAndSend("/alarm", alarmTriggered);
 		return alarmTriggered;
 	}
 	public AlarmTriggered findByType(int type){
