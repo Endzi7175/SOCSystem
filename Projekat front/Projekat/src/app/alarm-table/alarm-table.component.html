@@ -3,30 +3,30 @@
 
     <!-- Position Column -->
     <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <th mat-header-cell *matHeaderCellDef width=5%> ID </th>
       <td mat-cell *matCellDef="let alarm"> {{alarm.id}} </td>
     </ng-container>
 
     <ng-container matColumnDef="type">
-      <th mat-header-cell *matHeaderCellDef> Type </th>
+      <th mat-header-cell *matHeaderCellDef width=5%> Type </th>
       <td mat-cell *matCellDef="let alarm"> {{alarm.type}} </td>
     </ng-container>
 
     <!-- Name Column -->
     <ng-container matColumnDef="userId">
-      <th mat-header-cell *matHeaderCellDef> User ID </th>
+      <th mat-header-cell *matHeaderCellDef width=10%> User ID </th>
       <td mat-cell *matCellDef="let alarm"> {{alarm.userId}} </td>
     </ng-container>
 
     <!-- Weight Column -->
     <ng-container matColumnDef="machineId">
-      <th mat-header-cell *matHeaderCellDef> Machine ID </th>
+      <th mat-header-cell *matHeaderCellDef width=10%> Machine ID </th>
       <td mat-cell *matCellDef="let alarm"> {{alarm.machineId}} </td>
     </ng-container>
 
     <!-- Symbol Column -->
-    <ng-container matColumnDef="ip">
-      <th mat-header-cell *matHeaderCellDef> IP </th>
+    <ng-container matColumnDef="ip" >
+      <th mat-header-cell *matHeaderCellDef width=10%> IP </th>
       <td mat-cell *matCellDef="let alarm"> {{alarm.ip}} </td>
     </ng-container>
     <ng-container matColumnDef="message">
@@ -34,9 +34,9 @@
       <td mat-cell *matCellDef="let alarm"> {{alarm.message}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="date">
-      <th mat-header-cell *matHeaderCellDef> Time </th>
-      <td mat-cell *matCellDef="let alarm"> {{alarm.date}} </td>
+    <ng-container matColumnDef="date" >
+      <th mat-header-cell *matHeaderCellDef width=10%> Time </th>
+      <td mat-cell *matCellDef="let alarm"> {{alarm.dateTriggered | date:'dd.MM.yy hh:mm:ss'}} </td>
     </ng-container>
 
 

@@ -10,6 +10,8 @@ import { LoginComponent } from './login/login.component';
 import { SearchTableComponent } from './search-table/search-table.component';
 import { AlarmTableComponent } from './alarm-table/alarm-table.component';
 import {  MatFormFieldModule } from '@angular/material/form-field';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import {  MatFormFieldModule } from '@angular/material/form-field';
     AppRoutingModule,
     MatTableModule,
     MatPaginatorModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
