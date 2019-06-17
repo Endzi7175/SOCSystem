@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-search-table',
   templateUrl: './search-table.component.html',
@@ -12,4 +13,6 @@ export class SearchTableComponent implements OnInit {
   ngOnInit() {
   }
 
+  displayedColumns: string[] = ['informationSystemType', 'message', 'category', 'logLevel', 'ipAddress', 'userId', 'machineId', 'timestamp',];
+ 
 }
