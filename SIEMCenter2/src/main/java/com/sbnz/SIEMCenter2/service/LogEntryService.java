@@ -1,8 +1,5 @@
 package com.sbnz.SIEMCenter2.service;
 
-import java.util.Date;
-import java.util.List;
-
 import org.kie.api.runtime.KieContainer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,7 +16,7 @@ public class LogEntryService  {
 	@Autowired
 	private LogEntryRepository logRepo;
 	@Autowired
-	public List<LogEntry> findAll(){
+	public Iterable<LogEntry> findAll(){
 		return logRepo.findAll();
 	}
 	public LogEntry save(LogEntry le){
@@ -27,4 +24,5 @@ public class LogEntryService  {
 		//KieSessionService.session.dispose();
 		return logRepo.save(le);
 	}
+
 }

@@ -1,7 +1,6 @@
 //created on: May 19, 2019
 package sbnz.rules
 import com.sbnz.SIEMCenter2.model.LogEntry
-import com.sbnz.SIEMCenter2.model.SuccessLoginLog
 import com.sbnz.SIEMCenter2.model.AlarmTriggered
 import com.sbnz.SIEMCenter2.model.MaliciousIpAddress
 import com.sbnz.SIEMCenter2.model.User

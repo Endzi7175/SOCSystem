@@ -55,10 +55,7 @@ public class SiemCenter2Application implements CommandLineRunner {
 		 condition.trailingOperator = BooleanTrailingOperator.AND;
 		 
 		 rule.conditions.add(condition);
-		 List<LogEntry> logs = new ArrayList<LogEntry>();
-		 for (int i = 0; i < 15; i++){
-			 logs.add(new LogEntry(1, "Neuspesna prijava na sistem", "security related", 0, "222.222.222.222", "1", new Date(), "1"));
-		 }
+		 
 		 kieService.startKieService();
 		 //kieService.insertNewRule(rule);
 
