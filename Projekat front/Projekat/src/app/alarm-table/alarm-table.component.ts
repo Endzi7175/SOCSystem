@@ -3,6 +3,7 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import * as Stomp from 'stompjs';
 import * as SockJS from 'sockjs-client';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-alarm-table',
@@ -11,15 +12,17 @@ import * as SockJS from 'sockjs-client';
 })
 export class AlarmTableComponent implements OnInit {
   displayedColumns: string[] = ['type','id', 'userId', 'machineId', 'ip', 'message', 'date'];
-  dataSource = new MatTableDataSource<Alarm>(ELEMENT_DATA);
+  dataSource = new MatTableDataSource<Alarm>([]);
   stompClient : Stomp;
-  private serverUrl = 'http://localhost:8090/socket'
+  private serverUrl = 'http://localhost:8090'
+  constructor(private http : HttpClient){};
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
-    this.stompClient = Stomp.over(new SockJS(this.serverUrl));
+    this.getHtttp();
+    this.stompClient = Stomp.over(new SockJS(this.serverUrl+"/socket"));
     let that = this;
     this.stompClient.connect({}, function(frame) {
       that.stompClient.subscribe("/alarm", (frame) => {
@@ -29,6 +32,16 @@ export class AlarmTableComponent implements OnInit {
       });
     });
   }
+ 
+  private getHtttp() {
+    let that = this;
+    this.http.get<any>(this.serverUrl + "/api/alarm").subscribe(
+      (response)=>{
+        that.dataSource.data = response;
+        that.dataSource.data = [...that.dataSource.data]
+      }
+    );
+  }
 }
 export interface Alarm {
   type: number;
@@ -37,10 +50,7 @@ export interface Alarm {
   machineId: string;
   ip: string;
   message: string;
-  date: any;
+  dateTriggered: any;
 }
 
-const ELEMENT_DATA: Alarm[] = [
-
-];
 
