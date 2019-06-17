@@ -10,10 +10,10 @@ import * as SockJS from 'sockjs-client';
   styleUrls: ['./alarm-table.component.css']
 })
 export class AlarmTableComponent implements OnInit {
-  displayedColumns: string[] = ['type','id', 'userId', 'machineId', 'ip', 'message'];
+  displayedColumns: string[] = ['type','id', 'userId', 'machineId', 'ip', 'message', 'date'];
   dataSource = new MatTableDataSource<Alarm>(ELEMENT_DATA);
   stompClient : Stomp;
-  private serverUrl = 'http://localhost:8080/socket'
+  private serverUrl = 'http://localhost:8090/socket'
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
@@ -22,17 +22,14 @@ export class AlarmTableComponent implements OnInit {
     this.stompClient = Stomp.over(new SockJS(this.serverUrl));
     let that = this;
     this.stompClient.connect({}, function(frame) {
-      that.stompClient.subscribe("/alarm", (message) => {
-        if(message.body) {
-          
-          console.log(message.body);
-        }
+      that.stompClient.subscribe("/alarm", (frame) => {
+        let alarm : Alarm = JSON.parse(frame.body);
+        that.dataSource.data.push(alarm);
+        that.dataSource.data = [...that.dataSource.data]
       });
     });
   }
-
 }
-
 export interface Alarm {
   type: number;
   id: number;
@@ -40,14 +37,10 @@ export interface Alarm {
   machineId: string;
   ip: string;
   message: string;
+  date: any;
 }
 
 const ELEMENT_DATA: Alarm[] = [
-  {id: 1, type: 1, userId: "pera", machineId: 'PC1', ip:"192.168.1.1", message:"Porukaaa" },
-  {id: 2, type: 0, userId: "zika", machineId: 'PC12', ip:"192.168.1.1", message:"Porukaaa" },
-  {id: 3, type: 3, userId: "mika", machineId: 'PC12', ip:"192.168.1.1", message:"Porukaaa" },
-  {id: 4, type: 3, userId: "pera", machineId: 'PC1', ip:"192.168.1.1", message:"Porukaaa" },
-  {id: 5, type: 0, userId: "mika", machineId: 'PC3', ip:"192.168.1.1", message:"Porukaaa" },
-  {id: 6, type: 1, userId: "mika", machineId: 'PC3', ip:"192.168.1.1", message:"Porukaaa" }
+
 ];
 
