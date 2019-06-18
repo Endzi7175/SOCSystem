@@ -10,13 +10,14 @@ import { LoginComponent } from './login/login.component';
 import { SearchTableComponent } from './search-table/search-table.component';
 import { AlarmTableComponent } from './alarm-table/alarm-table.component';
 import {  MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatOption, MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import { MatButtonModule } from '@angular/material/button';
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RuleAdderComponent } from './rule-adder/rule-adder.component';
-import { MatInputModule } from '@angular/material/input';
 import { ConditionComponent } from './condition/condition.component';
-import { MatSelectModule } from '@angular/material/select';
-import { FormsModule } from '@angular/forms';
-import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,10 @@ import {MatButtonModule} from '@angular/material/button';
     MatInputModule,
     MatSelectModule,
     FormsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatOptionModule,
+    MatButtonModule,
+    FormsModule,
   ],
   entryComponents: [ConditionComponent],
   providers: [],
