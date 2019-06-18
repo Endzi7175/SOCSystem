@@ -124,9 +124,8 @@ public class KieService {
 
 		 File initialFile = Paths.get("src","main","resources","templates","template.drl").toFile();
 		 InputStream targetStream = new FileInputStream(initialFile);
-		 String gitDir = Paths.get("").toFile().getParent();
-		 Path dir = Paths.get(gitDir, "log-rules","src","main","resources","sbnz","rules");
-
+		 String gitDir = Paths.get(Paths.get("").toAbsolutePath().toString()).toFile().getParentFile().toString();
+		 Path dir = Paths.get( gitDir,"log-rules","src","main","resources","sbnz","rules");
 		 int i = 0;
 		 while(Paths.get(dir.toString(), i + ".drl").toFile().exists()) {
 			 i++;

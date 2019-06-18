@@ -30,7 +30,7 @@ public class Condition {
 	}
 
 	public static enum ComapreOperator{
-		EQUAL_TO, NOT_EQUAL_TO, LESS_THAN_OR_EQUAL_TO,GREATER_THAN_OR_EQUAL_TO,LESS_THAN,GREATER_THAN
+		EQUAL_TO, NOT_EQUAL_TO
 	}
 	
 	public static enum BooleanTrailingOperator{
@@ -39,7 +39,7 @@ public class Condition {
 
 	public ComapreOperator getOperator() {
 		// TODO Auto-generated method stub
-		return ComapreOperator.NOT_EQUAL_TO;
+		return comapreOperator;
 	}
 
 	public String getField() {

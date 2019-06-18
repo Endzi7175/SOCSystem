@@ -14,8 +14,8 @@ public class Rule {
 		
 		private static transient List<String> fieldsNames;
 		static {
-			fieldsNames = Arrays.stream(LogEntry.class.getFields())
-					.map(f->f.getName().toLowerCase())
+			fieldsNames = Arrays.stream(LogEntry.class.getDeclaredFields())
+					.map((f)->f.getName().toLowerCase())
 					.collect(Collectors.toList());
 		}
 
@@ -33,18 +33,6 @@ public class Rule {
 	                    break;
 	                case NOT_EQUAL_TO:
 	                    operator = "!=";
-	                    break;
-	                case GREATER_THAN:
-	                    operator = ">";
-	                    break;
-	                case LESS_THAN:
-	                    operator = "<";
-	                    break;
-	                case GREATER_THAN_OR_EQUAL_TO:
-	                    operator = ">=";
-	                    break;
-	                case LESS_THAN_OR_EQUAL_TO:
-	                    operator = "<=";
 	                    break;
 	            }
 	            

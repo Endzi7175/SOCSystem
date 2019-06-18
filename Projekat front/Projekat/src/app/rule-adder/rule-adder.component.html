@@ -1,0 +1,26 @@
+
+  <mat-form-field style="width:100% !important" >
+    <input matInput placeholder="Alarm message" value="" width=100% [(ngModel)]="message">
+  </mat-form-field>
+  <br>
+  <mat-form-field style="width:100% !important">
+    <input matInput placeholder="Count" type="number" [(ngModel)]="count" >
+  </mat-form-field>
+<br>
+  <mat-form-field style="width:80% !important">
+    <input matInput placeholder="Interval" type="number" [(ngModel)]="interval" >
+  </mat-form-field>
+
+  <mat-form-field>
+      <mat-select [(ngModel)]="time" >
+    <mat-option value="s">Seconds</mat-option>
+    <mat-option value="m">Minutes</mat-option>
+    <mat-option value="h">Hours</mat-option>
+    <mat-option value="d">Days</mat-option>
+      </mat-select>
+</mat-form-field>
+
+<template #conditionContainer></template>
+<br>
+<button mat-raised-button (click)="addConditionClick()">Add condition</button>
+<button mat-raised-button (click)="submit()">Submit</button>

@@ -1,0 +1,31 @@
+<br>
+<mat-form-field>
+<mat-select [(ngModel)]="field">
+    <mat-option value="informationSystemType">Information System Type</mat-option>
+    <mat-option value="message">Message</mat-option>
+    <mat-option value="category">Category</mat-option>
+    <mat-option value="logLevel">Log level</mat-option>
+    <mat-option value="userId">User ID</mat-option>
+    <mat-option value="machineId">Machine ID</mat-option>
+    <mat-option value="ipAddress">IP</mat-option>
+    <mat-option value="timestamp">Timestamp</mat-option>
+</mat-select>
+</mat-form-field>
+
+<mat-form-field>
+    <mat-select [(ngModel)]="comapreOperator" >
+        <mat-option value="EQUAL_TO">Equal to</mat-option>
+        <mat-option value="NOT_EQUAL_TO">Not equal to</mat-option>
+    </mat-select>
+</mat-form-field>
+
+<mat-form-field style="width:50% !important">
+    <input [(ngModel)]="value" matInput placeholder="Value">
+  </mat-form-field>
+
+  <mat-form-field>
+      <mat-select [(ngModel)]="trailingOperator">
+          <mat-option value="AND"> AND/END </mat-option>
+          <mat-option value="OR"> OR/END </mat-option>
+      </mat-select>
+  </mat-form-field>
