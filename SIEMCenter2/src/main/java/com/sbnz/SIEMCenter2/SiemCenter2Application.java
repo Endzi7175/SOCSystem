@@ -57,8 +57,8 @@ public class SiemCenter2Application implements CommandLineRunner {
 		 
 		 condition = new Condition();
 		 condition.field = "logLevel";
-		 condition.value = 5;
-		 condition.comapreOperator = Condition.ComapreOperator.EQUAL_TO;
+		 condition.value = "5";
+		 condition.comapreOperator = Condition.ComapreOperator.NOT_EQUAL_TO;
 		 condition.trailingOperator = BooleanTrailingOperator.AND;
 		 
 		 rule.conditions.add(condition);
@@ -70,19 +70,19 @@ public class SiemCenter2Application implements CommandLineRunner {
 		 List<String> machine = Arrays.asList( "PC-123","PC-111","PC-100","PC-222");
 		List<String> messages = Arrays.asList( "FATALNA GRESKA","Nista strasno","Strmovito","Poruka113", "Lorem ipsum", "MA kakvi ovo nista ne valaj", "Pera zika 123123");
 		 Random r = new Random();
-		 while(true){
-			 AlarmTriggered alarmTriggered = new AlarmTriggered();
-			 alarmTriggered.setId((long)id++);
-			 alarmTriggered.setUserId(imena.get(r.nextInt(4)));
-			 alarmTriggered.setIp(ips.get(r.nextInt(4)));
-			 alarmTriggered.setMachineId(machine.get(r.nextInt(4)));
-			 alarmTriggered.setDateTriggered(new Date());
-			 alarmTriggered.setType(r.nextInt(10));
-			 alarmTriggered.setMessage(messages.get(r.nextInt(messages.size())));
-			 alarmTriggeredService.save(alarmTriggered);
-			 Thread.sleep(3000-r.nextInt(3000));
-		 }
-		 //kieService.insertNewRule(rule);
+//		 while(true){
+//			 AlarmTriggered alarmTriggered = new AlarmTriggered();
+//			 alarmTriggered.setId((long)id++);
+//			 alarmTriggered.setUserId(imena.get(r.nextInt(4)));
+//			 alarmTriggered.setIp(ips.get(r.nextInt(4)));
+//			 alarmTriggered.setMachineId(machine.get(r.nextInt(4)));
+//			 alarmTriggered.setDateTriggered(new Date());
+//			 alarmTriggered.setType(r.nextInt(10));
+//			 alarmTriggered.setMessage(messages.get(r.nextInt(messages.size())));
+//			 alarmTriggeredService.save(alarmTriggered);
+//			 Thread.sleep(3000-r.nextInt(3000));
+//		 }
+		 //kieService.insertNewRule(rule, "90d", 10, "Totalna greska");
 
 
 	}

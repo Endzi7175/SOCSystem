@@ -11,14 +11,22 @@ import { SearchTableComponent } from './search-table/search-table.component';
 import { AlarmTableComponent } from './alarm-table/alarm-table.component';
 import {  MatFormFieldModule } from '@angular/material/form-field';
 import { HttpClientModule } from '@angular/common/http';
-
+import { RuleAdderComponent } from './rule-adder/rule-adder.component';
+import { MatInputModule } from '@angular/material/input';
+import { ConditionComponent } from './condition/condition.component';
+import { MatSelectModule } from '@angular/material/select';
+import { FormsModule } from '@angular/forms';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     SearchTableComponent,
-    AlarmTableComponent
+    AlarmTableComponent,
+    RuleAdderComponent,
+    ConditionComponent
+
   ],
   imports: [
     BrowserModule,
@@ -27,8 +35,13 @@ import { HttpClientModule } from '@angular/common/http';
     MatTableModule,
     MatPaginatorModule,
     MatFormFieldModule,
-    HttpClientModule
+    HttpClientModule,
+    MatInputModule,
+    MatSelectModule,
+    FormsModule,
+    MatButtonModule
   ],
+  entryComponents: [ConditionComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

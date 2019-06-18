@@ -3,6 +3,9 @@ template header
 
 rule
 ruleNum
+alarmMessage
+count
+interval
 
 package com.sbnz.SIEMCenter2;
 import com.sbnz.SIEMCenter2.model.LogEntry
@@ -16,18 +19,12 @@ template "alert"
 
 rule "alert_@{ruleNum}"
 when
-     $l1 : LogEntry(@{rule})
-      and
-      Number(intValue >= @{count}) from accumulate(
-          $l2: LogEntry(
-              @{rule} and
-              this meets[@{interval}] $l1
-          ),
-          count($l2)
-     )
+     $actualCount : Number()
+        			from accumulate ($l1 : LogEntry(@{rule}) over window:time(@{interval}), count($l1))
+      eval($actualCount.intValue() >= ${count}})
 then
-     System.out.println(l);
-     alarmService.save(new AlarmTriggered(l.userId, @{alarmMessage}, -1));
+     System.out.println($l1);
+     alarmService.save(new AlarmTriggered($l1.userId, @{alarmMessage}, -@{ruleNum}));
 end
 
 end template
