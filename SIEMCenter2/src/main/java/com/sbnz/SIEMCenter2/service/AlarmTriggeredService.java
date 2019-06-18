@@ -27,7 +27,7 @@ public class AlarmTriggeredService {
 		simpMessagingTemplate.convertAndSend("/alarm", alarmTriggered);
 		return alarmTriggered;
 	}
-	public AlarmTriggered findByType(int type){
+	public List<AlarmTriggered> findByType(int type){
 		return alarmRepo.findByType(type);
 	}
 	public List<AlarmTriggered> fidnAll() {

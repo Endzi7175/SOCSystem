@@ -19,7 +19,7 @@ declare UserChanged
 end
 rule "Vise od 9 neuspesnih prijava sa istim korisnickim imenom"
     when
-        $l1: LogEntry(message.equals("Neuspesna prijava na sistem"), $m: message, $id: userId) 
+        $l1: LogEntry(message.equals("Neuspesna prijava na sistem") , $m: message, $id: userId) 
         not (AlarmTriggered(userId == $id,  type == AlarmTriggered.VISE_OD_2_PRIJAVE_ISTI_KORISNIK))
         Number(intValue >= 9) from accumulate(
             $l2: LogEntry(
@@ -114,6 +114,27 @@ rule "Vise od 15 neuspesnih prijava na razlicite delove informacionog sistema sa
     	alarmService.save(new AlarmTriggered(null, null, $ip, "Neuspesna prijava na razlicite informacione sisteme sa iste ip adrese", AlarmTriggered.VISE_OD_15_PRIJAVA_RAZLICITI_SISTEMI, new Date()));
         System.out.println("Alarm: vise od 15 neu spesnih prijava na razlicite informacione sisteme sa iste ip adrese " );
     	insert(new AlarmTriggered( null, null, $ip, "Neuspesna prijava na razlicite informacione sisteme sa iste ip adrese" + $ip, AlarmTriggered.VISE_OD_15_PRIJAVA_RAZLICITI_SISTEMI, new Date()));
+end
+rule "Prijavljivanje na sistem u roku od 10 sekundi na razlicite delove informacionih sistema"
+    when
+        $l1: LogEntry(message.equals("Uspesna prijava na sistem"), $id:userId,  $m: message, $ip: ipAddress, $isType : informationSystemType)
+        not (AlarmTriggered(userId == $id, type == AlarmTriggered.VISE_OD_15_PRIJAVA_RAZLICITI_SISTEMI))
+        Number(intValue >= 2) from accumulate(
+            $l2: LogEntry(
+                this != $l1,
+                userId == $id,
+                message == $m,
+                ipAddress != $ip,
+                informationSystemType !=  $isType,
+                this after[0s, 10s] $l1
+            ),
+            count($l2)
+        )
+        
+    then
+    	alarmService.save(new AlarmTriggered($id, null, $ip, "Prijava na razlicite informacione sisteme sa razlicitih ip adresa u roku od 10s", AlarmTriggered.VISE_OD_15_PRIJAVA_RAZLICITI_SISTEMI, new Date()));
+        System.out.println("Alarm: Prijava na razlicite informacione sisteme sa razlicitih ip adresa u roku od 10s" );
+    	insert(new AlarmTriggered( $id, null, $ip, "Prijava na razlicite informacione sisteme sa razlicitih ip adresa u roku od 10s" + $ip, AlarmTriggered.VISE_OD_15_PRIJAVA_RAZLICITI_SISTEMI, new Date()));
 end
 rule "Neuklonjen virus"
     when

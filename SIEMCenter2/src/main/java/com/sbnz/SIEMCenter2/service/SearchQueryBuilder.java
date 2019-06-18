@@ -27,7 +27,6 @@ public class SearchQueryBuilder {
 				queryParams[i] = ".*";
 			}
 		}
-		
 		BoolQueryBuilder query = QueryBuilders.boolQuery()
 				.must(QueryBuilders.regexpQuery("message", queryParams[0]))
 				.must(QueryBuilders.regexpQuery("category", queryParams[1]))
@@ -36,7 +35,6 @@ public class SearchQueryBuilder {
 				.must(QueryBuilders.regexpQuery("ipAddress", queryParams[4]))
 				.must(QueryBuilders.regexpQuery("userId", queryParams[5]))
 				.must(QueryBuilders.regexpQuery("machineId", queryParams[6]))
-
 				;
 
 		NativeSearchQuery build = new NativeSearchQueryBuilder().withQuery(query).build();

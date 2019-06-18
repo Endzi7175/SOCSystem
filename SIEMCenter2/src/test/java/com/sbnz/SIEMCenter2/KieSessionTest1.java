@@ -1,11 +1,11 @@
 package com.sbnz.SIEMCenter2;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -140,7 +140,7 @@ public class KieSessionTest1 {
 		KieSession session = kieService.getKieSession();
 		Date virusAppearDate = new Date();
 		Calendar c = Calendar.getInstance();
-		c.add(Calendar.MINUTE, -61);
+		c.add(Calendar.MINUTE, -58);
 		virusAppearDate= c.getTime();
 		
 		LogEntry log = new LogEntry("1", "Virus", "security related", "0", "212.234.212.102", "1", virusAppearDate, "1");
@@ -152,11 +152,17 @@ public class KieSessionTest1 {
 
 
 		int rulesFired = session.fireAllRules();
-		assertEquals(1, rulesFired);
-
-
+		assertEquals(0, rulesFired);
 		
+		c.add(Calendar.MINUTE, -3);
+		virusAppearDate = c.getTime();
 		
+		LogEntry log2 = new LogEntry("1", "Virus", "security related", "0", "212.234.212.102", "1", virusAppearDate, "1");
+
+		session.insert(log2);
+
+		rulesFired = session.fireAllRules();
+		assertEquals(1, rulesFired);		
 	}
 	@Test
 	public void test_pojavaLogaUKomeAntivirusRegistrujePretnjuADaURokuOdSatVremenaJesteUklonjenVirus(){
@@ -245,9 +251,9 @@ public class KieSessionTest1 {
 
 		int rulesFired = session.fireAllRules();
 		assertEquals(1, rulesFired);
-		AlarmTriggered alarm = alarmService.findByType(AlarmTriggered.DOS_NAPAD);
-		assertNotNull(alarm);
-		assertEquals(AlarmTriggered.DOS_NAPAD, alarm.getType());
+		List<AlarmTriggered> alarms = alarmService.findByType(AlarmTriggered.DOS_NAPAD);
+		assertNotNull(alarms);
+		assertTrue(alarms.size() > 0);
 	}
 	@Test
 	public void test_paymentNapad(){
@@ -267,9 +273,9 @@ public class KieSessionTest1 {
 		}
 		int rulesFired = session.fireAllRules();
 		assertEquals(1, rulesFired);
-		AlarmTriggered alarm = alarmService.findByType(AlarmTriggered.PAYMENT_NAPAD);
-		assertNotNull(alarm);
-		assertEquals(AlarmTriggered.PAYMENT_NAPAD, alarm.getType());
+		List<AlarmTriggered> alarms = alarmService.findByType(AlarmTriggered.PAYMENT_NAPAD);
+		assertNotNull(alarms);
+		assertTrue(alarms.size() > 0);
 	}
 	@Test
 	public void test_bruteForceNapad(){
@@ -288,21 +294,35 @@ public class KieSessionTest1 {
 		}
 		int rulesFired = session.fireAllRules();
 		assertEquals(1, rulesFired);
-		AlarmTriggered alarm = alarmService.findByType(AlarmTriggered.BRUTEFORCE_NAPAD);
-		assertNotNull(alarm);
-		assertEquals(AlarmTriggered.BRUTEFORCE_NAPAD, alarm.getType());
+		List<AlarmTriggered> alarms = alarmService.findByType(AlarmTriggered.BRUTEFORCE_NAPAD);
+		assertNotNull(alarms);
+		assertTrue(alarms.size() > 0);
 	}
 	@Test
 	public void test_30IliViseNeuspesnihPrijavaSaIsteIpAdrese(){
 		KieSession session = kieService.getKieSession();
 		session.setGlobal("ipRepo", ipRepo);
-		for (int i = 0; i < 31; i++){
-			LogEntry log = new LogEntry("1", "Neuspesna prijava na sistem", "security related", "0", "124.142.345.123", i+"1", new Date(), i+ "1");
+		Calendar cal = Calendar.getInstance();
+		
+		for (int i = 0; i < 30; i++){
+			LogEntry log = new LogEntry("1", "Neuspesna prijava na sistem", "security related", "0", "124.142.345.123", i+"1", cal.getTime(), i+ "1");
 			session.insert(log);
 		}
+		cal.add(Calendar.HOUR, 25);
+		LogEntry log = new LogEntry("1", "Neuspesna prijava na sistem", "security related", "0", "124.142.345.123", "1", cal.getTime(), "1");
+		session.insert(log);
 		session.fireAllRules();
 		MaliciousIpAddress maliciousIp = ipRepo.findByIp("124.142.345.123");
+		assertNull(maliciousIp);
+		
+		cal.add(Calendar.HOUR,-2);
+		LogEntry log2 = new LogEntry("1", "Neuspesna prijava na sistem", "security related", "0", "124.142.345.123", "1", cal.getTime(), "1");
+		session.insert(log2);
+		session.fireAllRules();
+		maliciousIp = ipRepo.findByIp("124.142.345.123");
 		assertNotNull(maliciousIp);
+
+		
 	}
 	@Test
 	public void test_UpsesnaPrijavaPracenaIzmenomPodataka(){
@@ -501,6 +521,33 @@ public class KieSessionTest1 {
 		user = userService.findOne("1");
 		assertEquals( User.SecurityStatus.EXTREME, user.getStatus());
 		
+	}
+	@Test
+	public void test_uspesnaPrijavaNaRazliciteDeloveInformacionihSistemaSaRazliciteIpAddrese(){
+		KieSession session = kieService.getKieSession();
+
+		Calendar cal = Calendar.getInstance();
+		//cal.add(Calendar.DAY_OF_YEAR, -5);
+		//15 jednakih intervala po 8 sati (ukupno 5 dana)
+		
+		for (int i = 0; i < 2; i++){
+			Date loginDate = cal.getTime();
+			LogEntry log = new LogEntry(i+"1", "Uspesna prijava na sistem", "security related", "0", i+"13.234.212.102", "1", loginDate, "1");
+			session.insert(log);
+			
+		}
+		cal.add(Calendar.SECOND, 11);
+		LogEntry log = new LogEntry( "5", "Uspesna prijava na sistem", "security related", "0", "13.234.212.103", "1",cal.getTime(), "5");
+		session.insert(log);
+		int rulesFired = session.fireAllRules();
+		assertEquals(0, rulesFired);
+
+		cal.add(Calendar.SECOND, -2);
+		LogEntry log2 = new LogEntry("5", "Uspesna prijava na sistem", "security related", "0", "213.234.212.102", "1", cal.getTime(), "1");
+		session.insert(log2);
+		
+		rulesFired = session.fireAllRules();
+		assertEquals(1, rulesFired);
 	}
 
 }
