@@ -17,6 +17,7 @@ export class RuleAdderComponent implements OnInit {
   message : string = "ZIka";
   private serverUrl = 'http://localhost:8090'
   ngOnInit() {
+    this.addConditionClick();
   }
 
   addConditionClick(){
