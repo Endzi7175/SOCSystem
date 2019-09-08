@@ -18,7 +18,7 @@ public class Logger {
 	private PrintWriter writer;
 	public static String NORMAL_LOGS = "normal.log";
 	public static String ATTACK_LOGS = "attack.log";
- 	public static void write(String message, String username, char logType, char severity, String ipAddress, int informationSystem, String fileName){
+ 	public static void write(String message, String username, char logType, char severity, String ipAddress, int informationSystem,String machineId, String fileName){
 		DateFormat dateFormat = new SimpleDateFormat("MM-dd HH:mm:ss.SS");
 		Date date = new Date();
 		String timeStamp = dateFormat.format(date);
@@ -28,8 +28,8 @@ public class Logger {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		pw.append(timeStamp + "|" + username + "|" + ipAddress + "|" + logType + "|" + severity + "|" + message + "|" + informationSystem + "\n");
-		System.out.print(timeStamp + "|" + username + "|" + ipAddress + "|" + logType + "|" + severity + "|" + message + "|" + informationSystem + "\n");
+		pw.append(timeStamp + "|" + username + "|" + ipAddress + "|" + logType + "|" + severity + "|" + message + "|" + informationSystem + "|" + machineId + "\n");
+		System.out.print(timeStamp + "|" + username + "|" + ipAddress + "|" + logType + "|" + severity + "|" + message + "|" + informationSystem + "|" + machineId + "\n");
 		pw.flush();
 		pw.close();
 		
@@ -50,7 +50,7 @@ public class Logger {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		pw.append(timeStamp + "|" + log.getUserId() + "|" + log.getIpAddress() + "|" + log.getLogLevel() + "|" + log.getCategory() + "|" + log.getMessage() + "|" + log.getInformationSystemType() + "\n");
+		pw.append(timeStamp + "|" + log.getUserId() + "|" + log.getIpAddress() + "|" + log.getLogLevel() + "|" + log.getCategory() + "|" + log.getMessage() + "|" + log.getInformationSystemType() +"|" + log.getMachineId() + "\n");
 		System.out.print(timeStamp + "|" + log.getUserId() + "|" + log.getIpAddress() + "|" + log.getLogLevel() + "|" + log.getCategory() + "|" + log.getMessage() + "|" + log.getInformationSystemType() + "\n");
 		pw.flush();
 		pw.close();

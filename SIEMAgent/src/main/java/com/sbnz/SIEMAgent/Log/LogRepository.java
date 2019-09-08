@@ -48,7 +48,11 @@ public class LogRepository {
     public Set<Log> findAll() {
         if (logs==null){
             logs =readAll();
+            if(logs==null){
+                logs = new HashSet<>();
+            }
         }
+
         return  logs;
 
     }
@@ -81,7 +85,7 @@ public class LogRepository {
             perms.add(PosixFilePermission.GROUP_WRITE);
             perms.add(PosixFilePermission.GROUP_EXECUTE);
             
-            Files.setPosixFilePermissions(Paths.get(fileName), perms);
+            //Files.setPosixFilePermissions(Paths.get(fileName), perms);
             fstream.write(getGSON().toJson(logs));
         } catch (IOException e) {
             e.printStackTrace();

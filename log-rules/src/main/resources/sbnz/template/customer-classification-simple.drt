@@ -1,0 +1,24 @@
+template header
+minAge
+maxAge
+previousCategory
+newCategory
+
+package sbnz.template
+
+import com.sbnz.SIEMCenter2.model.LogEntry
+
+template "classification-rules"
+
+rule "Categorize Customers_@{row.rowNumber}"
+no-loop true
+when
+    $c: Customer(age >= @{minAge}, 
+    			age <= @{maxAge}, 
+    			category == Customer.Category.@{previousCategory})
+then
+    modify ($c){ setCategory(Customer.Category.@{newCategory})};
+end
+
+end template
+

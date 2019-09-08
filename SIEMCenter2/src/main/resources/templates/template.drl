@@ -1,0 +1,30 @@
+
+template header
+
+rule
+ruleNum
+alarmMessage
+count
+interval
+
+package com.sbnz.SIEMCenter2;
+import com.sbnz.SIEMCenter2.model.LogEntry
+import com.sbnz.SIEMCenter2.model.AlarmTriggered
+import com.sbnz.SIEMCenter2.service.AlarmTriggeredService;
+import java.util.ArrayList
+global ArrayList<AlarmTriggered> alarms;
+global AlarmTriggeredService alarmService;
+
+template "alert"
+
+rule "alert_@{ruleNum}"
+when
+     $actualCount : Number()
+        			from accumulate ($l1 : LogEntry(@{rule}) over window:time(@{interval}), count($l1))
+      eval($actualCount.intValue() >= ${count}})
+then
+     System.out.println($l1);
+     alarmService.save(new AlarmTriggered($l1.userId, @{alarmMessage}, -@{ruleNum}));
+end
+
+end template

@@ -3,7 +3,7 @@ package com.sbnz.SIEMAgent;
 
 
 
-import com.sbnz.SIEMAgent.FileWatcher.WatchAgent;
+import java.nio.file.Paths;
 
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +12,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.scheduling.annotation.EnableAsync;
+
+import com.sbnz.SIEMAgent.FileWatcher.WatchAgent;
 
 
 @SpringBootApplication
@@ -33,11 +35,11 @@ public class SiemAgentApplication implements CommandLineRunner {
 	public void run(String... args) {
 
 		agent.loadWatchers();
-//		try {
-//			agent.registerNewPath(Paths.get("D:\\4.godina\\Bezbednost\\Projekat\\SOCSystem\\LogSimulator"),0);
-//		} catch (WatchAgent.WatchAgentException e) {
-//			e.printStackTrace();
-//		}
+		//try {
+			//agent.registerNewPath(Paths.get("D:\\4.godina\\Bezbednost\\Projekat\\SOCSystem\\LogSimulator"),0);
+		//} catch (WatchAgent.WatchAgentException e) {
+			//e.printStackTrace();
+		//}
 
 	}
 

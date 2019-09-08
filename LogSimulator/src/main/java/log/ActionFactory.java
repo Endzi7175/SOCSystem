@@ -19,10 +19,10 @@ public class ActionFactory {
 					}
 					int loginChance = random.nextInt(5);
 					if (loginChance == 0){
-						return new LogEntry(0, "Neuspesna prijava", 0, 0, "192.168.0.1", user.getUsername(), new Date());
+						return new LogEntry(0, "Neuspesna prijava na sistem", 0, 0, "192.168.0.1", user.getUsername(), new Date(), "1");
 					}else{
 						user.setState(UserState.AUTHORIZED);
-						return new LogEntry(0, "Uspesna prijava", 0, 0, "192.168.0.1", user.getUsername(), new Date());
+						return new LogEntry(0, "Uspesna prijava", 0, 0, "192.168.0.1", user.getUsername(), new Date(), "1");
 					}
 				case AUTHORIZED:
 					int nextAction = random.nextInt(5);
@@ -33,28 +33,28 @@ public class ActionFactory {
 							} catch (InterruptedException e) {
 								e.printStackTrace();
 							}
-							return new LogEntry(0, "Izmena profila", 0, 1, "192.168.0.1", user.getUsername(), new Date());
+							return new LogEntry(0, "Izmena profila", 0, 1, "192.168.0.1", user.getUsername(), new Date(), "1");
 						case 1:
 							try {
 								Thread.sleep(random.nextInt(7000) + 1000);
 							} catch (InterruptedException e) {
 								e.printStackTrace();
 							}
-							return new LogEntry(0, "Kupovina", 0, 0, "192.168.0.1", user.getUsername(), new Date());
+							return new LogEntry(0, "Kupovina", 0, 0, "192.168.0.1", user.getUsername(), new Date(), "1");
 						case 2:
 							try {
 								Thread.sleep(random.nextInt(6000) + 1000);
 							} catch (InterruptedException e) {
 								e.printStackTrace();
 							}
-							return new LogEntry(0, "Slanje poruke", 0, 1, "192.168.0.1", user.getUsername(), new Date());
+							return new LogEntry(0, "Slanje poruke", 0, 1, "192.168.0.1", user.getUsername(), new Date(), "1");
 						case 3:
 							try {
 								Thread.sleep(random.nextInt(3000) + 1000);
 							} catch (InterruptedException e) {
 								e.printStackTrace();
 							}
-							return new LogEntry(0, "Pristup nedozvoljenom fajlu", 0, 0, "192.168.0.1", user.getUsername(), new Date());
+							return new LogEntry(0, "Pristup nedozvoljenom fajlu", 0, 0, "192.168.0.1", user.getUsername(), new Date(), "1");
 						case 4:
 							try {
 								Thread.sleep(random.nextInt(5000) + 1000);
@@ -62,7 +62,7 @@ public class ActionFactory {
 								e.printStackTrace();
 							}
 							user.setState(UserState.LOGOUT);
-							return new LogEntry(0, "Odjava sa sistema", 0, 0, "192.168.0.1", user.getUsername(), new Date());
+							return new LogEntry(0, "Odjava sa sistema", 0, 0, "192.168.0.1", user.getUsername(), new Date(), "1");
 
 							
 					}
@@ -82,10 +82,10 @@ public class ActionFactory {
 					//1 - 30 login sansa
 					int loginChance = random.nextInt(30);
 					if (loginChance > 0){
-						return new LogEntry(0, "Neuspesna prijava", 0, 0, "192.168.0.1", user.getUsername(), new Date());
+						return new LogEntry(0, "Neuspesna prijava na sistem", 0, 0, "192.168.0.1", user.getUsername(), new Date(), "1");
 					}else{
 						user.setState(UserState.AUTHORIZED);
-						return new LogEntry(0, "Uspesna prijava", 0, 0, "192.168.0.1", user.getUsername(), new Date());
+						return new LogEntry(0, "Uspesna prijava", 0, 0, "192.168.0.1", user.getUsername(), new Date(), "1");
 					}
 			 	case  AUTHORIZED:
 			 		int nextAction = random.nextInt(3);
@@ -96,14 +96,14 @@ public class ActionFactory {
 							} catch (InterruptedException e) {
 								e.printStackTrace();
 							}
-							return new LogEntry(0, "Izmena profila", 0, 1, "192.168.0.1", user.getUsername(), new Date());
+							return new LogEntry(0, "Izmena profila", 0, 1, "192.168.0.1", user.getUsername(), new Date(), "1");
 						case 1:
 							try {
 								Thread.sleep(random.nextInt(7000) + 1000);
 							} catch (InterruptedException e) {
 								e.printStackTrace();
 							}
-							return new LogEntry(0, "Kupovina", 0, 0, "192.168.0.1", user.getUsername(), new Date());
+							return new LogEntry(0, "Kupovina", 0, 0, "192.168.0.1", user.getUsername(), new Date(), "1");
 						
 						case 2:
 							try {
@@ -111,7 +111,7 @@ public class ActionFactory {
 							} catch (InterruptedException e) {
 								e.printStackTrace();
 							}
-							return new LogEntry(0, "Pristup nedozvoljenom fajlu", 0, 0, "192.168.0.1", user.getUsername(), new Date());
+							return new LogEntry(0, "Pristup nedozvoljenom fajlu", 0, 0, "192.168.0.1", user.getUsername(), new Date(), "1");
 						
 					}
 			}

@@ -1,78 +1,117 @@
 package com.sbnz.SIEMCenter2;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
-import java.util.ListIterator;
 
-import org.apache.maven.shared.invoker.DefaultInvocationRequest;
-import org.apache.maven.shared.invoker.DefaultInvoker;
-import org.apache.maven.shared.invoker.InvocationRequest;
-import org.apache.maven.shared.invoker.Invoker;
-import org.apache.maven.shared.invoker.MavenInvocationException;
+
+import java.util.*;
+
+import com.sbnz.SIEMCenter2.model.AlarmTriggered;
+import com.sbnz.SIEMCenter2.service.AlarmTriggeredService;
+import org.aspectj.weaver.patterns.TypePatternQuestions.Question;
 import org.kie.api.KieServices;
 import org.kie.api.builder.KieScanner;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
+import org.kie.api.runtime.rule.QueryResults;
+import org.kie.api.runtime.rule.QueryResultsRow;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Bean;
 
-import com.sbnz.SIEMCenter2.model.AlarmTriggered;
+import com.sbnz.SIEMCenter2.model.Condition;
+import com.sbnz.SIEMCenter2.model.Condition.BooleanTrailingOperator;
 import com.sbnz.SIEMCenter2.model.LogEntry;
-import com.sbnz.SIEMCenter2.service.AlarmTriggeredService;
+import com.sbnz.SIEMCenter2.model.Rule;
+import com.sbnz.SIEMCenter2.service.KieService;
+
 
 @SpringBootApplication
-public class SiemCenter2Application {
+public class SiemCenter2Application implements CommandLineRunner {
 	@Autowired
 	public ApplicationContext context;
+
+	@Autowired
+	public KieService kieService;
+
+	@Autowired
+	AlarmTriggeredService alarmTriggeredService;
+
 	public static void main(String[] args) {
 		SpringApplication.run(SiemCenter2Application.class, args);
+	}
+
+	@Override
+	public void run(String... args) throws Exception {
+
+		 Condition condition = new Condition();
+		 condition.field = "message";
+		 condition.value = "Pera";
+		 condition.comapreOperator = Condition.ComapreOperator.EQUAL_TO;
+		 condition.trailingOperator = BooleanTrailingOperator.AND;
+		 
+		 Rule rule = new Rule();
+		 rule.setConditions(new ArrayList<>());
+		 rule.conditions.add(condition);
+		 
+		 condition = new Condition();
+		 condition.field = "logLevel";
+		 condition.value = "5";
+		 condition.comapreOperator = Condition.ComapreOperator.NOT_EQUAL_TO;
+		 condition.trailingOperator = BooleanTrailingOperator.AND;
+		 
+		 rule.conditions.add(condition);
+		 
+		 kieService.startKieService();
+		 int id=0;
+		 List<String> imena = Arrays.asList( "pera","zika","mika","seka");
+		 List<String> ips = Arrays.asList( "192.168.0.1","192.168.11.1","192.168.0.152","192.168.0.73");
+		 List<String> machine = Arrays.asList( "PC-123","PC-111","PC-100","PC-222");
+		List<String> messages = Arrays.asList( "FATALNA GRESKA","Nista strasno","Strmovito","Poruka113", "Lorem ipsum", "MA kakvi ovo nista ne valaj", "Pera zika 123123");
+		 Random r = new Random();
+
+		/* while(true){
+			 AlarmTriggered alarmTriggered = new AlarmTriggered();
+			 alarmTriggered.setId((long)id++);
+			 alarmTriggered.setUserId(imena.get(r.nextInt(4)));
+			 alarmTriggered.setIp(ips.get(r.nextInt(4)));
+			 alarmTriggered.setMachineId(machine.get(r.nextInt(4)));
+			 alarmTriggered.setDateTriggered(new Date());
+			 alarmTriggered.setType(r.nextInt(10));
+			 alarmTriggered.setMessage(messages.get(r.nextInt(messages.size())));
+			 alarmTriggeredService.save(alarmTriggered);
+			 Thread.sleep(3000-r.nextInt(3000));
+		 }*/
+		 //kieService.insertNewRule(rule);
+
+//		 while(true){
+//			 AlarmTriggered alarmTriggered = new AlarmTriggered();
+//			 alarmTriggered.setId((long)id++);
+//			 alarmTriggered.setUserId(imena.get(r.nextInt(4)));
+//			 alarmTriggered.setIp(ips.get(r.nextInt(4)));
+//			 alarmTriggered.setMachineId(machine.get(r.nextInt(4)));
+//			 alarmTriggered.setDateTriggered(new Date());
+//			 alarmTriggered.setType(r.nextInt(10));
+//			 alarmTriggered.setMessage(messages.get(r.nextInt(messages.size())));
+//			 alarmTriggeredService.save(alarmTriggered);
+//			 Thread.sleep(3000-r.nextInt(3000));
+//		 }
+		 //kieService.insertNewRule(rule, "90d", 10, "Totalna greska");
+
+
+
+	}
+	
+	@Bean
+	public KieContainer KieContainer(){
 		KieServices ks = KieServices.Factory.get();
 		KieContainer kContainer = ks
 				 .newKieContainer(ks.newReleaseId("com.sbnz.drools", "log-rules", "0.0.1-SNAPSHOT"));
 				//.newKieContainer(ks.newReleaseId("sbnz.integracija" , "drools-spring-kjar", "0.0.1-SNAPSHOT"));
 		KieScanner kScanner = ks.newKieScanner(kContainer);
 		kScanner.start(10_000);
-		KieSession kieSession = kContainer.newKieSession();
-        Date date = new Date(2019, 5, 19, 20, 0);
-        LogEntry le = new LogEntry(1, "Neuspesna prijava", "asd", 1, "192.168.0.1", "1", date);
-        LogEntry le1 = new LogEntry(2, "Neuspesna prijavaa", "asd", 2, "192.168.0.1", "1", date);
-        LogEntry le2 = new LogEntry(3, "Neuspesna prijava", "asd", 3, "192.168.0.1", "1", date);
-
-        kieSession.insert(le);
-        kieSession.insert(le1);
-        kieSession.insert(le2);
-		//kieSession.insert(new LogEntry(1, "Neuspesna prijava", "1", 1, "128.212.", "1", new Date()));
-        ArrayList<AlarmTriggered> alarms = new ArrayList<AlarmTriggered>();
-        alarms.add(new AlarmTriggered("1", "prvi"));
-        kieSession.setGlobal("alarms", alarms);
-		int x = kieSession.fireAllRules();
-
-        alarms= (ArrayList<AlarmTriggered>)kieSession.getGlobal("alarms");
-		ListIterator listIterator = alarms.listIterator(alarms.size());
-
-        for (AlarmTriggered al : alarms){
-        	System.out.println(al.getMessage());
-        }
-
-		System.out.println(x);
-		kieSession.dispose();
-
-		InvocationRequest request = new DefaultInvocationRequest();
-		request.setPomFile( new File( "D:\\4.godina\\Bezbednost\\Projekat\\SOCSystem\\log-rules\\pom.xml" ) );
-		request.setGoals( Collections.singletonList( "install" ) );
-		 
-		Invoker invoker = new DefaultInvoker();
-		//System.out.println(System.getenv("M2_HOME"));
-		try {
-			invoker.execute( request );
-		} catch (MavenInvocationException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		return kContainer;
 	}
 
 }

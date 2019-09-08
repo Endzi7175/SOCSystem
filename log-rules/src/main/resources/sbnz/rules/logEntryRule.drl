@@ -2,46 +2,340 @@
 package sbnz.rules
 import com.sbnz.SIEMCenter2.model.LogEntry
 import com.sbnz.SIEMCenter2.model.AlarmTriggered
+import com.sbnz.SIEMCenter2.model.MaliciousIpAddress
+import com.sbnz.SIEMCenter2.model.User
+import com.sbnz.SIEMCenter2.service.AlarmTriggeredService;
+import com.sbnz.SIEMCenter2.service.UserService;
+import com.sbnz.SIEMCenter2.repository.MaliciousIpRepository;
+import org.kie.api.time.SessionClock;
 import java.util.ArrayList
-global java.util.ArrayList<AlarmTriggered> alarms
-rule "A stand alone rule"
-
-   when
-        l : LogEntry( userId == "1", myMsg : message )
-    then
-        System.out.println( myMsg );
-        l.setMessage( "Goodbye cruel world" );
-        
-
+import java.util.Date;
+global AlarmTriggeredService alarmService;
+global MaliciousIpRepository ipRepo;
+global UserService userService;
+declare UserChanged
+	@role( event )
+    id : String
 end
-rule "Vise od 3 neuspesnih prijava od strane jednog korisnika"
+rule "Vise od 9 neuspesnih prijava sa istim korisnickim imenom"
     when
-        $l1: LogEntry(message.equals("Neuspesna prijava"), $m: message, $id: userId)
-        not (AlarmTriggered(customerId == $id))
-        Number(intValue >= 2) from accumulate(
+        $l1: LogEntry(message.equals("Neuspesna prijava na sistem") , $m: message, $id: userId) 
+        not (AlarmTriggered(userId == $id,  type == AlarmTriggered.VISE_OD_2_PRIJAVE_ISTI_KORISNIK))
+        Number(intValue >= 9) from accumulate(
             $l2: LogEntry(
                 this != $l1, 
                 message == $m,
-                userId == $id, 
-                this meets[1h30m] $l1
+                userId == $id
             ),
             count($l2)
         )
         
     then
-        System.out.println("Uspelooooo");
-    	insert(new AlarmTriggered($id, "3 neuspela pokusaja prijave"));
+            
+        System.out.println("Alarm: vise od 9 neuspelih prijava od stane korisnika" + $id);
+    
+    	alarmService.save(new AlarmTriggered($id, null, null, "3 neuspela pokusaja prijave", AlarmTriggered.VISE_OD_2_PRIJAVE_ISTI_KORISNIK, new Date()));
+    	insert(new AlarmTriggered($id, null, null, "3 neuspela pokusaja prijave", AlarmTriggered.VISE_OD_2_PRIJAVE_ISTI_KORISNIK, new Date()));
+end
+rule "Vise od 9 neuspesnih prijava od na istoj masini"
+    when
+        $l1: LogEntry(message.equals("Neuspesna prijava na sistem"),  $m: message, $machineId: machineId)
+        not (AlarmTriggered(machineId == $machineId, type == AlarmTriggered.VISE_OD_4_PRIJAVE_ISTA_MASINA))
+        Number(intValue >= 9) from accumulate(
+            $l2: LogEntry(
+                this != $l1, 
+                message == $m,
+                machineId == $machineId
+            ),
+            count($l2)
+        )
+        
+    then
+    	alarmService.save(new AlarmTriggered(null, $machineId, null, "Neuspesna prijava na istoj masini", AlarmTriggered.VISE_OD_4_PRIJAVE_ISTA_MASINA, new Date()));
+        System.out.println("Alarm: vise od 9 neuspelih prijava na istoj masini");
+    	insert(new AlarmTriggered(null, $machineId, null, "Neuspesna prijava na istoj masini, id " + $machineId, AlarmTriggered.VISE_OD_4_PRIJAVE_ISTA_MASINA, new Date()));
 end
 rule "Pojava loga koji je tipa error log level = 1 kad je error"
     when
-        LogEntry(logLevel == 1, $m: message, $id: userId)
-        
-        
+    	
+        LogEntry(logLevel == 1,id == null, $m: message, $id: userId, $machineId : machineId)
     then
     	
-    	alarms.add(new AlarmTriggered($id, "Greska u programu: " + $m));
-    	insert(new AlarmTriggered($id, "Greska u programu: " + $m));
+    	alarmService.save(new AlarmTriggered($id, $machineId, null, "Greska u programu: " + $m, AlarmTriggered.ERROR, new Date()));
+    	System.out.println("Alarm: greska u programu");
+    	
+    	insert(new AlarmTriggered($id, $machineId, null, "Greska u programu: " + $m, AlarmTriggered.ERROR, new Date()));
 end
+rule "Neuspesan pokusaj prijave na sistem od stane korisnika koji nije bio aktivan vise od 90 dana"
+    when
+        $l1 : LogEntry(message.equals("Neuspesna prijava na sistem"), $m: message, $id: userId) 
+        not (AlarmTriggered(userId == $id, type == AlarmTriggered.POKUSAJ_PRIJAVE_NEAKTIVAN_KORISNIK))
+        Number(intValue > 0) from accumulate(
+            $l2: LogEntry(
+                this != $l1, 
+                message.equals("Uspesna prijava na sistem"),
+                userId == $id,
+                this before $l1
+            ),
+            count($l2)
+        )
+        and
+        Number(intValue == 0) from accumulate(
+            $l2: LogEntry(
+                this != $l1, 
+                message.equals("Uspesna prijava na sistem"),
+                userId == $id, 
+                this before[0s, 90d] $l1
+            ),
+            count($l2)
+        ) 
+    then
+    	alarmService.save(new AlarmTriggered($id,null,null, "Neuspesna prijava na sistem od strane neaktivnog korisnika", AlarmTriggered.POKUSAJ_PRIJAVE_NEAKTIVAN_KORISNIK, new Date()));
+        System.out.println("Alarm: Neuspesna prijava na sistem od strane neaktivnog korisnika " + $id);
+    	insert(new AlarmTriggered($id, null, null, "Neuspesna prijava na sistem od strane neaktivnog korisnika", AlarmTriggered.POKUSAJ_PRIJAVE_NEAKTIVAN_KORISNIK, new Date()));
+end
+//sredi
+rule "Vise od 15 neuspesnih prijava na razlicite delove informacionog sistema sa iste ip adrese"
+    when
+        $l1: LogEntry(message.equals("Neuspesna prijava na sistem"),  $m: message, $ip: ipAddress, $isType : informationSystemType, $ts : timestamp)
+        not (AlarmTriggered(ip == $ip, type == AlarmTriggered.VISE_OD_15_PRIJAVA_RAZLICITI_SISTEMI))
+        Number(intValue >= 14) from accumulate(
+            $l2: LogEntry(
+                this != $l1, 
+                message == $m,
+                ipAddress == $ip,
+                informationSystemType !=  $isType,
+                this after[0s, 5d] $l1
+            ),
+            count($l2)
+        )
+        
+    then
+    	alarmService.save(new AlarmTriggered(null, null, $ip, "Neuspesna prijava na razlicite informacione sisteme sa iste ip adrese", AlarmTriggered.VISE_OD_15_PRIJAVA_RAZLICITI_SISTEMI, new Date()));
+        System.out.println("Alarm: vise od 15 neu spesnih prijava na razlicite informacione sisteme sa iste ip adrese " );
+    	insert(new AlarmTriggered( null, null, $ip, "Neuspesna prijava na razlicite informacione sisteme sa iste ip adrese" + $ip, AlarmTriggered.VISE_OD_15_PRIJAVA_RAZLICITI_SISTEMI, new Date()));
+end
+rule "Prijavljivanje na sistem u roku od 10 sekundi na razlicite delove informacionih sistema"
+    when
+        $l1: LogEntry(message.equals("Uspesna prijava na sistem"), $id:userId,  $m: message, $ip: ipAddress, $isType : informationSystemType)
+        not (AlarmTriggered(userId == $id, type == AlarmTriggered.VISE_OD_15_PRIJAVA_RAZLICITI_SISTEMI))
+        Number(intValue >= 2) from accumulate(
+            $l2: LogEntry(
+                this != $l1,
+                userId == $id,
+                message == $m,
+                ipAddress != $ip,
+                informationSystemType !=  $isType,
+                this after[0s, 10s] $l1
+            ),
+            count($l2)
+        )
+        
+    then
+    	alarmService.save(new AlarmTriggered($id, null, $ip, "Prijava na razlicite informacione sisteme sa razlicitih ip adresa u roku od 10s", AlarmTriggered.VISE_OD_15_PRIJAVA_RAZLICITI_SISTEMI, new Date()));
+        System.out.println("Alarm: Prijava na razlicite informacione sisteme sa razlicitih ip adresa u roku od 10s" );
+    	insert(new AlarmTriggered( $id, null, $ip, "Prijava na razlicite informacione sisteme sa razlicitih ip adresa u roku od 10s" + $ip, AlarmTriggered.VISE_OD_15_PRIJAVA_RAZLICITI_SISTEMI, new Date()));
+end
+rule "Neuklonjen virus"
+    when
+    	$clock : SessionClock()
+        $l1: LogEntry(message.equals("Virus"), timestamp.getTime() < $clock.getCurrentTime() - 60*60*1000,  $m: message, $machineId: machineId, $userId : userId )
+       	not(LogEntry(message.equals("Uklonjen virus"),machineId == $machineId, this after[0s, 1h] $l1))
+        //not (AlarmTriggered(userId == $ip, type == AlarmTriggered.VIRUS))
+        
+    then
+    	alarmService.save(new AlarmTriggered($userId, $machineId, null,  "Virus nije uklonjen", AlarmTriggered.VIRUS, new Date()));
+        System.out.println("Alarm: Virus nije uklonjen sa masine " + $machineId);
+    	insert(new AlarmTriggered($userId, $machineId,null, "Nije uklonjen virus sa masine " + $machineId, AlarmTriggered.VIRUS, new Date()));
+end
+rule "Vise od 7 pretnji virusa za isti racunar"
+    when
+        $l1: LogEntry(message.equals("Virus"),  $m: message, $machineId: machineId)
+        not (AlarmTriggered(machineId == $machineId, type == AlarmTriggered.POJAVLJIVANJE_VIRUSA))
+        Number(intValue >= 6) from accumulate(
+            $l2: LogEntry(
+                this != $l1, 
+                message == $m,
+                machineId == $machineId,
+                this after[0s, 10d] $l1
+            ),
+            count($l2)
+        )
+    then
+    	alarmService.save(new AlarmTriggered(null, $machineId,null, "Vise od 7 pretnji atnivisrusa u roku od 7 dana", AlarmTriggered.POJAVLJIVANJE_VIRUSA, new Date()));
+        System.out.println("Vise od 7 pretnji atnivisrusa u roku od 7 dana");
+    	insert(new AlarmTriggered(null, $machineId,null, "Vise od 7 pretnji atnivisrusa u roku od 7 dana" + $machineId, AlarmTriggered.POJAVLJIVANJE_VIRUSA, new Date()));
+end
+rule "Pojava loga sa maliciozne ip adrese"
+	when
+		$l1 : LogEntry($ip:ipAddress)
+		$mip : MaliciousIpAddress(ip.equals($ip))
+	then
+		alarmService.save(new AlarmTriggered(null, null, $ip, "Pojava loga sa maliciozne ip adrese", AlarmTriggered.POJAVLJIVANJE_VIRUSA, new Date()));
+        System.out.println("Pojava loga sa maliciozne ip adrese");
+    	insert(new AlarmTriggered(null, null, $ip, "Pojava loga sa maliciozne ip adrese" + $ip, AlarmTriggered.POJAVLJIVANJE_VIRUSA, new Date()));
+end
+rule "Suvise ucestali napadi (50 u roku od 60s)"
+	when
+		$dos : Number() 
+			from accumulate ($l1 : LogEntry(category != "payment", message != "Neuspesna prijava na sistem") over window:time(60s), count($l1))
+		$payment : Number() 
+			from accumulate ($l2 : LogEntry(category == "payment") over window:time(60s), count($l2))
+		$bruteForce : Number() 
+			from accumulate ($l3 : LogEntry(category == "security related", message == "Neuspesna prijava na sistem") over window:time(60s), count($l3))
+		eval($dos.intValue() + $payment.intValue() + $bruteForce.intValue() >= 50)
+	then
+		if ($bruteForce.intValue() * 5 >= $payment.intValue() * 3){
+			if ($bruteForce.intValue() * 5 >= $dos.intValue()){
+				System.out.println("Brute force napad");
+				alarmService.save(new AlarmTriggered(null, null, null, "Brute force napad", AlarmTriggered.BRUTEFORCE_NAPAD, new Date()));
+    			insert(new AlarmTriggered(null, null, null, "Brute force napad", AlarmTriggered.BRUTEFORCE_NAPAD, new Date()));
+			}else{
+				System.out.println("Dos napad");
+				alarmService.save(new AlarmTriggered(null, null, null, "DoS napad", AlarmTriggered.DOS_NAPAD, new Date()));
+    			insert(new AlarmTriggered(null, null, null, "Dos napad", AlarmTriggered.DOS_NAPAD, new Date()));
+			}
+		}else{
+			if ($payment.intValue() * 3 >= $dos.intValue() ){
+				alarmService.save(new AlarmTriggered(null, null, null, "Payment napad", AlarmTriggered.PAYMENT_NAPAD, new Date()));
+    			insert(new AlarmTriggered(null, null, null, "Payment napad", AlarmTriggered.PAYMENT_NAPAD, new Date()));
+				System.out.println("Payment napad");
+			}else{
+				System.out.println("Dos napad");
+				alarmService.save(new AlarmTriggered(null, null, null, "DoS napad", AlarmTriggered.DOS_NAPAD, new Date()));
+    			insert(new AlarmTriggered(null, null, null, "Dos napad", AlarmTriggered.DOS_NAPAD, new Date()));
 
+			}
+		}
 
+end
+rule "30 ili vise neuspesnih prijava na sistem sa iste ip adrese"
+    when
+        $l1: LogEntry(message.equals("Neuspesna prijava na sistem"), $ip: ipAddress, $m: message)
+        not(MaliciousIpAddress(ip == $ip))
+        $broj : Number() from accumulate(
+            $l2: LogEntry(
+                this != $l1, 
+                message == $m,
+                ipAddress == $ip,
+                this after[0s, 24h] $l1
+            ),
+            count($l2)
+        )
+        eval($broj.intValue() >= 30)
+        
+    then
+        System.out.println("Malicious ip address " + $ip + " added to database");
+        ipRepo.save(new MaliciousIpAddress($ip));
+    	insert(new MaliciousIpAddress($ip));
+end
+rule "uspesna prijava pracena izmenom podataka"
+	when
+		$l1 : LogEntry(message == "Uspesna prijava na sistem", $userId: userId, $ip : ipAddress)
+		$l2 : LogEntry(message == "Izmena profila", userId == $userId, this after $l1)
+		Number(intValue >= 5) from accumulate(
+            $l3: LogEntry( 
+                message == "Neuspesna prijava na sistem",
+               	ipAddress == $ip,
+                this before[0s, 90s] $l1
+            ),
+            count($l3)
+        )
+		
+	then
+		System.out.println("Alarm: Uspesna prijava pracena izmenom profila ukoliko sa iste ip adrese zabelezeno 5 ili vise neuspesnih prijava na sistem");
+		alarmService.save(new AlarmTriggered($userId, null, $ip, "Uspesna prijava pracena izmenom profila ukoliko sa iste ip adrese zabelezeno 5 ili vise neuspesnih prijava na sistem", AlarmTriggered.DOS_NAPAD, new Date()));
+		insert(new AlarmTriggered($userId, null, $ip, "Uspesna prijava pracena izmenom profila ukoliko sa iste ip adrese zabelezeno 5 ili vise neuspesnih prijava na sistem", AlarmTriggered.DOS_NAPAD, new Date()));
+end
+rule "korisnik status LOW" salience 4
+	when
+		$u : User(status != User.SecurityStatus.LOW, $email : email, $id : id)
+		not(AlarmTriggered(userId == $id) over window:time(90d))
+		not(UserChanged(id == $id) over window:time(2m))
+	then
+		System.out.println("User-ov status promenjen na low, id usera : " + $id);
+		modify($u){setStatus(User.SecurityStatus.LOW)}
+		userService.save($u);
+		
+end
+rule "korisnik status MODERATE" salience 3
+	when
+		$u : User(status != User.SecurityStatus.MODERATE, $email : email, $id : id)
+		not(UserChanged(id == $id) over window:time(2m))
+		AlarmTriggered(userId == $id, type== AlarmTriggered.VIRUS) over window:time(180d)
+		or
+		Number(intValue >= 15) from accumulate(
+            $l1: LogEntry( 
+                message == "Neuspesna prijava na sistem",
+               	userId == $id
+                
+            ) over window:time(90d),
+            count($l1)
+        )
+	then
+		System.out.println("User-ov status promenjen na MODERATE, id usera : " + $id);
+		modify($u){setStatus(User.SecurityStatus.MODERATE)}
+		insert(new UserChanged($id));
+		userService.save($u);	
+end
+rule "korisnik status HIGH" salience 2
+	when
+		$u : User(status != User.SecurityStatus.HIGH, isAdmin == true, $email : email, $id : id)
+		AlarmTriggered(userId == $id) over window:time(30d)
+		or
+		(
+		$l : LogEntry(userId == $id, message=="Uspesna prijava na sistem")
+		and
+		Number(intValue >= 2) from accumulate(
+            $l1: LogEntry( 
+                message == "Neuspesna prijava na sistem",
+               	userId == $id,
+                this before $l
+            ) over window:time(30m),
+            count($l1)
+        )
+        )
+		not(UserChanged(id == $id) over window:time(2m))
+	then
+		System.out.println("User-ov status promenjen na HIGH, id usera : " + $id);
+		modify($u){setStatus(User.SecurityStatus.HIGH)}
+		insert(new UserChanged($id));
+		userService.save($u);
+end
+rule "korisnik status EXTREME 1" salience 1
+	when
+		$u : User(status != User.SecurityStatus.EXTREME, $id : id)
 
+	    $l4 : LogEntry(userId == $id, message == "Uspesna prijava na sistem", $ip : ipAddress)
+	    $m  : MaliciousIpAddress(ip == $ip)
+	then
+		System.out.println("User-ov status promenjen na EXTREME, id usera : " + $id);
+		modify($u){setStatus(User.SecurityStatus.EXTREME)}
+		insert(new UserChanged($id));
+		userService.save($u);
+end
+rule "korisnik status EXTREME 2" salience 1
+	when
+		$u : User(status != User.SecurityStatus.EXTREME, $id : id)
+		$a : AlarmTriggered(userId == $id, type==AlarmTriggered.VIRUS) over window:time(180d)
+		$l1 : LogEntry(message == "Uspesna prijava na sistem", userId == $id)
+		$l2 : LogEntry(message == "Izmena profila", userId == $id, this after $l1)
+		Number(intValue >= 2) from accumulate(
+	            $l3: LogEntry( 
+	                message == "Neuspesna prijava na sistem",
+	               	userId == $id,
+	                this before $l1
+	            ),
+	            count($l3)
+	    )
+	then
+		System.out.println("User-ov status promenjen na EXTREME, id usera : " + $id);
+		modify($u){setStatus(User.SecurityStatus.EXTREME)}
+		insert(new UserChanged($id));
+		userService.save($u);
+end
+query getLogsWithMessage (String messageReg, String categoryReg, String isTypeReg, String logLevelReg, String ipAddressReg, String userIdReg, String machineIdReg)
+
+    $l : LogEntry(message matches messageReg, category matches categoryReg, informationSystemType matches isTypeReg, logLevel matches logLevelReg, ipAddress matches ipAddressReg, userId matches userIdReg, machineId matches machineIdReg) 
+end
+		
