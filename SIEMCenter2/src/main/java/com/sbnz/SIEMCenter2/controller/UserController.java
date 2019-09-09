@@ -54,11 +54,13 @@ public class UserController {
 		roleDB.getPrivileges().add(priv);
 		roleRepository.save(roleDB);
 	}
+	//USER_READ_PRIVILEGE
 	@PreAuthorize("hasPermission(#id, 'user', 'read')")
 	@RequestMapping(value="api/getUser")
 	public String getUser(){
 		return "User read";
 	}
+	//NOVO_READ_PRIVILEGE
 	@PreAuthorize("hasPermission(#id, 'novo', 'read')")
 	@RequestMapping(value="api/getUser2")
 	public String get(){
