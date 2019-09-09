@@ -70,7 +70,7 @@ public Privilege createPrivilegeIfNotFound(String name) {
 }
 
 @Transactional
-private Role createRoleIfNotFound(
+public Role createRoleIfNotFound(
   String name, Collection<Privilege> privileges) {
 
     Role role = roleRepository.findByName(name);
