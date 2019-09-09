@@ -41,6 +41,7 @@ public class LogEntryController {
 	}
 	@RequestMapping(value="/searchDB")
 	public List<LogEntry> getAllFromDatabase(@RequestBody String queryParams[]){
+	
 		return searchQueryBuilder.getAll(queryParams);
 	}
 	@RequestMapping(value="/searchMemory")

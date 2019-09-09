@@ -34,8 +34,8 @@ rule "Vise od 9 neuspesnih prijava sa istim korisnickim imenom"
             
         System.out.println("Alarm: vise od 9 neuspelih prijava od stane korisnika" + $id);
     
-    	alarmService.save(new AlarmTriggered($id, null, null, "3 neuspela pokusaja prijave", AlarmTriggered.VISE_OD_2_PRIJAVE_ISTI_KORISNIK, new Date()));
-    	insert(new AlarmTriggered($id, null, null, "3 neuspela pokusaja prijave", AlarmTriggered.VISE_OD_2_PRIJAVE_ISTI_KORISNIK, new Date()));
+    	alarmService.save(new AlarmTriggered($id, null, null, "Vise od 9 neuspesnih prijava sa istim korisnickim imenom", AlarmTriggered.VISE_OD_2_PRIJAVE_ISTI_KORISNIK, new Date()));
+    	insert(new AlarmTriggered($id, null, null, "Vise od 9 neuspesnih prijava sa istim korisnickim imenom", AlarmTriggered.VISE_OD_2_PRIJAVE_ISTI_KORISNIK, new Date()));
 end
 rule "Vise od 9 neuspesnih prijava od na istoj masini"
     when
@@ -51,7 +51,7 @@ rule "Vise od 9 neuspesnih prijava od na istoj masini"
         )
         
     then
-    	alarmService.save(new AlarmTriggered(null, $machineId, null, "Neuspesna prijava na istoj masini", AlarmTriggered.VISE_OD_4_PRIJAVE_ISTA_MASINA, new Date()));
+    	alarmService.save(new AlarmTriggered(null, $machineId, null, "Vise od 9 neuspesnih prijava od na istoj masini", AlarmTriggered.VISE_OD_4_PRIJAVE_ISTA_MASINA, new Date()));
         System.out.println("Alarm: vise od 9 neuspelih prijava na istoj masini");
     	insert(new AlarmTriggered(null, $machineId, null, "Neuspesna prijava na istoj masini, id " + $machineId, AlarmTriggered.VISE_OD_4_PRIJAVE_ISTA_MASINA, new Date()));
 end
@@ -168,8 +168,8 @@ rule "Vise od 7 pretnji virusa za isti racunar"
 end
 rule "Pojava loga sa maliciozne ip adrese"
 	when
-		$l1 : LogEntry($ip:ipAddress)
-		$mip : MaliciousIpAddress(ip.equals($ip))
+		$l1 : LogEntry($ip:ipAddress) over window:time( 10s )
+		$mip : MaliciousIpAddress(ip.equals($ip)) 
 	then
 		alarmService.save(new AlarmTriggered(null, null, $ip, "Pojava loga sa maliciozne ip adrese", AlarmTriggered.POJAVLJIVANJE_VIRUSA, new Date()));
         System.out.println("Pojava loga sa maliciozne ip adrese");
@@ -177,33 +177,43 @@ rule "Pojava loga sa maliciozne ip adrese"
 end
 rule "Suvise ucestali napadi (50 u roku od 60s)"
 	when
+		
+		$l : LogEntry($id : userId)
+		not(AlarmTriggered(userId == $id))
 		$dos : Number() 
-			from accumulate ($l1 : LogEntry(category != "payment", message != "Neuspesna prijava na sistem") over window:time(60s), count($l1))
+			from accumulate ($l1 : LogEntry(userId == $id,category != "payment", message != "Neuspesna prijava na sistem") over window:time(60s), count($l1))
 		$payment : Number() 
-			from accumulate ($l2 : LogEntry(category == "payment") over window:time(60s), count($l2))
+			from accumulate ($l2 : LogEntry(userId == $id, category == "payment") over window:time(60s), count($l2))
 		$bruteForce : Number() 
-			from accumulate ($l3 : LogEntry(category == "security related", message == "Neuspesna prijava na sistem") over window:time(60s), count($l3))
+			from accumulate ($l3 : LogEntry(userId == $id,category == "security related", message == "Neuspesna prijava na sistem") over window:time(60s), count($l3))
 		eval($dos.intValue() + $payment.intValue() + $bruteForce.intValue() >= 50)
 	then
 		if ($bruteForce.intValue() * 5 >= $payment.intValue() * 3){
 			if ($bruteForce.intValue() * 5 >= $dos.intValue()){
 				System.out.println("Brute force napad");
-				alarmService.save(new AlarmTriggered(null, null, null, "Brute force napad", AlarmTriggered.BRUTEFORCE_NAPAD, new Date()));
-    			insert(new AlarmTriggered(null, null, null, "Brute force napad", AlarmTriggered.BRUTEFORCE_NAPAD, new Date()));
+				System.out.println($id + "asd");
+				
+				alarmService.save(new AlarmTriggered($id, null, null, "Brute force napad", AlarmTriggered.BRUTEFORCE_NAPAD, new Date()));
+    			insert(new AlarmTriggered($id, null, null, "Brute force napad", AlarmTriggered.BRUTEFORCE_NAPAD, new Date()));
 			}else{
 				System.out.println("Dos napad");
-				alarmService.save(new AlarmTriggered(null, null, null, "DoS napad", AlarmTriggered.DOS_NAPAD, new Date()));
-    			insert(new AlarmTriggered(null, null, null, "Dos napad", AlarmTriggered.DOS_NAPAD, new Date()));
+				System.out.println($id + "asd");
+				
+				alarmService.save(new AlarmTriggered($id, null, null, "DoS napad", AlarmTriggered.DOS_NAPAD, new Date()));
+    			insert(new AlarmTriggered($id, null, null, "Dos napad", AlarmTriggered.DOS_NAPAD, new Date()));
 			}
 		}else{
 			if ($payment.intValue() * 3 >= $dos.intValue() ){
-				alarmService.save(new AlarmTriggered(null, null, null, "Payment napad", AlarmTriggered.PAYMENT_NAPAD, new Date()));
-    			insert(new AlarmTriggered(null, null, null, "Payment napad", AlarmTriggered.PAYMENT_NAPAD, new Date()));
+				System.out.println($id + "asd");
+				alarmService.save(new AlarmTriggered($id, null, null, "Payment napad", AlarmTriggered.PAYMENT_NAPAD, new Date()));
+    			insert(new AlarmTriggered($id, null, null, "Payment napad", AlarmTriggered.PAYMENT_NAPAD, new Date()));
 				System.out.println("Payment napad");
 			}else{
 				System.out.println("Dos napad");
-				alarmService.save(new AlarmTriggered(null, null, null, "DoS napad", AlarmTriggered.DOS_NAPAD, new Date()));
-    			insert(new AlarmTriggered(null, null, null, "Dos napad", AlarmTriggered.DOS_NAPAD, new Date()));
+				System.out.println($id + "asd");
+				
+				alarmService.save(new AlarmTriggered($id, null, null, "DoS napad", AlarmTriggered.DOS_NAPAD, new Date()));
+    			insert(new AlarmTriggered($id, null, null, "Dos napad", AlarmTriggered.DOS_NAPAD, new Date()));
 
 			}
 		}

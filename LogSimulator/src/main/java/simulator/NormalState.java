@@ -14,7 +14,7 @@ public class NormalState extends State{
 				public void run(){
 					while(!interrupted()){
 						while(true){
-							User user = new User(Util.generateRandomUser(), UserType.NORMAL_USER, UserState.UNAUTHORIZED);
+							User user = new User(Util.generateRandomUser(), UserType.NORMAL_USER, UserState.UNAUTHORIZED, Util.generateRandomIpAddress());
 							user.doActions();
 						}
 					}

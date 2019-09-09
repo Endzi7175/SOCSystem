@@ -1,17 +1,17 @@
 [
   {
+    "path": "D:\\4.godina\\Bezbednost\\Projekat\\SOCSystem\\LogSimulator\\normal.log",
+    "lastLine": "06-18 17:24:41.936|User257|192.168.0.1|0|0|Izmena profila|0|1"
+  },
+  {
+    "path": "D:\\4.godina\\Bezbednost\\Projekat\\SOCSystem\\LogSimulator\\.settings"
+  },
+  {
     "path": "D:\\4.godina\\Bezbednost\\Projekat\\SOCSystem\\LogSimulator\\.classpath",
     "lastLine": "\u003c/classpath\u003e"
   },
   {
     "path": "D:\\4.godina\\Bezbednost\\Projekat\\SOCSystem\\LogSimulator\\attack.log",
-    "lastLine": "05-21 15:07:50.554|User909|192.168.0.1|1|0|Izmena profila|0"
-  },
-  {
-    "path": "D:\\4.godina\\Bezbednost\\Projekat\\SOCSystem\\LogSimulator\\normal.log",
-    "lastLine": "06-16 21:09:30.931|User880|192.168.0.1|0|0|Uspesna prijava|0|1"
-  },
-  {
-    "path": "D:\\4.godina\\Bezbednost\\Projekat\\SOCSystem\\LogSimulator\\.settings"
+    "lastLine": "09-08 17:51:50.199|User988|118.239.228.54|0|1|poruka|1|1"
   }
 ]

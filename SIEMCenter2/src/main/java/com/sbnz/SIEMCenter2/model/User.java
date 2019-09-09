@@ -16,8 +16,8 @@ import javax.persistence.ManyToMany;
 @Entity
 public class User {
 	@Id
-	//@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column
+
+	@Column(nullable = false)
 	private String id;
 	@Column(nullable = false)
 	private String email;

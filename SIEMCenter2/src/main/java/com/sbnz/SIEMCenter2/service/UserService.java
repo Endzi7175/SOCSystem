@@ -3,6 +3,7 @@ package com.sbnz.SIEMCenter2.service;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -12,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.sbnz.SIEMCenter2.model.Privilege;
 import com.sbnz.SIEMCenter2.model.Role;
 import com.sbnz.SIEMCenter2.model.User;
+import com.sbnz.SIEMCenter2.model.User.SecurityStatus;
 import com.sbnz.SIEMCenter2.repository.PrivilegeRepository;
 import com.sbnz.SIEMCenter2.repository.RoleRepository;
 import com.sbnz.SIEMCenter2.repository.UserRepository;
@@ -36,9 +38,9 @@ public class UserService {
 	
 	public void create(){
 	  Privilege readPrivilege
-      = createPrivilegeIfNotFound("READ_PRIVILEGE");
+      = createPrivilegeIfNotFound("USER_READ_PRIVILEGE");
     Privilege writePrivilege
-      = createPrivilegeIfNotFound("WRITE_PRIVILEGE");
+      = createPrivilegeIfNotFound("USER_WRITE_PRIVILEGE");
 
     List<Privilege> adminPrivileges = Arrays.asList(
       readPrivilege, writePrivilege);        
@@ -47,6 +49,8 @@ public class UserService {
 
     Role adminRole = roleRepository.findByName("ROLE_ADMIN");
     User user = new User();
+    user.setStatus(SecurityStatus.LOW);
+    user.setId(UUID.randomUUID().toString().replace("-", ""));
     user.setPassword(passwordEncoder.encode("test"));
     user.setEmail("test@test.com");
     user.setRoles(Arrays.asList(adminRole));
@@ -55,7 +59,7 @@ public class UserService {
 }
 
 @Transactional
-private Privilege createPrivilegeIfNotFound(String name) {
+public Privilege createPrivilegeIfNotFound(String name) {
 
     Privilege privilege = privilegeRepository.findByName(name);
     if (privilege == null) {

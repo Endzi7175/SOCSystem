@@ -8,13 +8,13 @@ import java.io.PrintWriter;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.Executors;
 
 import org.apache.maven.shared.invoker.DefaultInvocationRequest;
 import org.apache.maven.shared.invoker.DefaultInvoker;
@@ -37,6 +37,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
+import com.google.common.util.concurrent.ListeningExecutorService;
+import com.google.common.util.concurrent.MoreExecutors;
 import com.sbnz.SIEMCenter2.model.LogEntry;
 import com.sbnz.SIEMCenter2.model.Rule;
 import com.sbnz.SIEMCenter2.repository.MaliciousIpRepository;
@@ -46,6 +48,7 @@ import com.sbnz.SIEMCenter2.repository.MaliciousIpRepository;
 public class KieService {
 	private KieSession kieSession;
 	private KieContainer kieCointainer;
+	private Thread sessionThread;
 	@Autowired
 	AlarmTriggeredService alarmService;
 	@Autowired
@@ -73,7 +76,10 @@ public class KieService {
 		kieSession.setGlobal("alarmService", this.alarmService);
 		return kieSession;
 	}
-
+	@Bean(destroyMethod = "shutdown")
+    public ListeningExecutorService executor() {
+        return MoreExecutors.listeningDecorator(Executors.newCachedThreadPool());
+    }
 	public KieService() 
 	{
 		KieServices ks = KieServices.Factory.get();
@@ -93,14 +99,39 @@ public class KieService {
 	}
 	public void startKieService(){
 		kieSession.setGlobal("alarmService", this.alarmService);
-		System.out.println(this.alarmService != null);
 		kieSession.setGlobal("userService", this.userService);
 		kieSession.setGlobal("ipRepo", this.ipRepo);
-		(new Thread(){
+		/*sessionThread = new Thread(){
 			public void run(){
+				
 				kieSession.fireUntilHalt();
+				
+				
+
 			}
-		}).start();
+		};*/
+		executor().submit(() -> {
+			kieSession.insert(new LogEntry("1", "Neuspesna prijava na sistem", "security related", "0", "124.142.345.123", "1", new Date(),"1"));
+			kieSession.insert(new LogEntry("1", "Neuspesna prijava na sistem", "security related", "0", "124.142.345.123", "1", new Date(),"1"));
+			kieSession.insert(new LogEntry("1", "Neuspesna prijava na sistem", "security related", "0", "124.142.345.123", "1", new Date(),"1"));
+			kieSession.insert(new LogEntry("1", "Neuspesna prijava na sistem", "security related", "0", "124.142.345.123", "1", new Date(),"1"));
+			kieSession.insert(new LogEntry("1", "Neuspesna prijava na sistem", "security related", "0", "124.142.345.123", "1", new Date(),"1"));
+			kieSession.insert(new LogEntry("1", "Neuspesna prijava na sistem", "security related", "0", "124.142.345.123", "1", new Date(),"1"));
+			kieSession.insert(new LogEntry("1", "Neuspesna prijava na sistem", "security related", "0", "124.142.345.123", "1", new Date(),"1"));
+			kieSession.insert(new LogEntry("1", "Neuspesna prijava na sistem", "security related", "0", "124.142.345.123", "1", new Date(),"1"));
+			kieSession.insert(new LogEntry("1", "Neuspesna prijava na sistem", "security related", "0", "124.142.345.123", "1", new Date(),"1"));
+			kieSession.insert(new LogEntry("1", "Neuspesna prijava na sistem", "security related", "0", "124.142.345.123", "1", new Date(),"1"));
+			kieSession.insert(new LogEntry("1", "Neuspesna prijava na sistem", "security related", "0", "124.142.345.123", "1", new Date(),"1"));
+			kieSession.insert(new LogEntry("1", "Neuspesna prijava na sistem", "security related", "0", "124.142.345.123", "1", new Date(),"1"));
+			kieSession.insert(new LogEntry("1", "Neuspesna prijava na sistem", "security related", "0", "124.142.345.123", "1", new Date(),"1"));
+			kieSession.insert(new LogEntry("1", "Neuspesna prijava na sistem", "security related", "0", "124.142.345.123", "1", new Date(),"1"));
+			kieSession.insert(new LogEntry("1", "Neuspesna prijava na sistem", "security related", "0", "124.142.345.123","1", new Date(),"1"));
+
+            kieSession.fireUntilHalt();
+			
+        });
+		//sessionThread.start();
+		System.out.println("startovao i prosao until halt");
 		LogEntry log = new LogEntry("1", "Neuspesna prijava na sistem", "security related", "0", "124.142.345.123", "1", new Date(),"1");
 		LogEntry log1 = new LogEntry("1", "Virus", "security related", "0", "124.142.345.123", "1", new Date(),"1");
 		LogEntry log2= new LogEntry("1", "Proba", "security related", "0", "124.142.345.123", "1", new Date(),"1");
@@ -112,11 +143,12 @@ public class KieService {
 	}
 	
 	public void insertLogEntries(List<LogEntry> entries) {
-		
-        
+		//System.out.println(entries.size());
 	  for(LogEntry entry : entries) {
-        	kieSession.insert(entry);
+		  entry.setTimestamp(new Date());
+		  kieSession.insert(entry);
         } 
+	  //kieSession.fireUntilHalt();
 
 	}
 	

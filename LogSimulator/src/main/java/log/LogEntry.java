@@ -9,8 +9,8 @@ public class LogEntry {
 
     private int informationSystemType;
     private String message;
-    private int category;
-    private int logLevel;
+    private String category;
+    private String logLevel;
     private String ipAddress;
     private String userId;
     private Date timestamp;
@@ -19,7 +19,7 @@ public class LogEntry {
 
     
     
-    public LogEntry(int informationSystemType, String message, int category, int logLevel, String ipAddress,
+    public LogEntry(int informationSystemType, String message, String category, String logLevel, String ipAddress,
 			String username, Date timestamp, String machineId) {
 		super();
 		this.informationSystemType = informationSystemType;
@@ -37,8 +37,8 @@ public class LogEntry {
             timestamp = sdf.parse(tokens[0]);
             userId = tokens[1];
             ipAddress = tokens[2];
-            logLevel = tokens[3].charAt(0);
-            category = tokens[4].charAt(0);
+            //logLevel = tokens[3].charAt(0);
+            //category = tokens[4].charAt(0);
             message = tokens[5];
             informationSystemType = Integer.parseInt(tokens[6]);
             machineId = tokens[6];
@@ -82,22 +82,20 @@ public class LogEntry {
 		this.message = message;
 	}
 
-	public int getCategory() {
+
+
+	public String getCategory() {
 		return category;
 	}
-
-	public void setCategory(int category) {
+	public void setCategory(String category) {
 		this.category = category;
 	}
-
-	public int getLogLevel() {
+	public String getLogLevel() {
 		return logLevel;
 	}
-
-	public void setLogLevel(int logLevel) {
+	public void setLogLevel(String logLevel) {
 		this.logLevel = logLevel;
 	}
-
 	public String getIpAddress() {
 		return ipAddress;
 	}

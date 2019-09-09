@@ -8,18 +8,15 @@ import java.util.Date;
 
 import javax.persistence.Id;
 
-import org.jboss.logging.Field;
 import org.kie.api.definition.type.Expires;
 import org.kie.api.definition.type.Role;
 import org.kie.api.definition.type.Timestamp;
 import org.springframework.data.elasticsearch.annotations.Document;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.google.protobuf.WireFormat.FieldType;
+
 @Role(Role.Type.EVENT)
 @Timestamp("timestamp")
 @Expires("200d")
-
 @Document(indexName="log", type="log")
 public class LogEntry implements Serializable{
 	@Id
@@ -27,7 +24,6 @@ public class LogEntry implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	private String informationSystemType;
-
     private String message;
 
     private String category;

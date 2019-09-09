@@ -7,23 +7,27 @@ import java.util.Date;
 
 
 
+
+
+
 public class LogEntry {
 
-    private int informationSystemType;
+    private String informationSystemType;
+
     private String message;
     private String category;
-    private int logLevel;
+    private String logLevel;
     private String ipAddress;
     private String userId;
     private Date timestamp;
     private static DateFormat sdf = new SimpleDateFormat("MM-DD hh:mm:ss.SS");
 	private String machineId;
 
-    public int getInformationSystemType() {
+    public String getInformationSystemType() {
         return informationSystemType;
     }
 
-    public void setInformationSystemType(int informationSystemType) {
+    public void setInformationSystemType(String informationSystemType) {
         this.informationSystemType = informationSystemType;
     }
 
@@ -35,7 +39,7 @@ public class LogEntry {
         this.category = category;
     }
 
-    public void setLogLevel(int logLevel) {
+    public void setLogLevel(String logLevel) {
         this.logLevel = logLevel;
     }
 
@@ -77,10 +81,10 @@ public class LogEntry {
             timestamp = sdf.parse(tokens[0]);
             userId = tokens[1];
             ipAddress = tokens[2];
-            logLevel = Integer.parseInt(tokens[3]);
+            logLevel = tokens[3];
             category = tokens[4];
             message = tokens[5];
-            informationSystemType = Integer.parseInt(tokens[6]);
+            informationSystemType = tokens[6];
             machineId = tokens[7];
             
         } catch (ParseException e) {
@@ -122,7 +126,7 @@ public class LogEntry {
         return  category;
     }
 
-    public int getLogLevel() {
+    public String getLogLevel() {
         return logLevel;
     }
 }

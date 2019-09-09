@@ -46,7 +46,7 @@ public class DataFilterFactory  {
     private DataFilter crateInfoSystemFilter(Object predicate) {
         //TODO: Maybe change this after we find out what is info system actually :)
         return new DataFilter(FilterSignature.INFOSYSTEM) {
-            int match =  tryCast(predicate);
+            String match =  tryCast(predicate);
             @Override
             public boolean applyFilter(LogEntry entry) {
                 return  entry.getLogLevel()==match;
@@ -66,7 +66,7 @@ public class DataFilterFactory  {
 
     private DataFilter createLogLVLFilter(Object predicate) {
         return new DataFilter(FilterSignature.LOGLVL) {
-            int match =  tryCast(predicate);
+            String match =  tryCast(predicate);
             @Override
             public boolean applyFilter(LogEntry entry) {
                 return  entry.getLogLevel()==match;
