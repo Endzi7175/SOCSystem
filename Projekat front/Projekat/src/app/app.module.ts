@@ -18,6 +18,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RuleAdderComponent } from './rule-adder/rule-adder.component';
 import { ConditionComponent } from './condition/condition.component';
+import { RoleAdderComponent } from './role-adder/role-adder.component';
+import { RolePrivilageAdderComponent } from './role-privilage-adder/role-privilage-adder.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { ConditionComponent } from './condition/condition.component';
     SearchTableComponent,
     AlarmTableComponent,
     RuleAdderComponent,
-    ConditionComponent
+    ConditionComponent,
+    RoleAdderComponent,
+    RolePrivilageAdderComponent
 
   ],
   imports: [

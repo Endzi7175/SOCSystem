@@ -1,0 +1,15 @@
+
+    <mat-form-field>
+  <mat-select [(ngModel)]="role" >
+      <option *ngFor="let role of roles" value={{role}}>
+          {{role}}
+  </mat-select>
+</mat-form-field>
+  <br>
+
+  <mat-form-field  >
+    <input matInput placeholder="Privilage" value="" width=100% [(ngModel)]="privilage">
+  </mat-form-field>
+
+<br>
+<button mat-raised-button (click)="submit()">Submit</button>
