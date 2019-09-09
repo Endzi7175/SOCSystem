@@ -1,5 +1,9 @@
 package com.sbnz.SIEMCenter2.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -54,6 +58,19 @@ public class UserController {
 		roleDB.getPrivileges().add(priv);
 		roleRepository.save(roleDB);
 	}
+	
+	@RequestMapping(method = RequestMethod.GET,value="api/role")
+	public List<String> getRoles(){
+		List<Role> roles = roleRepository.findAll();
+		List<String> dto = roles.stream().map(role->role.getName()).collect(Collectors.toList());
+		return dto;
+	}
+	
+	@RequestMapping(method = RequestMethod.POST,value="api/addPrivilege")
+	public void addRole(@RequestBody String roleName){
+		userService.createRoleIfNotFound(roleName, new ArrayList<>());
+	}
+	
 	@PreAuthorize("hasPermission(#id, 'user', 'read')")
 	@RequestMapping(value="api/getUser")
 	public String getUser(){
