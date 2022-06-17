@@ -92,7 +92,7 @@
         <sonar.sources>${project.basedir}/src/main/</sonar.sources>
         <sonar.junit.reportsPath>${project.testresult.directory}</sonar.junit.reportsPath>
         <sonar.tests>${project.basedir}/src/test/</sonar.tests>
-        <kie.version>6.5.0.Final</kie.version>
+        <kie.version>7.60.0.Final</kie.version>
 
 
         <!-- jhipster-needle-maven-property -->
